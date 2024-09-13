@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- ex18_form.html -->
+	<!--
+		<form>
+		
+		HTML Form + HTML Input Control
+		- 입력 양식
+		- 클라이언트(사용자)로부터 입력장치(키보드, 마우스 등)를 통해서 데이터를 입력받는 역할 + 서버로 전송하는 역할
+		- ex) 텍스트 박스, 라디오 버튼, 체크 박스 등
+		
+		<form> 태그
+		- Rendering을 하지 않는다.(화면에 보이지 않음)
+		- (*) (자식 컨트롤에서) 입력받은 값들을 취합해서 서버로 보내는 역할 (*)
+			
+		form.method
+		- 데이터를 전달하는 방식(클라이언트가 서버에게 자원을 요청하는 방식)
+			a. GET
+				- http://localhost:8090/client/ex18.jsp?age=20
+				- 데이터를 전송할 때 URL 뒤에 붙여서 전송
+				- 데이터를 Query String 형식으로 전달
+					-> ?키=값&키=값&키=값
+					-> ?age=20&name=홍길동&gender=male
+				- 데이터가 노출될 위험이 있음
+				- 대량의 데이터를 전송할 수 없음 (256자 이내의 URL) -> 는 옛날 얘기고지금은 4KB까지 가?능하긴 한데 그 정도는 굳이 안 보냄
+			
+			b. POST
+				- 표준 방식
+				- http://localhost:8090/client/ex18.jsp
+				- 데이터를 전송할 때 패킷 본문(body)에 넣어서 전송
+				- 데이터가 노출될 위험이 낮음
+				- https://를 쓰면 보안을 더 강화할 수 있다.
+				- 전송 길이 제한 없음
+		
+		form.action
+		- 데이터를 전송할 대상의 URL
+		- 데이터를 수신할 서버측의 프로그램 URL (자바로 프로그램을 만듦)
+		- 서버측에 서버 프로그래밍 언어로 구현한 프로그램이 존재해야 함(Servlet, JSP, Spring 등 사용)
+	-->
+	<h1>폼</h1>
+	
+	<form action="ex18.jsp" method="POST"> <!-- method 기본값은 GET -->
+		<input type="text" name="age">
+		<br>
+		<input type="submit">
+	</form>
+</body>
+</html>

@@ -1,0 +1,46 @@
+
+8월 22, 2024 14:32:12.39 NEW SESSION
+8월 22, 2024 14:32:12.39 Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 22, 2024 14:32:31.758 Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 22, 2024 14:53:23.201 [12672:20308:0822/145323.201:ERROR:device_event_log_impl.cc(196)] [14:53:23.200] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+8월 22, 2024 15:17:26.293 [12672:20308:0822/151726.293:ERROR:interface_endpoint_client.cc(722)] Message 1 rejected by interface blink.mojom.WidgetHost
+8월 22, 2024 15:17:28.757 [12672:20308:0822/151728.756:ERROR:interface_endpoint_client.cc(722)] Message 1 rejected by interface blink.mojom.WidgetHost
+8월 22, 2024 16:00:17.232 [12672:20308:0822/160017.232:ERROR:device_event_log_impl.cc(196)] [16:00:17.232] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+8월 22, 2024 17:31:45.894 [12672:20308:0822/173145.894:ERROR:interface_endpoint_client.cc(722)] Message 0 rejected by interface blink.mojom.WidgetHost
+8월 22, 2024 17:34:59.388 [12672:20308:0822/173459.387:ERROR:interface_endpoint_client.cc(722)] Message 1 rejected by interface blink.mojom.WidgetHost
+8월 22, 2024 17:44:03.504 [12672:20308:0822/174403.504:ERROR:device_event_log_impl.cc(196)] [17:44:03.503] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+
+8월 23, 2024 09:20:53.64 NEW SESSION
+8월 23, 2024 09:20:53.64 Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 23, 2024 09:26:37.380 Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 23, 2024 09:27:00.446 Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 23, 2024 09:27:08.767 [17556:11104:0823/092708.767:ERROR:get_updates_processor.cc(263)] PostClientToServerMessage() failed during GetUpdates with error Network error (ERR_ABORTED)
+8월 23, 2024 09:27:14.293 Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 23, 2024 09:31:16.227 Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 23, 2024 09:31:53.812 Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 23, 2024 09:32:30.276 Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 23, 2024 09:33:54.416 Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 23, 2024 09:34:37.342 Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 23, 2024 09:42:53.568 Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 23, 2024 09:43:10.280 Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 23, 2024 09:45:31.711 Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 23, 2024 09:51:45.227 Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 23, 2024 09:53:23.756 Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 23, 2024 09:55:00.208 Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 23, 2024 10:07:35.469 Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 23, 2024 10:07:56.478 [5440:3972:0823/100756.478:ERROR:connection_factory_impl.cc(434)] Failed to connect to MCS endpoint with error -118
+8월 23, 2024 10:54:36.522 [5440:9104:0823/105436.522:ERROR:device_event_log_impl.cc(196)] [10:54:36.522] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+8월 23, 2024 11:54:56.450 [5440:9104:0823/115456.450:ERROR:device_event_log_impl.cc(196)] [11:54:56.450] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+8월 23, 2024 12:05:04.128 [5440:9104:0823/120504.127:ERROR:interface_endpoint_client.cc(722)] Message 1 rejected by interface blink.mojom.WidgetHost
+8월 23, 2024 13:14:14.560 [5440:9104:0823/131414.559:ERROR:device_event_log_impl.cc(196)] [13:14:14.559] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+8월 23, 2024 13:44:18.313 [5440:9104:0823/134418.313:ERROR:device_event_log_impl.cc(196)] [13:44:18.313] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+8월 23, 2024 15:54:55.637 [5440:9104:0823/155455.637:ERROR:device_event_log_impl.cc(196)] [15:54:55.637] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+8월 23, 2024 16:08:42.659 [5440:9104:0823/160842.659:ERROR:CONSOLE(1)] "Request Network.loadNetworkResource failed. {"code":-32602,"message":"Unsupported URL scheme"}", source: devtools://devtools/bundled/devtools-frontend/front_end/core/protocol_client/protocol_client.js (1)
+
+8월 27, 2024 09:12:01.63 NEW SESSION
+8월 27, 2024 09:12:01.63 Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 27, 2024 09:16:47.275 [17280:15624:0827/091647.274:ERROR:device_event_log_impl.cc(196)] [09:16:47.273] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)
+8월 27, 2024 09:20:25.689 Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 27, 2024 09:20:36.78 Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 27, 2024 09:22:06.555 Created TensorFlow Lite XNNPACK delegate for CPU.
+8월 27, 2024 09:53:26.548 [11640:21188:0827/095326.547:ERROR:device_event_log_impl.cc(196)] [09:53:26.547] USB: usb_service_win.cc:105 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: �슂�냼媛� �뾾�뒿�땲�떎. (0x490)

@@ -1,0 +1,42 @@
+
+# parentheses are only for demonstration, so don't actually use them while setting up path for files or directories to be ignored!!!
+
+# .(directory_name)/
+# 경로에 상관 없이 괄호안의 이름을 가진 폴더에 하위 폴더/파일 내용을 전부 무시
+
+# .(file_name)
+# 경로에 상관없이 괄호안의 이름으로 끝나는 파일을 모두 무시
+
+#directories to be ignored
+.metadata/
+.settings/
+
+#specific extension to be ignored
+*.project
+*.classpath
+*.jsdtscope
+*.ini
+*.log
+*.class
+*.ear
+*.war
+*.jar
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Node.js
+node_modules/
+dist/
+build/
+
+# General
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.bak
+*.tmp

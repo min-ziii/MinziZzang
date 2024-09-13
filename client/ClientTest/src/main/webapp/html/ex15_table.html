@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- ex15_table.html -->
+	<!--
+		표
+		1. 표를 만들기 위해서 사용함.
+		2. Layout을 만들기 위해서 사용함. -> CSS로 넘어간 작업.
+		
+		테이블 구성요소
+		(4개들이 커피 테이크아웃 박스 모양을 만든다고 가정할 때, HTML은 큰 상자 -> 2개들이 직육면체 상자 -> 1개들이 작은 상자 순으로 박스를 만든다.)
+		1. 가장 큰 상자
+			- <table>
+			- 전체 컨테이너
+		
+		2. 중간 긴 상자
+		 	- <tr>
+		 	- table row
+		 	- 테이블 행
+		 	
+		3. 가장 작은 상자
+			- <td>
+			- table data
+			- 테이블 셀
+			- 데이터를 담는 역할
+			
+		4. 가장 작은 상자
+			- <th>
+			- table header
+			- 제목을 표시하는 역할
+			- 테이블 셀이 2종류인 것
+			
+	-->
+	<h1>2행 2열 테이블</h1>
+	<table border="1" width="200" height="200" bgcolor="#FFCC33">
+		<tr bgcolor="red">
+			<td bgcolor="blue">1</td>
+			<td background="images/face01.png">2</td> <!-- '같은 행'에 있는 2번째 셀 -->
+			<!-- <td>5</td> --> <!-- 테이블 위쪽에만 한 행을 추가하면 3x2 테이블이 되는데... 이건 깨진 테이블이라고 한다. 테이블의 td수는 동일해야 한다.-->
+		</tr>
+		<tr>
+			<td align="center" valign="top">3</td>
+			<td align="right" valign="bottom">4</td>
+		</tr>
+	</table>
+	
+	<br>
+	
+	<!-- 복붙할 때 ctrl + alt + 방향키를 많이 이용하자. -->
+	
+	<table border="1" width="200" height="200"> <!-- width: 바깥테두리 ~ 바깥테두리 -->
+		<tr>
+			<td width="100" height="100">홍길동</td> <!-- width: 안쪽테두리 ~ 안쪽테두리 -->
+			<td width="100">1111111111111111111111111</td>
+			<!-- 테두리 사이의 공간은 뭐냐? 100+100=200이면 안,밖 테두리가 붙어있어야지 -> 부모 width가 항상 옳고 자식 width가 살짝 줄어든다. -->
+			<!-- 바깥테두리에 마우스를 두고 새로고침하면 tr 테이블이 살짝 늘어나는데, 부모 길이가 항상 옳다는 말은 width에만 적용되고 height는 상황에 따라 다르다...-->
+			<!-- 테이블 안에 문자를 많이 넣어서 크기에 Overflow가 일어나는 경우, 숫자/영어는 좌우로 늘어나고 한글은 상하로 늘어난다. -->
+		</tr>		
+		<tr>
+			<td height="100">3</td>
+			<td>4</td>
+		</tr>
+	</table>
+	
+	
+</body>
+</html>

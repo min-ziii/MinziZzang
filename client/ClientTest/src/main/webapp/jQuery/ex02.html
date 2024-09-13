@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <!-- ex02.html -->
+     <h1>jQuery() 함수</h1>
+
+     <input type="button" value="버튼" name="btn1" id="btn1">
+     <hr>
+     <div>
+     <div id="box1" class="box">상자1</div>
+     <div id="box2" class="box">상자2</div>
+     <div id="box3" class="box">상자3</div>
+     <div id="box4" class="box">상자4</div>
+     <div id="box5" class="box">상자5</div>
+    </div>
+
+     <script src="js/jquery-3.7.1.js"></script> <!-- 이 스크립트가 위에 있어야함 -->
+
+     <script>
+        /*
+            jQuery() 함수
+            - CSS 선택자를 사용해서 태그를 검색한다.
+            - 자바스크립트 갹채를 jQuery 객체로 변환한다.
+            - 동적으로 태그를 생성한다.
+
+            - 항상 검색 결과가 배열이다.
+            - 검색된 결과에 메소드를 적용하면 > 자동으로 모든 요소에 대해 일괄 적용이 된다.(자동 루프 실행)
+        
+        */
+
+
+        document.getElementById('btn1').onclick = function() {
+            // jQuery('#btn1').css('color','pink');
+            //목적 > box를 모두 찾아 조작하시오.
+
+            //1. DOM 
+            // const list = document.getElementsByClassName('box');
+
+            // for (let i=0; i<list.length; i++) {
+            //     list[i].style.color = 'pink';
+            // }
+
+            // console.log(list.constructor);
+            // 유사 배열 > 변환 > 순수 배열
+            // list.forEach(box => box.style.color = 'skyblue'); => 안됨!!
+            // Array.from(list)
+            //     .forEach(box => box.style.color = 'skyblue');
+
+            //2. jQuery
+            // const list2 = jQuery('.box');
+            // alert(list2.length);
+
+            // for (let i=0; i<list2.length; i++) {
+            //     list2[i].style.color = 'blue'; //설명 추가
+            // }
+
+            // jQuery('.box').css('color','grey');
+
+            // //선택자 테스트
+            // jQuery('div').css('color','purple');
+            // jQuery('#box1').css('color','pink');
+            // jQuery('.box').css('color','tomato');
+            jQuery('.box:nth-child(even)').css('color','pink');
+            // console.log(jQuery('.box:nth-child(3)').css('color'));
+            //index 0부터 시작임!! 그래서 1, 3, 5가 바뀌는 것 XX => body 태그의 자식 따라서 h1 -> input -> hr -> div (4번째 자식!!) box로만 보려면 div로 다시 묶어줘야함!!!!!!
+
+            //**주의**
+            const a = document.all.btn1; //BOM
+            const b = document.getElementById('btn1'); //DOM
+            const c = jQuery('#btn1');
+
+            // alert(a == b);
+
+            a.value = '호호';
+            c.val('하하');
+
+            //BOM(DOM) 객체 > 형변환 > jQuery 객체
+            jQuery(a) .val('호호');
+
+            //jQuery 객체 > 형변환 > BOM(DOM) 객체
+            c[0].value = '호호';
+
+            
+        };
+
+     </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cute {
+            background-image: url('../images/face03.png');
+            background-size: cover;
+            width: 128px;
+            height: 128px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <!-- Q28 -->
+    <script>
+
+        window.onmousemove = function() {
+
+            // if(event.buttons == 1 || event.buttons == 2 || event.buttons == 4) { 이렇게 하면 클릭 상관없이 나옴!! 그냥 해보고싶어성
+
+                const cute = document.createElement('div');
+                cute.className = 'cute';
+                 
+                cute.style.left = (event.clientX - 64) + 'px';  
+                cute.style.top = (event.clientY - 64) + 'px';  
+
+                document.body.appendChild(cute);
+
+            // }
+
+        };
+        window.oncontextmenu = () => false;
+
+    </script>
+
+</body>
+</html>

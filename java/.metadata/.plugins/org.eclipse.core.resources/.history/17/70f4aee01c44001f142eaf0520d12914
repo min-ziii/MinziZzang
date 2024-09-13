@@ -1,0 +1,120 @@
+package Semi_project;
+
+public class TennisDTO {
+	private String player1;	// Player VS Player.csv 파일 첫번째 선수 이름
+	private String player2; // Player VS Player.csv 파일 두번째 선수 이름
+	private String winner;  // Player VS Player.csv 파일 게임 승자
+	private String setOfgame;	// Player VS Player.csv 파일 세트수
+	private String gameScore;  // Player VS Player.csv 파일 게임 스코어
+	
+	private int matchId;
+	private String player1Id;
+	private String player2Id;
+	private String winnerId;
+	private String numSets;
+	private String scores;
+	
+    
+	private static int idCounter = Integer.parseInt(Util.getCurrentId(Constants.MATCH_FILE_PATH));
+	
+	public TennisDTO(String player1Id,String player2Id,String winnerId,String numSets,String scores) {
+		this.matchId = idCounter++;
+		this.player1Id = player1Id;
+		this.player2Id = player2Id;
+		this.winnerId = winnerId;
+		this.numSets = numSets;
+		this.scores = scores;
+	}
+	public TennisDTO(int matchId,String player1Id,String player2Id,String winnerId,String numSets,String scores) {
+		
+		this.matchId = matchId;
+		this.player1Id = player1Id;
+		this.player2Id = player2Id;
+		this.winnerId = winnerId;
+		this.numSets = numSets;
+		this.scores = scores;	
+	}
+	//======================================================================================= Match.csv 출력
+    public TennisDTO() {
+    }
+	
+	public String getSetOfgame() {
+		return setOfgame;
+	}
+	public void setSetOfgame(String setOfgame) {
+		this.setOfgame = setOfgame;
+	}
+	
+	public String getPlayer1() {
+		return player1;
+	}
+	public void setPlayer1(String player1) {
+		this.player1 = player1;
+	}
+	public String getPlayer2() {
+		return player2;
+	}
+	public void setPlayer2(String player2) {
+		this.player2 = player2;
+	}
+	public String getWinner() {
+		return winner;
+	}
+	public void setWinner(String winner) {
+		this.winner = winner;
+	}
+	public int getMatchId() {
+		return matchId;
+	}
+	public void setMatchId(int matchId) {
+		this.matchId = matchId;
+	}
+//	public static int getIdCounter() {
+//		return idCounter;
+//	}
+//	public static void setIdCounter(int idCounter) {
+//		TennisDTO.idCounter = idCounter;
+//	}
+	public String getPlayer1Id() {
+		return player1Id;
+	}
+	public void setPlayer1Id(String player1Id) {
+		this.player1Id = player1Id;
+	}
+	public String getPlayer2Id() {
+		return player2Id;
+	}
+	public void setPlayer2Id(String player2Id) {
+		this.player2Id = player2Id;
+	}
+	public String getWinnerId() {
+		return winnerId;
+	}
+	public void setWinnerId(String winnerId) {
+		this.winnerId = winnerId;
+	}
+	public String getNumSets() {
+		return numSets;
+	}
+	public void setNumSets(String numSets) {
+		this.numSets = numSets;
+	}
+	public String getScores() {
+		return scores;
+	}
+	public void setScores(String scores) {
+		this.scores = scores;
+	}
+	public String getGameScore() {
+		return gameScore;
+	}
+	public void setGameScore(String gameScore) {
+		this.gameScore = gameScore;
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("%s 와 %s 의 경기. 승자는 %s 입니다. 게임스코어는 %s 입니다", player1, player2, winner,
+				gameScore);
+	}
+}

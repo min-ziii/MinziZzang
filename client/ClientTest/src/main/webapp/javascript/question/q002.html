@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1, div {
+            color:gray;
+        }
+        form > div {
+            margin-bottom: 15px;
+        }
+        input[type=text] {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 회원 가입 만들기 -->
+     <h1>회원 가입</h1>
+     
+     <form name="form1">
+        <div>
+            아이디:<br><input type="text" name="id">
+            <div id="message"></div>
+        </div>
+     </form>
+
+     <script>
+        document.form1.id = m1;
+
+        var id = document.form1.id;
+        var message = document.form1.message;
+
+        function m1() {
+            if (id.value.length == 0) {
+            message.value = "";
+        } else if (id.value.length < 4) {
+            message.value = "아이디가 너무 짧습니다.";
+        } else if (id.value.length > 12) {
+            message.value = "아이디가 너무 깁니다.";
+        } else {
+            message.value = "아이디가 적합합니다.";
+        }
+        }
+        
+     </script>
+</body>
+</html>

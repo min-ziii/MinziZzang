@@ -1,0 +1,16 @@
+package com.test.My_Practice;
+
+import java.util.Arrays;
+
+public class aaa {
+	public static void main(String[] args) {
+		int []nums = {};
+		int n = 7;
+		for(int i = 1;i<=n;i++) {
+			//if(i%2!=0) {
+				nums = new int[i];
+			//}
+		}
+		System.out.println(Arrays.toString(nums));
+	}
+}

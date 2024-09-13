@@ -1,0 +1,155 @@
+package com.test.question;
+
+import java.util.Arrays;
+
+public class Q_104 {
+	public static void main(String[] args) {
+		
+		//배열 생성
+		MyArrayList list = new MyArrayList();
+
+		//추가
+		list.add("홍길동");
+		list.add("아무개");
+		list.add("하하하");
+
+		//읽기
+		System.out.println(list.get(0));
+		System.out.println(list.get(1));
+		System.out.println(list.get(2));
+
+		//개수
+		System.out.println(list.size());
+
+		//탐색 + 읽기
+		for (int i=0; i<list.size(); i++) {
+		      System.out.println(list.get(i));
+		}
+
+		//수정
+		list.set(0, "우하하");
+		System.out.println(list.get(0));
+
+		//삭제
+		list.remove(1);
+		for (int i=0; i<list.size(); i++) {
+		      System.out.println(list.get(i));
+		}
+
+		//삽입
+		list.add(1, "호호호");
+		for (int i=0; i<list.size(); i++) {
+		      System.out.println(list.get(i));
+		}
+
+		//검색
+		if (list.indexOf("홍길동") > -1) {
+		      System.out.println("홍길동 있음");
+		} else {
+		      System.out.println("홍길동 없음");
+		}
+
+		//초기화
+		list.clear();
+		System.out.println(list.size());
+		
+	}
+}
+
+class MyArrayList {
+	
+	private String[] list;
+	private int index;
+
+	public void add(String s) {
+		if (checkLength()) {
+			doubleList();
+		}
+		for (int i = this.index; i > index; i--) {
+			this.list[i] = this.list[i - 1];
+		}
+		this.list[index] = s;
+		this.index++;
+	}
+	public void add(int i, String string) {
+		if (checkLength()) {
+			doubleList();
+		}
+		for (int i = this.index; i > index; i--) {
+			this.list[i] = this.list[i - 1];
+		}
+		this.list[index] = s;
+		this.index++;
+	}
+	private void doubleList() {
+		String[] temp = new String[this.list.length*2];
+		for (int i=0;i<this.list.length;i++) {
+			temp[i] = this.list[i];
+		}
+		this.list =temp;
+	}
+
+	private boolean checkLength() {
+		return this.index == this.list.length;
+	}
+
+	public void clear() {
+		this.index = 0;
+	}
+
+	public int indexOf(String s) {
+		for(int i=0; i<this.index;i++) {
+			if(this.list[i].equals(s)) {
+				return i;
+			}
+		}
+		return 0;
+	}
+
+	public void remove(int index) {
+		for(int i=index; i<=this.list.length-2;i++) {
+			this.list[i]=this.list[i+1];
+		}
+	}
+
+	public void set(int index, String s) {
+		if(!checkIndex(index)) {
+			throw new IndexOutOfBoundsException();
+		}
+		this.list[index] = s;
+	}
+
+	private boolean checkIndex(int index) {
+		if(index>=0 && index<this.index) {
+		return true;
+		}
+		return false;
+	}
+	public int size() {
+		return this.index;
+	}
+
+	public String get(int index) {
+		if(!checkIndex(index)) {
+			throw new IndexOutOfBoundsException();
+		}
+		return this.list[index];
+	}
+	@Override
+	public String toString() {
+		
+		String temp = "";
+		
+		temp += "\r\n";
+		temp += String.format("length: %d\r\n", this.list.length);
+		temp += String.format("index: %d\r\n", this.index);
+		temp += String.format("[\r\n");
+		for (int i=0;i<this.list.length;i++) {
+			temp += String.format(" %d: %s,\r\n",i,this.list[i]);
+			
+		}
+		temp += String.format("]\r\n");
+		return temp;
+	}
+	
+}

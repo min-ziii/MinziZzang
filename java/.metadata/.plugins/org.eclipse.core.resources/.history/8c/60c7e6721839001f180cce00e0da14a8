@@ -1,0 +1,25 @@
+package com.test.question;
+
+import java.util.Scanner;
+
+public class Q_089 {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("금액(원): ");
+		String money = scan.nextLine();
+		
+		money = money.replace("1", "일");
+		money = money.replace("2", "이");
+		money = money.replace("3", "삼");
+		money = money.replace("4", "사");
+		money = money.replace("5", "오");
+		money = money.replace("6", "육");
+		money = money.replace("7", "칠");
+		money = money.replace("8", "팔");
+		money = money.replace("9", "구");
+		
+
+		System.out.println(money);
+		
+	}
+}

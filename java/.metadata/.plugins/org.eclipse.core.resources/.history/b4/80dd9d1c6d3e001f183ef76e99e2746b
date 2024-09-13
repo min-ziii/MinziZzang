@@ -1,0 +1,11 @@
+package com.test.java.collection;
+
+public class Ex56_Sort {
+	public static void main(String[] args) {
+		
+		// 정렬
+		//	- 배열 or 컬렉션(List)
+		// 	- 순서가 있는 집합 -> 정렬 가능
+		
+	}
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    #box {
+        margin: 100px;
+        width: 560px;
+        height: 560px;
+    }
+    /* #box img {
+        transition:  all .5s linear;
+    }
+    #box:hover img {
+        transform: rotate(360deg);
+    } 스크립트로 직접 */
+    </style>
+</head>
+<body>
+    <!-- ex56_css.html -->
+
+    <div id="box">
+        <img src="images/roulette.png" alt="">
+    </div>
+
+    <script>
+
+        const img = document.querySelector('#box img');
+        let degree = 0;
+        let timer = 0;
+
+        img.onclick = function() {
+
+            if (timer == 0) {
+            timer = setInterval(function() {
+                img.style.transform = `rotate(${degree}deg)`;
+                degree +=1;
+            },1);
+        } else {
+            clearInterval(timer);
+            timer = 0;
+        }
+        };
+
+    </script>
+
+
+</body>
+</html>

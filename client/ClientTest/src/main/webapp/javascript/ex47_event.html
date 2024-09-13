@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {padding: 50px}
+        #p1 {background-color: tomato;}
+        #p2 {background-color: orange;}
+        #p3 {background-color: gold;}
+    </style>
+</head>
+<body>
+    <!-- ex47_event.html -->
+     
+
+    <div id="p1" class="box">
+        <div id="p2" class="box">
+            <div id="p3" class="box"></div>
+        </div>
+    </div>
+
+    <hr>
+
+    <input type="text" id="txt1">
+
+
+    <script>
+
+        //이벤트 버블링(Event Bubbling)
+        // VS 이벤트 터널링(Event Tunneling)
+        //    이벤트 캡쳐링(Event Caputring)
+        //BOM > 이벤트 버블링(O), 터널링(X)
+        //DOM > 이번테 버블링(O), 터널링(O)
+
+        const p1 = document.getElementById('p1');
+        const p2 = document.getElementById('p2');
+        const p3 = document.getElementById('p3'); //전달전달전달 부모부터 전달받기 시작
+
+        // document.body.onclick = function() {
+        //     alert('body');
+        // }
+
+        // p1.onclick = function() {
+        //     alert('빨강');
+        // }
+        // p2.onclick = function() {
+        //     alert('주황');
+        //     // event.cancelBubble = true;
+        //     event.stopImmediatePropagation();
+        // }
+        // p3.onclick = function() {
+        //     alert('노랑');
+        //     // event.cancelBubble = true; 아래 코드와 동일
+        //     event.stopImmediatePropagation();
+        // }
+
+        window.onkeydown = function() {
+            if (event.keyCode == 51) {
+                location.href = 'https://naver.com'
+            }
+        }
+
+        document.getElementById('txt1').onkeydown = function() {
+            event.stopPropagation();
+        }
+
+
+        p1.addEventListener('click', function() {
+            alert('red')
+            event.stopPropagation(); //여기서 끊어버리니까 레드에서 내려가지 못함
+        }, true);
+
+        p2.addEventListener('click', function() {
+            alert('orange')
+        }, true);
+
+        p3.addEventListener('click', function() {
+            alert('yellow')
+        }, true);
+        
+        p1.addEventListener('click', function() {
+            alert('red')
+        });
+
+        p2.addEventListener('click', function() {
+            alert('orange')
+        });
+
+        p3.addEventListener('click', function() {
+            alert('yellow')
+        });
+
+    </script>
+
+
+</body>
+</html>

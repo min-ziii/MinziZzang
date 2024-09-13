@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ex41_function.html -->
+
+    <input type="button" value="버튼1" id="btn1">
+    <input type="button" value="버튼2" id="btn2">
+
+    <script>
+        /*
+            JavaScript Function
+            - "함수는 1급 객체다." First-Citizen, First class object
+            - 함수를 객체처럼 취급한다. > 함수를 값으로 사용할 수 있다.
+
+            1. 함수를 변수나 데이터 구조에 담을 수 있다.
+            2. 함수를 매개변수에 전달할 수 있다.
+            3. 함수를 반환값으로 사용할 수 있다.
+            
+            ***값(변수, 상수)이 들어가는 모든 위치에 함수가 들어갈 수 있다.
+            
+            
+            자바스크립트에서 함수 선언하는 방법
+            1. 함수 선언문 > 여태까지 수업
+            - 실명함수
+            2. 함수 표현식(리터럴)
+            - 익명함수
+            
+            
+            */
+           
+           //1. 함수 선언문
+           // function m1() {
+            //     alert('m1');
+            // }
+            
+            // m1();
+            
+            //2. 함수 표현식
+            // (function () {
+            //     alert('익명함수');
+            // })(); //즉시호출 > 스코프 만들 때 사용
+            
+        //1. 함수를 변수나 데이터 구조에 담을 수 있다.
+        let f1 = function () {
+            alert('익명함수');
+        }
+        
+        // f1();
+        // console.log(typeof f1);
+        
+        function m2() {
+            alert('m2');
+        }
+        let f2 = m2;
+
+        // f2();
+        document.getElementById('btn1').onclick = m3;
+
+        function m3() {
+            alert(event.buttons);
+        }
+        //m3();
+        
+        document.getElementById('btn2').onclick = function() {
+            alert('버튼2');
+        };
+
+        //2. 함수를 매개변수에 전달할 수 있다.
+        function f4() {
+            alert('f4');
+        }
+        function f5() {
+            alert('f5');
+        }
+        function f6(fn) {
+            fn();
+        }
+        // f6(f4);
+
+        // f6(function () {
+        //     alert('익명함수');
+        // });
+
+        // setTimeout(f4, 1000);
+
+        //3. 함수를 반환값으로 사용할 수 있다.
+        function f7() {
+            alert('f7');
+        }
+        function f8() {
+            return f7;
+        }
+
+        const fn1 = f8();
+        fn1();
+
+        f8()();
+
+
+    </script>
+</body>
+</html>

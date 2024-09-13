@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<!--
+	중심: webapp -> ex05_body.html
+	대상: webapp -> images -> dog.jpg
+	
+	1. 상대 경로
+	- 나를 중심으로 다른 것들의 위치를 표현하는 방식
+	- 나? : 현재 페이지(가 있는 폴더)
+	- . == webapp
+	- ./images/dog.jpg
+	- ./를 생략할 수 있다.
+	
+	2. 절대 경로
+	- 절대 기준점을 중심으로 다른 것들의 위치를 표현하는 방식
+	- / == webapp (루트 폴더, 절대 기준점)
+-->
+<!-- <body background="./images/dog.jpg"> -->
+<!-- <body background="images/dog.jpg"> --> <!-- ./ 생략한 상대 경로 -->
+<!-- <body background="/client/images/dog.jpg"> -->
+<!-- <body background="C:\class\code\client\ClientTest\src\main\webapp\images"> --> <!-- 로컬 경로: 사용 불가 -->
+<body background="https://animalife.co.uk/wp-content/uploads/2021/07/Thoroughbred1-1.jpg">
+	<!-- ex05_body.html -->
+	<!--
+	
+		<body> 태그
+		- 모든 출력 데이터를 관리하는 컨테이너
+		
+		<body> 속성
+		1. bgcolor
+			- background color
+			- 문서 배경색
+			
+		2. background
+			- background image
+			- 문서 배경 이미지
+			
+		HTML의 색상표현법
+		1. 색상명
+			- Named Color
+			- Well-known Color
+			- 미리 약속된 몇 가지 색상명을 사용(140개)
+		
+		2. RGB
+			- Red + Green + Black
+			- 각 색상의 단계: 256단계(00 ~ FF)
+			- 256 X 256 X 256 = 16,777,216
+			- #000000(Black) ~ #FFFFFF(White)
+			
+			
+		HTML의 자원의 경로 표기법
+		
+		경로 구분자
+		1. \
+			- Java
+			- file\\C:\Class\code\client
+		2. /
+			- Web (URL)
+			- http://localhost:8090/client/ex01.html
+			
+			
+		경로 표현 방식
+		1. 상대 경로
+		- . 으로 시작
+		- . : 웹페이지가 있는  현재 폴더
+		- .. : 부모 폴더
+		
+		2. 절대 경로
+		- / : 웹 루트 폴더 (webapp)
+		
+		3. 로컬 경로
+		- Java에서의 경로 방식
+		- C:\class\code\images\dog.jpg\
+		- 사용 불가(금지.)
+		
+		4. 외부 경로
+		- 다른 사이트(서버) 속 자원의 URL
+		
+		
+		웹에서 사용 가능한 (공식적인)이미지 포맷
+		- JPG(JPEG)
+		- GIF
+		- PNG
+		
+	-->
+	
+</body>
+</html>

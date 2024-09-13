@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #table1 {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        #table1 td {
+            border: 1px solid black;
+            width: 100px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- ex11.html -->
+     <h1>이벤트</h1>
+
+     <table id="table1">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+     </table>
+   
+     <script src="js/jquery-3.7.1.js"></script> 
+
+     <script>
+        
+        const list = document.querySelectorAll('td');
+
+        //1
+        // list.forEach(td => {
+        //     td.addEventListener('mouseover', function(){
+        //         event.target.style['background-color'] = 'pink';
+        //     });
+        //     td.addEventListener('mouseout', function(){
+        //         event.target.style['background-color'] = 'transparent';
+        //     });
+        // });
+
+        //2.
+        // $('#table1 td').mouseover(function(){
+        //     $(event.target).css('background-color', 'pink');
+        // });
+        // $('#table1 td').mouseout(function(){
+        //     $(event.target).css('background-color', 'transparent');
+        // });
+
+        //3.
+        // $('#table1 td').mouseover(function(){
+        //     $(event.target).css('background-color', 'pink');
+        // }).mouseout(function(){
+        //         $(event.target).css('background-color', 'transparent');
+        //     });
+
+        //4.
+        $('#table1 td').on({
+            mouseover: function() {
+                $(event.target).css('background-color', 'skyblue');
+            },  mouseout: function() {
+                $(event.target).css('background-color', 'transparent');
+            }
+        })
+
+     </script>
+</body>
+</html>

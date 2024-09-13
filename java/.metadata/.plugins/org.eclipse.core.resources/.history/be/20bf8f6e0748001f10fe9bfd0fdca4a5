@@ -1,0 +1,18 @@
+package com.test.My_Practice;
+
+import java.util.Arrays;
+
+public class aaa {
+    public static void main(String[] args) {
+        int n = 7;
+        int index = 0;
+
+        for (int i = 1; i <= n; i++) {
+            if (i % 2 != 0) {
+                nums[index++] = i;
+            }
+        }
+
+        System.out.println(Arrays.toString(nums));
+    }
+}

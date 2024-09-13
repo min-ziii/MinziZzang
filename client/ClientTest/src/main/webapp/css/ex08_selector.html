@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /*
+         <style>
+        /*
+        CSS 선택자
+        1. 전체 선택자
+        2. 태그 선택자
+        3. 아이디 선택자
+        4. 클래스 선택자
+        5. 그룹 선택자
+        6. 자식 선택자
+        7. 자손 선택자
+        8. 인접 형제 선택자
+        9. 형제 선택자
+
+        10. 의사 클래스, Pseudo Class, 가상 클래스
+            - 실제 태그에는  class 가 정의되거 있지 않지만, 선택자에서 존재하는  class 처럼 취급하는 클래스
+            - <a> 태그에만 제공> 대부분 태그에게 적용
+            - HTML5 > 대량 증가
+
+        */
+
+        /* a{
+            color: balck;
+            text-decoration: none;
+        } */
+         
+        /* a:link {color: green;}
+        a:visited {color: red;}
+        a:active {color: orange;}
+        a:hover {color: cornflowerblue;} */
+
+
+        /* a {
+            color: black;
+            text-decoration: none;
+        } */
+
+        a:hover {
+            color: red;
+            text-decoration: underline;
+        }
+
+        .data {
+            outline: none;
+        }
+
+        .data:focus{
+            background-color: yellow;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- ex08_selector.html -->
+     <h1>링크</h1>
+    <a href="https://google.com">구글</a>
+
+    <hr>
+
+    <h1>입력 업무</h1>
+
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+    <input type="text" class="data"><br>
+
+</body>
+</html>

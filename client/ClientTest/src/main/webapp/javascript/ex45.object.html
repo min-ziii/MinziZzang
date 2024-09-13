@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ex45.object.html -->
+
+
+    <script>
+
+        //객체 생성
+        const u1 = {
+            name: '홍길동',
+            age: 20
+        };
+        const u2 = {
+            name: '아무개',
+            age: 22
+        };
+
+        //생성자 함수
+        //- 클래스 역할을 대신
+        //- 자바의 생성자와 유사
+        /*
+        class User {
+            private String name;
+            private int age;
+
+            public User(String name, int age) {
+                this.name = name;
+                this.age = age;
+            }
+        }
+        */
+
+        //생성자 함수
+        //- 함수명이 파스칼 표기법으로 작성한다.(문법X)
+        function User(name, age) {
+            this.name = name;   //private String name
+            this.age = age;     //private int age
+            console.log(this);
+        }
+
+        //*** 생성자 함수 호출은 절대로 그냥 함수처럼 호출하면 안된다.
+        // User('강아지', 3);
+
+        //*** 생성자 함수는 반드시 new와 함께 사용한다.
+        //1. new 호출 > 객체를 생성
+        //2. User() 호출 > 1번에 만든 객체를 초기화
+        const o1 = new User('고양이',2);
+        console.log(o1);
+
+        const o2 = new User('거북이', 100);
+        console.log(o2);
+
+        const o3 = {
+            name: '두루미',
+            age: 50
+        }
+
+        //1. {}
+        //2. Array{}
+        const list = new Array();
+
+        function Array() {
+            this.length = 0;
+        }
+
+        const obj1 = {};
+        const obj2 = new Date();
+        const obj3 = new Array();
+
+        console.log(typeof obj1);
+        console.log(typeof obj2);
+        console.log(typeof obj3);
+
+        console.log(obj1.constructor.name);
+        console.log(obj2.constructor.name);
+        console.log(obj3.constructor.name);
+
+        const user1 = {
+            name: '유재석',
+            age: 20,
+            // info: function() {
+            //     // console.log(name,age);
+            //     console.log(this.name, this.age);
+            // }
+            info: f1
+        };
+
+        function f1() {
+            //*** 호출되는 주체에 따라 this가 매번 달라진다.
+            console.log(this.name, this.age);
+        }
+
+        user1.info();
+
+        window.f1();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ex34_event.html -->
+     <h1>DOM Event</h1>
+
+     <button type="button" id="btn1">버튼(BOM)</button>
+     <button type="button" id="btn2">버튼(DOM)</button>
+
+     <hr>
+
+     <select id="sel1">
+        <option value="mouseover">mouseover</option>
+        <option value="click">click</option>
+        <option value="dblclick">double click</option>
+     </select>
+
+
+     <script>
+
+        var btn1 = document.getElementById('btn1');
+        var btn2 = document.getElementById('btn2');
+
+        //BOM
+        // btn1.onclick = m1;
+        // btn1.onclick = m2; //동일하게 선언시 뒤에 것 덮어쓰기
+        // btn1.onclick = m1;
+
+        function m1() {
+            alert('m1')
+        }
+        function m2() {
+            alert('m2')
+        }
+        function m3() {
+            m1();
+            m2();
+        }
+
+        // btn2.onclick = m4;
+        function m4() {
+            //이벤트 제거(BOM)
+            btn1.onclick = null;
+        }
+
+        //DOM Event
+        //- btn2.addEventListener('이벤트 종류',함수); 복잡해 보이지만 기능이 더 많아요! 덮어쓰기가 아닌 하나의 이벤트에 여러개를 넣을 수 있음
+        //- 콜백 함수
+
+        btn2.addEventListener('click',m5);
+        function m5() {
+            alert('DOM');
+        }
+        
+        btn2.addEventListener('click',m6);
+        function m6() {
+            alert('DOM+');
+        }
+
+        btn2.removeEventListener('click',m5);
+
+        var type = 'click';
+
+        document.getElementById('sel1').onchange = m7;
+        function m7() {
+            // type = document.getElementById('sel1').value;
+            btn2.removeEventListener(type,m6);
+            type = event.target.value;
+            btn2.addEventListener(type,m6);
+        }
+
+     </script>
+</body>
+</html>

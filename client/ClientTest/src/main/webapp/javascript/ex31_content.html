@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ex31_content.html -->
+     <h1>Content</h1>
+
+     <input type="button" value="버튼1" id="btn1">
+     <input type="button" value="버튼2" id="btn2">
+     <hr>
+
+     <div id="div1">홍<u>길</u>길동</div>
+
+     <script>
+        /*
+            BOM or DOM > 태그 조작
+            1. 태그 검색(BOM or DOM)
+                2. 속성 조작(BOM or DOM)
+                3. 콘탠츠 조작(DOM)
+                4. 이벤트 조작(BOM or DOM)
+
+            Content
+            - 시작 태그와 끝 내그 사이의 내용(PCDATA, Element)
+
+            1. innerText
+                - 시작 태그와 끝 태그 사이의 내용을 읽기/쓰기
+                - 문자열 취급(태그 적용X)
+                - 비표준(MS)
+
+            2. innerHTML
+                - 시작 태그와 끝 태그 사이의 내용을 읽기/쓰기
+                - 문자열 + 태그 인식
+                
+            3. textContent
+                - 시작 태그와 끝 태그 사이의 내용을 읽기/쓰기
+                - 문자열 취급(태그 적용X)
+                - 표준
+
+            --많--이--안--씀--
+            4. outerText
+            5. outerHTML
+
+        */
+
+        document.getElementById('btn1').onclick = m1;
+        function m1() {
+            var div = document.getElementById('div1');
+
+            //읽기
+            // alert(div.innerText);
+            // alert(div1.innerHTML);
+
+            //쓰기
+            // div1.innerText = '강아지';
+            // div1.innerHTML = '강지';
+            // div1.innerHTML = '강<u>아</u>지';
+
+            // div1.innerText += '강아지';
+            // div1.innerHTML += '강아지';
+
+            // div1.innerText = '';
+            div1.innerHTML = '';
+        }
+     </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+------------------------------------
+2024.06.19(수)
+------------------------------------
+●Java
+
+Java 개발 환경 구성(설치 필요)
+- JRE, Java Runtime Environment, 자바 실행(운영)에 필요
+- JDK, Java Development Kit, 자바 개발 도구 (ex:SDK-Software Development Kit)
+
+JDK 종류
+- Oracle JDK (기본)
+- Oracle OpenJDK
+- AdoptOpenJDK
+- Rad Hat OpenJDK
+- AWS Corretto JDK
+
+JDK 버전(=Java 버전)
+- 1.0 ~ 22.0.1 (240619 기준)
+- JDK 11 & 17
+- JDK 8 / 11 / 17 / 21 → LTS, Long Term Support 버전. A/S 보장 기간이 길다.
+
+- 설치 경로: C:\class\dev\jdk-11
+
+- C:\class\dev\jdk-11\bin → *.dll OR *.exe → 프로그램(실행 파일)
+	- javac.exe
+	- java.exe
+	- javaw.exe
+	- javadoc.exe
+	- jar.exe
+
+- 설치 후 추가 설정(필수는 아니지만 권장)
+	- 환경 변수(Path) 등록
+
+- 새 시스템 변수
+	- 변수 이름: JAVA_HOME
+	- 변수 값: C:\class\dev\jdk-11
+
+- Path → 새로 만들기 → %JAVA_HOME%\bin
+
+개발 툴 설치
+- 메모장 → 텍스트 편집기라면 모두 가능
+- IDE(Integrated Development Environment, 통합 개발 환경)
+
+Java IDE
+- Eclipse 4.24 → 2022-06 ver
+- IntelliJ (Community ver, Ultimate ver)
+- NetBeans
+
+- Visual Studio Code
+
+eclipse.ini의 vm 옵션을 내 jdk의 javaw.exe로 설정
+
+Eclipse 설정
+- 인코딩 설정
+	- Window → Preference → "encoding" 검색 → Workspace의 Text file encoding 옵션이 UTF-8인지 확인
+- 폰트 → ★가독성★
+	- 한글 포함 폰트는 나눔고딕코딩 or D2Coding or JetBrainsHangul
+
+오전수업 (by 메모장)
+1. Hello.java 생성
+	- 코드 작성
+	- 산출물 → [소스 파일] → 텍스트 파일
+
+2. javac.exe Hello.java
+	- 컴파일 (1차 컴파일, 중간단계 언어인 IL로 컴파일)
+	- 산출물 → Hello.class → [실행 파일] 프로그램
+
+3. java.exe Hello
+	- 실행 (2차 컴파일, 기계어로 컴파일)
+	- 산출물 → X
+
+오후수업 (by Eclipse)
+
+1. Hello.java 생성
+	- 코드 작성
+
+2. RUN (Ctrl + F11)
+	-1차 컴파일 + 2차 컴파일
+
+------------------------------------
+2024.06.20(목)
+------------------------------------
+
+프로그래밍 구문
+1. Java는 대소문자를 철저하게 구분한다.
+2. Java에서 공백 문자(space, tab, enter) 처리는 자유롭다.
+3. Java의 package는 최소 3단계 이상으로 도메인의 역순처럼 사용해 고유성을 보장하도록 한다.
+
+...이후의 필기는 java 파일에 직접 작성됨
+
+Ctrl + Alt + 방향키(up,down) = 줄 복붙
+Alt + 방향키(up,down) = 줄의 내용을 다른 줄로 이동 

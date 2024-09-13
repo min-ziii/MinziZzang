@@ -1,0 +1,29 @@
+package com.test.question;
+
+import java.util.Calendar;
+
+public class Bugles {
+	private int price;
+	private int weight;
+	private Calendar creationTime;
+	private int expiration;
+	
+	//가격
+	public int getPrice() {
+		return price;
+	}
+	//용량
+	public void setWeight(int weight) {
+		this.weight = weight;
+	}
+	//생산일자
+	public void setCreationTime(Calendar creationTime) {
+		this.creationTime = creationTime;
+	}
+	//유통기한
+	public int getExpiration() {
+		return expiration;
+	}
+	
+	
+}

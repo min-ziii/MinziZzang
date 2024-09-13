@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ex43_closure.html -->
+
+    <input type="button" value="버튼1" id="btn1">
+    <input type="button" value="버튼2" id="btn2">
+
+    <script>
+
+        //클로저, Closure
+
+        //전역함수
+        function outer() {
+
+            //지역변수(outer)
+            let a = 10;
+            console.log('a',a);
+
+            //지역함수(outer)
+            function inner() {
+                let b = 2;
+                console.log('b',b);
+
+            }
+
+            inner();
+        }
+
+        outer();
+
+        const btn1 = document.getElementById('btn1');
+        const btn2 = document.getElementById('btn2');
+
+        let num1 = 100; //전역변수
+
+        btn1.onclick = function() {
+
+            console.log('num1', num1);
+
+            let num2 = 200; //지역변수(btn1.onclick)
+            console.log('num2',num2)
+
+            btn2.onclick = function () {
+                
+                let num3 = 300; //지역변수(btn2.onclick)
+                console.log('num3',num3);
+                console.log('num2',num2);
+                console.log('num1',num1);
+
+            };
+
+        };
+
+
+
+    </script>
+</body>
+</html>

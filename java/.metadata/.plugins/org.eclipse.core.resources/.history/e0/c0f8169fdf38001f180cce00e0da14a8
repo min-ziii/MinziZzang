@@ -1,0 +1,14 @@
+package com.test.question;
+
+import java.util.Scanner;
+
+public class Q_085 {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("주민등록 번호를 입력하시오: ");
+		int jumin = scan.nextInt();
+		
+		
+	}
+}
+미완성

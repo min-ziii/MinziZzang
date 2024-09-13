@@ -1,0 +1,15 @@
+package com.test.question;
+
+import java.util.Scanner;
+
+public class Q_091 {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("입력: ");
+		String cal = scan.nextLine();
+		int front = 0;
+		int back = 0;
+		
+		int sum= cal.indexOf('+');
+	}
+}

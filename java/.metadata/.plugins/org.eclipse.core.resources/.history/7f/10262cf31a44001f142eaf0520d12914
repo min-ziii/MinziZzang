@@ -1,0 +1,9 @@
+package Semi_project;
+
+public class Constants {
+	public static void main(String[] args) {
+		
+	}
+		public final static String PLAYER_FILE_PATH = "C:\\class\\code\\java\\JavaTest\\src\\Semi_project\\player";
+		public final static String MATCH_FILE_PATH = "C:\\class\\code\\java\\JavaTest\\src\\Semi_project\\match";
+}

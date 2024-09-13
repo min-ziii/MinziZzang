@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+    font-family: 'HSSanTokki20-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2405@1.0/HSSanTokki20-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+        input[type=text] {
+            outline: none;
+        }
+        form {
+            margin : 20px auto;
+        }
+        form > div {
+            margin-bottom: 15px;
+        }
+        h1, div, input {
+            color:gray;
+            /* font-weight: bold; */
+            font-family: 'HSSanTokki20-Regular';
+        }
+    </style>
+</head>
+<body>
+    <!-- JavaScript 데이터 입력 이름, 나이, 별명 -->
+     <h1>데이터 입력</h1>
+
+    <form name="form1">
+        <div>
+            이름: <input type="text" name="id">
+        </div>
+        <div>
+            나이: <input type="text" name="age">
+        </div>
+        <div>
+            별명: <input type="text" name="nick">
+        </div>
+        
+        
+        <input type="button" value="Long" name="btnLong">
+        <input type="button" value="Short" name="btnShort">
+    </form>
+
+    <script>
+        document.form1.btnLong.onclick = m1;
+        document.form1.btnShort.onclick = m2;
+        
+        var id = document.form1.id;
+        var age = document.form1.age;
+        var nick = document.form1.nick;
+        
+        function m1() {
+            id.size = 50;
+            age.size = 50;
+            nick.size = 50;
+        }
+        function m2() {
+            id.size = 20;
+            age.size = 20;
+            nick.size = 20;
+        }
+    </script>
+        
+
+</body>
+</html>

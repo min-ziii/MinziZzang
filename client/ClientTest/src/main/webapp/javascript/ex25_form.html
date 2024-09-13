@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #table1 {
+            border: 1px solid gray;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+        #table1 th, #table1 td {
+            border: 1px solid gray;
+            padding: 10px;
+        }
+        #table1 th {
+            background-color: #EEE;
+        }
+        #table1 input {
+            padding: 5px;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- ex25_form.html -->
+     <h1>회원 가입</h1>
+
+     <form name="form1" action="ex25_ok.jsp">
+        <table id="table1">
+            <tr>
+                <th>이름</th>
+                <td><input type="text" name="txtName"></td>
+            </tr>
+            <tr>
+                <th>나이</th>
+                <td><input type="text" name="txtAge"></td>
+            </tr>
+            <tr>
+                <th>아이디</th>
+                <td><input type="text" name="txtId"></td>
+            </tr>
+            <tr>
+                <th>암호</th>
+                <td><input type="password" name="txtPw"></td>
+            </tr>
+            <tr>
+                <th>암호확인</th>
+                <td><input type="password" name="txtPwc"></td>
+            </tr>
+            <tr>
+                <th>주민번호(-제외)</th>
+                <td><input type="text" name="txtJumin" pattern="[0-9]{13}"></td>
+            </tr>
+        </table>
+        <div>
+            <input type="submit" value="가입하기" nmae="btnSubmit">
+        </div>
+        </form>
+
+        <script>
+
+            var txtName = document.form1.txtName;
+            var txtAge = document.form1.txtAge;
+            var txtId = document.form1.txtId;
+            var txtPw = document.form1.txtPw;
+            var txtPwc = document.form1.txtPwc;
+            var btnSubmit = document.form1.btnSubmit;
+
+            // btnSubmit.onclick = m1;
+
+            function m1() {
+                if (txtName.value == '') {
+                    alert("이름을 입력하세요.");
+                    return;
+                }
+                    // alert('성공!');
+                    document.form1.submit(); //전송버튼 클릭과 동일
+            }
+
+            document.form1.onsubmit = m2;
+
+            function m2() {
+                //유효성 검사
+
+                //이름
+                //- 필수 값
+                //- 2~5자 이내
+                //- 한글만
+
+                if (txtName.value.trim() == '') {
+                    alert("이름을 입력하세요.");
+                    txtName.focus();
+                    // txtName.select();
+                    return false; //이벤트를 없었던 일로 한다.
+                }
+                
+                if (txtName.value.length < 2 || txtName.value.length > 5) {
+                    alert("이름은 2~5자 이내 입니다..");
+                    // txtName.focus();
+                    txtName.select();
+                    return false;
+                }
+
+                for (var i=0; i<txtName.value.length; i++) {
+                    var c = txtName.value.charAt(i);
+                    if (c< '가' || c > '힣') {
+                        alert("이름은 한글만 입력하세요.");
+                        txtName.select();
+                        return false;
+                        
+                    }
+                }
+            
+
+
+                //나이
+                //- 필수값
+                //- 숫자만
+                //- 범위(18~60)
+                if (txtAge.value.trim() == '') {
+                    alert("나이를 입력하세요.");
+                    txtAge.focus();
+                    // txtAge.select();
+                    return false;
+                }
+
+                if (isNaN(txtAge.value)) {
+                    alert("나이는 숫자만 입력하세요(ex.20).");
+                    txtAge.select();
+                    return false;    
+                }
+
+                if (txtAge.value < 18 || txtAge.value >= 60) {
+                    alert('나이는 18세 이상 60세 미만 가입 대상입니다.')
+                    txtAge.select();
+                    return false;
+                }
+
+                //아이디
+                //1. 필수값
+                //2. 4~12자 이내
+                //3. 영어 + 숫자 + _
+                //4. 숫자로 시작 불가
+                
+                var regex = /[A-Za-z_][A-Za-z0-9_]{3,11}$/;
+
+
+                if (!regex.test(txtId.value)) {
+                    alert('옳지 않습니다. 영어, 숫자, _ 사용이 가능합니다.');
+                    txtId.select();
+                    return false;
+                }
+
+                //암호 확인
+                if (txtPw.value != txtPwc.value) {
+                    alert('암호가 옳바르지 않습니다.');
+                    txtPwc.focus();
+                    return false;
+                }
+
+
+
+
+            }
+            // txtName.onkeydown = m3;
+
+            // function m3() {
+            //     return false;
+            // }
+
+        </script>
+</body>
+</html>

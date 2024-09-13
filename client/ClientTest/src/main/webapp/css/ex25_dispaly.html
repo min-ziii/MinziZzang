@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+        
+            display 속성
+            - 요소를 화면에 출력되는 방식을 조작
+            
+            1. none
+            2. block
+            3. inline
+            4. inline-block
+        
+        */
+
+        .box, .link {
+            border: 1px solid black;
+        }
+        .box {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+        }
+        .link {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+        }
+
+        #menu {
+            border: 1px solid black
+            padding: 0;
+            text-align: center;
+        }
+        #menu li {
+            border: 1px solid blue;
+            display: inline-block;
+        }
+        #cat > img {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- ex25_dispaly.html -->
+
+    <ul id="menu">
+        <li>메뉴</li>
+        <li>메뉴</li>
+        <li>메뉴</li>
+        <li>메뉴</li>
+        <li>메뉴</li>
+    </ul>
+
+     <h1>블럭태그</h1>
+     <!-- div#box$.box{상자$}*3 -->
+     <div id="box1" class="box">상자1</div>
+     <div id="box2" class="box">상자2</div>
+     <div id="box3" class="box">상자3</div>
+
+     <h1>인라인태그</h1>
+     <!-- 빈링크 -->
+     <a href="#!" id="link1" class="link">링크1</a>
+     <a href="#!" id="link2" class="link">링크2</a>
+     <a href="#!" id="link3" class="link">링크3</a>
+
+     <h1>고양이</h1>   
+
+     <div id="cat">
+        <img src="images/catty01.png" alt="">
+        <img src="images/catty01.png" alt="">
+        <img src="images/catty01.png" alt="">
+        <img src="images/catty01.png" alt="">
+        <img src="images/catty01.png" alt="">
+        <img src="images/catty01.png" alt="">
+        <img src="images/catty01.png" alt="">
+        <img src="images/catty01.png" alt="">
+        <img src="images/catty01.png" alt="">
+        <img src="images/catty01.png" alt="">
+     </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #menu {
+            display: flex;
+            /* border: 1px solid black; */
+            width: 630px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            transform: translate(0px, -100px);
+        }
+        #menu img {
+            transition: all .9s;
+        }
+        /* #menu img:hover {
+            transform: translate(0px, 90px);
+
+        } */
+    </style>
+</head>
+<body>
+    <!-- ex57_css.html -->
+     <nav id="menu">
+        <img src="images/rect_icon01.png" alt="">
+        <img src="images/rect_icon02.png" alt="">
+        <img src="images/rect_icon03.png" alt="">
+        <img src="images/rect_icon04.png" alt="">
+        <img src="images/rect_icon05.png" alt="">
+     </nav>
+
+
+     <script>
+
+        const items = document.querySelectorAll('#menu img');
+        let oldItem = null; //열려있는 아이템
+
+        items.forEach(item => {
+
+           item.onclick = function() {
+            // alert();
+
+            if (oldItem != null) {
+                //메뉴 열려있는 상태 > 닫아버리기!
+                oldItem.style.transform ='translate(0,0)';
+            }
+
+            // console.log(oldItem == event.target); 
+
+            if((oldItem!= event.target)){
+
+            event.target.style.transform = 'translate(0px, 90px)';
+            oldItem = event.target;
+            } else {
+                oldItem = null; //한번 누른 거 다시 안나오는데 이거로 초기화!
+            }
+
+           } ;
+        });
+
+     </script>
+
+
+
+</body>
+</html>

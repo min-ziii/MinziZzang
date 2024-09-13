@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- ex19_form.html -->
+	<!--
+		<form>의 자식 태그들
+		
+		<input> 태그
+		- 단독 태그
+		- 인라인 태그
+		- input.type: 입력 컨트롤의 종류
+		- input.name: 식별자. 서버로 전송할 때 사용하는 식별자
+		- input.id: 식별자. CSS, JavaScript에서 사용
+		- input.class: 식별자. CSS, JavaScript에서 사용
+		- input.size: 컨트롤의 너비(입력받는 문자 수)
+		- input.maxlength: 최대 입력 문자 수. 비영어권 문자들은 살짝 오류가 있다.
+		- input.value: 컨트롤의 입력값 (DEFAULT인듯.)
+		- input.readonly: 읽기 전용. 플래그형 태그. 수정 불가. 데이터 전송 가능.
+		- input.disabled: 비활성화. 플래그형 태그. 수정 불가. 데이터 전송 불가.
+		- input.accesskey: 바로가기(Nemonic) 기능. Alt + 키
+		- input.autofocus: 자동 포커스
+	-->
+	<h1>입력 컨트롤</h1>
+	
+	<form action="ex18.jsp">
+		
+		<!--
+			focus <-> blur (컨트롤이 활성화됐는지 비활성화됐는지에 따른 개발자 용어)
+			
+			alt + s: 포커스 단축키
+		-->
+		
+		텍스트박스(단일라인):
+		<input type="text" name="txt1" id="txt1" class="txt" size="10" maxlength="5" value="홍길동" accesskey="s">
+		
+		<hr>
+		
+		<!--
+			암호 상자, Password Box
+			- 모든 속성이 텍스트박스와 동일
+			- value 속성 사용 금지. 비밀번호인데 DEFAULT를 왜 설정해놔?
+		-->
+		
+		텍스트박스(암호상자):
+		<input type="password">
+		
+		<hr>
+		
+		<!--
+			텍스트박스(다중 라인)
+			- <textarea></textarea>
+			- 쌍태그
+			- 인라인 태그
+			- 대부분의 속성은 텍스트박스와 동일
+			- value 속성이 없음(중간에 값을 넣으면 그게 value임)
+			- 시작 태그 바로 앞 제외 Whitespace를 전부 체크하기 때문에 편집기 영역에서 공백을 전부 지워야 한다.
+			- maxlength가 없다.
+		-->
+		텍스트박스(다중라인):
+		<textarea rows="5" cols="50">홍길동</textarea>
+		
+		<hr>
+		
+		<!--
+			체크박스
+			- 논리값 입력
+			- 단일 선택 OR 다중 선택
+		-->
+		체크박스:
+		<input type="checkbox">
+		
+		<hr>
+		
+		<h2>약관</h2>
+		<input type="checkbox" id="cb1"> <label for="cb1">동의합니다.</label> <!-- label을 쓰면 글씨를 눌러도 체크박스 interact 가능 -->
+		
+		<hr>
+		
+		<label><input type="checkbox">동의합니다.</label> <!-- 이렇게 쓰면 id-for가 필요 없다. -->
+		
+		<hr>
+		
+		<h2>취미(다중 선택)</h2>
+		
+		<label><input type="checkbox"> 수영</label>
+		<label><input type="checkbox"> 달리기</label>
+		<label><input type="checkbox" checked> 독서</label>
+		<label><input type="checkbox"> 코딩</label>
+		<label><input type="checkbox"> 낮잠</label>
+		
+		<hr>
+		
+		<!--
+			라디오 버튼
+			- 단일 선택(O)
+			- 다중 선택(X)
+			- radio.name으로 라디오버튼 그룹 설정
+			
+		-->
+		<h2>성별?</h2>
+		<label><input type="radio" name="rb-gender"> 남자</label>
+		<label><input type="radio" name="rb-gender"> 여자</label>
+		<label><input type="radio" name="rb-gender" checked> 모름</label>
+		
+		<hr>
+		
+		<h2>동의?</h2>
+		<label><input type="radio" name="rb-agree"> 동의</label>
+		<label><input type="radio" name="rb-agree" checked> 미동의</label>
+		
+		<hr>
+		<!--
+			셀렉트 박스
+			- 콤보 박스, 드랍다운 리스트, ...
+			- 단일 선택	OR 다중 선택
+		-->
+		셀렉트 박스:
+		<select>
+			<option>강아지</option>
+			<option selected>고양이</option> <!-- selected == 체크박스, 라디오버튼의 checked -->
+			<option>병아리</option>
+		</select>
+		
+		<hr>
+		
+		셀렉트 박스:
+		<select multiple size="5"> <!-- size: 한 번에 보여질 옵션 개수. 옵션 수보다 적으면 ScrollBar가 생김 -->
+						  <!-- multiple: 다중 선택 가능 플래그. -->
+			<option>강아지</option>
+			<option>고양이</option>
+			<option>병아리</option>
+		</select>
+		
+		<hr>
+		
+		<select>
+			<option>☆포유류☆</option>
+			<option>강아지</option>
+			<option>고양이</option>
+			<option>돼지</option>
+			
+			<option>☆파충류☆</option>
+			<option>뱀</option>
+			<option>거북이</option>
+			<option>이구아나</option>
+			
+			<option>☆곤충☆</option>
+			<option>매미</option>
+			<option>메뚜기</option>
+			<option>귀뚜라미</option>
+		</select>
+		
+		<hr>
+		
+		<select>
+			<optgroup label="☆포유류☆">
+			<option>강아지</option>
+			<option>고양이</option>
+			<option>돼지</option>
+			</optgroup>
+			
+			<optgroup label="☆파충류☆">
+			<option>뱀</option>
+			<option>거북이</option>
+			<option>이구아나</option>
+			</optgroup>
+			
+			<optgroup label="☆곤충☆">
+			<option>매미</option>
+			<option>메뚜기</option>
+			<option>귀뚜라미</option>
+			</optgroup>
+			
+		</select>
+		
+		<hr>
+		
+		<!--
+			파일 업로드
+			- 첨부 파일
+			- Open File Dialog(열기 대화 상자)
+		-->
+		파일 선택:
+		<input type="file">
+		
+		<hr>
+		
+		<!--
+			히든 태그
+			- 안 보이는 컨트롤
+			- 개발자용.
+		-->
+		히든 태그:
+		<input type="hidden" name="num" value="123">
+		
+		<hr>
+		
+		<!--
+			Button류
+		-->
+		전송 버튼: <input type="submit" value="보내기"> <!-- '제출'(Chrome), '쿼리 제출'(FireFox) 대신 '보내기'로 보인다. -->
+		
+		<hr>
+		
+		취소 버튼: <input type="reset" value="취소하기"> <!-- 새로고침같은 기능 -->
+		
+		<hr>
+		
+		이미지 버튼(submit): <input type="image" src="images/catty01.png">
+		
+		<hr>
+		
+		그냥 버튼: <input type="button" value="버튼" onClick="alert('클릭~');">
+		
+		<hr>
+		
+		그냥 버튼: <input type="button" value="버튼" onClick="this.form.submit();">
+		
+		<hr>
+		
+		버튼: <button type="button"><img src="images/bullet19.png">버튼</button>
+		
+		<hr>
+		
+		<input type="submit">
+		
+	</form>
+	
+	<!--
+		~현재까지 수업: HTML 4.01 + XHTML 1.0
+		앞으로 할 수업: HTML 5
+
+	 -->
+	
+</body>
+</html>

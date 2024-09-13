@@ -1,0 +1,47 @@
+package com.test.java.collection;
+
+public class Ex55_Anonymous {
+	public static void main(String[] args) {
+		
+		/*
+		 * 
+		 * 익명 클래스, Anonymous Class
+		 * 	- 익명 객체, Anonymous Object
+		 * 	- 이름없는 클래스
+		 * 
+		 * 실명 클래스
+		 * 	- class BBB
+		 * 	- 객체를 여러개 만들 수 있다(장점)
+		 * 익명 클래스
+		 * 	- 객체를 여러개 만들 수 없다(단점)
+		 * 
+		 */
+		
+		//요구사항] 인터페이스를 구현한 클래스 선언하기 -> 객체를 생성하기
+		
+		BBB b1 = new BBB();
+		b1.test();
+		
+		AAA b2 = new BBB();
+		b2.test();
+		
+		AAA b3 = new AAA() {	// AAA의 상속을 받은 BBB와 동일한것임. AAA와 new AAA()는 다름
+			public void test() {
+				System.out.println("익명개체로 만든 메서드");
+			}	
+		};
+		b3.test();
+		
+		AAA b4 = new AAA() {
+			
+		}
+	}
+}
+interface AAA {
+	void test();
+}
+class BBB implements AAA{
+	public void test() {
+		System.out.println("추상 메서드를 구현함");
+	}
+}

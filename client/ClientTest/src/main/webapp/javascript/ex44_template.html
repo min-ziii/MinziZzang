@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ex44_template.html -->
+
+    <script>
+
+        //Template String
+        //- ES6
+        let name = "홍길동";
+        let age = 20;
+        
+        console.log("이름은 " + name + '이고, 나이는 ' + age + '살입니다.');
+
+        //자바스크립트 문자열
+        //1. 'string'
+        //2. "string"
+        //3. `string` > template string
+
+        let txt1 = "<input type=\"text\">";
+        let txt2 = "<input type='text'>";
+        let txt3 = '<input type="text">';
+
+        let a = '홍길동';
+        let b = "홍길동";
+        let c = `홍길동`;
+
+        console.log(a === b);
+        console.log(a === c);
+        console.log(typeof c);
+
+        console.log(`이름은 ${name}이고, 나이는 ${age}살입니다.`);
+        console.log(`현재 시간은 ${new Date()}입니다.`);
+
+        let str = `
+        하나
+        두울
+        세엣
+        `;
+
+        console.log(str);
+
+        //테이블 > 행 추가
+        let temp1 = '<tr><td>100</td><td>200</td><tr>'; //enter 불가
+        let temp2 = `<tr><td>100</td>
+                        <td>200</td><tr>`; //enter 가능
+
+    </script>
+</body>
+</html>

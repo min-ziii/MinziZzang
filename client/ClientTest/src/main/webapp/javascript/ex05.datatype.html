@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ex03.datatype.html -->
+
+    <script>
+        /*
+            JavaScript 자료형
+
+            1. number 
+                - 정수, 실수
+                
+            2. string
+                - 문자, 문자열
+            
+            3. boolean
+                - 논리형
+            
+            4. object
+                - 객체형
+                - JavaScript에는 클래스가 없다.
+                - 객체 지향 언어(OOP) <-> 자바스크립트
+                - 객체 기반 언어 == 자바스크립트
+            
+            5. 기타(상수)
+                a. null (고유자료형)
+                b. undefined
+                c. NaN(Not a Number) => Java와 마찬가지로 대소문자 중요!
+
+            변수, 상수(리터럴)
+            - var 변수명; > 자료형 ? 
+            - JavaScript는 변수의 타입이 없다.(스크립트 언어 특징)
+            - Object a;
+            - 변수는 모든 자료형의 데이터를 저장할 수 있다.
+
+        */
+
+        var num;
+        num = 10;
+        var num2 = 20;
+        var num3, num4;
+        var num5= 10, num6 = 20;
+
+        var data = 10;
+        data = '홍길동'; //절대 하지 말기!! 숫자 넣은 변수에 문자 XXXXX
+
+        data = 10;
+        data = 3.14;
+        data = '홍길동';
+        data = "홍길동"; //문자열에 '', "" 모두 가능
+        data = true;
+        data = false;
+
+        var a = 3.5;
+        var b = '홍길동';
+        var c = true;
+        var d = '10';
+        var e = new Date();
+
+        console.log(a*a,a);
+        console.log(a, typeof a);
+        console.log(b, typeof b);
+        console.log(c);
+        console.log(d);
+        console.log(e, typeof e);
+        
+        console.log(a);
+        console.log(b);
+        console.log(c);
+        console.log(d);
+
+        //자바스크립트에서는 명시적으로 자료형 표현이 불가능하다.
+        
+        //연산자
+        //- 자바와 동일
+
+        //제어문
+        //- 자바와 동일
+
+        //Java > Strong Type Language > 문법 엄격
+        //SQL > Weak Ttpe Language > 문법 유연
+        //JavaScript > Weak Type Language > 자바에 비해 유연
+        
+        console.log('10'+2);
+        console.log('10'*2);
+
+        //문자 이스케이프
+        //- 자바와 동일
+        console.log('C:\code\java') //escape 처리!
+        console.log('C:\\code\\java')
+
+
+    </script>
+</body>
+</html>

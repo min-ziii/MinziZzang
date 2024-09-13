@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1, div {
+            color: gray;
+        }
+        form > div {
+            margin-bottom: 15px;
+        }
+        input[type=text] {
+            outline: 1px solid #ccc; /* 포커스 시 기본적인 아웃라인을 유지 */
+        }
+    </style>
+</head>
+<body>
+    <!-- 회원 가입 만들기 -->
+    <h1>회원 가입</h1>
+    
+    <form name="form1">
+        <div>
+            아이디:<br> 
+            <input type="text" name="id" id="idField">
+            <div id="messageField"></div>
+        </div>
+    </form>
+
+    <script>
+        var idField = document.getElementById('idField');
+        var messageField = document.getElementById('messageField');
+
+        function m1() {
+            if (idField.value.length == 0) {
+                messageField.textContent = "";
+            } else if (idField.value.length < 4) {
+                messageField.textContent = "아이디가 너무 짧습니다.";
+            } else if (idField.value.length > 12) {
+                messageField.textContent = "아이디가 너무 깁니다.";
+            } else {
+                messageField.textContent = "아이디가 적합합니다.";
+            }
+        }
+
+        // 입력 필드에서 입력이 변경될 때 m1 함수를 호출하도록 설정
+        idField.addEventListener('input', m1);
+    </script>
+    
+</body>
+</html>

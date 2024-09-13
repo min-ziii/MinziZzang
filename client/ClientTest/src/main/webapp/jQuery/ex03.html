@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ex03.html -->
+     <h1>jQuery Event</h1>
+
+     <input type="button" value="버튼1" name="버튼1" id="btn1" class="btn">
+     <input type="button" value="버튼2" name="버튼2" id="btn2" class="btn">
+     <input type="button" value="버튼3" name="버튼3" id="btn3" class="btn">
+
+    <script src="js/jquery-3.7.1.js"></script>
+    <script>
+        /*
+
+            1. jQuery의 대부분의 기능은 함수로 제공된다.
+
+            2. jQuery 함수 패턴
+                a. 전용 함수
+                    - 객체.함수()       / obj.test()    > Getter
+                    - 객체.함수(인자)   / obj.test(인자)> Setter
+                b. 범용 함수
+                    - obj.test2(인자)       > Getter
+                    - obj.test2(인자, 인자) > Setter
+
+            3. jQuery 함수는 객체를 인자로 받는 경우가 많다.
+                - test3(click);
+                - test4(100);
+                - test5(function() {});
+                - test6({});
+
+        */
+        //1.BOM
+        //- <input onclick="">
+        //- btn.onclick = function() {};
+        //- btn.onclick = null;
+
+        //1. DOM
+        //- btn.addEventListener('click',function() {});
+        //- btn.removeEventListener('click', function() {});
+
+        //3. jQuery
+
+        // $('#btn1') $는 jQuery 별칭!
+
+        /*
+        //전용 함수
+        jQuery('#btn1').click(function() {
+            alert();
+        });
+        //범용 함수
+        jQuery('#btn2').on('click',function() {
+            alert();
+        });
+
+        $('#btn3').click(function() {
+            //이벤트 주체?
+            alert(event.target.id);
+
+            $('#btn1').off('click');
+            $('#btn2').off('click');
+        })
+        */
+
+        //버튼 3개 > 일괄 클릭 이벤트 추가
+
+        const list = document.querySelectorAll('.btn');
+
+        list.forEach(btn => {
+            btn.onclick = function(){
+                alert(event.target.id)
+            }
+        });
+
+        //위와 같은 코드 훨씬 간결
+        $('.btn').click(function() {
+            alert(event.target.id)
+        });
+
+
+    </script>
+</body>
+</html>

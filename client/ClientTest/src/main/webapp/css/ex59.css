@@ -1,0 +1,138 @@
+/* ex59.css */
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+/* html {
+    border: 10px solid blue;
+    height: 100%;
+}
+
+body {
+    border: 10px solid red;
+    height: 100%;
+} */
+
+main {
+    /* border: 10px solid gold; */
+    /* height: 100%; */
+    height: 100vh; /* viewport(눈에 보이는 화면= %와 동일) height / viewport weidht */
+
+    display: grid;
+    grid-template-rows: 50px 200px auto; /* auto 나머지 값 가져가기 */
+    grid-template-columns: 200px auto;
+}
+
+#menu {
+    background-color: orange;
+    grid-row: 1/4; /* 셀 병합 */
+    text-align: center;
+}
+#menu h1 {
+    color: white;
+}
+#menu hr {
+    border: 0;
+    border-top: 1px dashed white;
+}
+#menu > ul {
+    padding: 0;
+    color: white;
+}
+#menu > div {
+    color: white;
+    font-size: 14px;
+}
+
+#search {
+    background-color: gold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#serach input[type=text] #search button {
+    border: 1px solid #555;
+    padding: 5px;
+    margin: 0;
+    font-size: 16px;
+    background-color: white;
+    outline: none;
+}
+#search input[type=text] {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+#search button {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: -1px;
+}
+
+#banner {
+    background-color: pink;
+}
+#banner img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+#content {
+    background-color: blueviolet;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+#content > div {
+    background-color: green;
+    /* width: 200px;
+    margin-bottom: 20px; */
+}
+#content > div > img {
+    display: block;
+    margin: 20px auto;
+    border: 3px solid #fff;
+    padding: epx;
+}
+#content > div > div{
+    margin: 30px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* 스마트폰 + 태블릿(세로) */
+@media screen and (max-width: 1100px) {
+    main { 
+        grid-template-rows: 200px 50px 200px auto;
+        grid-template-columns: auto;
+    }
+
+    #menu {
+        grid-row: auto;
+    }
+    #menu hr {
+        display: none;
+    }
+    #menu > ul {
+        display: flex;
+        justify-content: center;
+    }
+    #menu > ul > li {
+        list-style-type: none;
+        margin: 0 5px;
+    }
+    
+    #content {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    #banner {
+        display: none;
+    }
+}

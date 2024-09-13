@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ex42_window.html -->
+     <input type="text" class="txt">
+     <input type="text" class="txt">
+     <input type="text" class="txt">
+
+    <script>
+
+        /*
+            window 객체
+            - window.open()
+            - window.close();
+        */
+
+        //자바스크립트에서 전역 변수 or 전역 함수는 항상 window 객체의 프로퍼티로 자동 등록된다.
+        var a = 10; //전역 변수 > window 프로퍼티
+        window.b = 20; //window 프로퍼티
+
+        var a = 30; //변수(X), 프로퍼티(O)
+
+        console.log(window.b);
+        console.log(window.a);
+
+        // console.log(window);
+
+        //전역함수
+        function test() {
+            //지역함수
+            function aaa() {
+
+            }
+            aaa();
+        }
+        test();
+        window.test();
+
+        //향상된 for문 > 객체의 프로퍼티 탐색
+        for (let p in window) {
+            console.log(p)
+        }
+
+        //let과 const는 전역 > window 프로퍼티로 등록되지 않는다.
+        let ate = 20;
+        console.log(window.age);
+
+        // alert('test!');
+
+        //자바스크립트 배열
+        //- 배열 > index
+        const list = [100, 200, 300, 400, 500];
+
+        console.log(list.length);
+        console.log(list[0]);
+
+        for(let p in list) {
+            console.log(p); //방번호 출력 > 배열 방번호 > 첨자(X), 프로퍼티(O)
+        }
+
+        // console.log(list[0]);
+        // console.log(list.0);
+        console.log(list[10]);//undefined
+
+        const txt = document.getElementsByClassName('txt');
+
+        console.log(txt.length);
+        console.log('=============');
+        console.log(list);
+        console.log(txt);
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+package com.test.My_Practice;
+
+public class aaa {
+	public static void main(String[] args) {
+		int n = 7;
+		for(int i = 1;i<=n;i++) {
+			int []nums = new int[i];
+			System.out.println(nums.toString());
+		}
+	}
+}

@@ -1,0 +1,5 @@
+package com.test.question;
+
+class Box {
+	private Maron[] list = new Maron[10];
+}

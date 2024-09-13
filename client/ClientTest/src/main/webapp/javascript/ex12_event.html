@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ex12_event.html -->
+    <h1>Event</h1>
+
+    <form name="form1">
+        <input type="text" name="txt1">
+        <input type="button" value="버튼1" name="btn1" onclick="window.document.form1.txt1.value = new Date();">
+        <input type="button" value="버튼2" name="btn2" 
+        onclick="m2();">
+        <input type="button" value="버튼3" name="btn3">
+    </form>
+
+    <script>
+        
+        /* 
+        
+            이벤트 조작(처리), 이벤트 매핑
+            Event Handling, Event Mapping
+
+            자바스크립트 이벤트
+            1. 정적 이벤트
+            2. 동적 이벤트
+        
+        */
+
+        function m2() {
+            window.document.form1.txt1.value = new Date();
+        }
+
+
+        if ((new Date()).getHours() < 12) {
+            window.document.form1.btn3.onclick = m3;
+        }
+
+        //alert((new Date()).getHours());
+
+        function m3() {
+            window.document.form1.txt1.value = new Date();
+        }
+
+    </script>
+
+</body>
+</html>

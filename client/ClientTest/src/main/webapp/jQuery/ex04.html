@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            border: 1px solid black;
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <!-- ex04.html -->
+    <h1>jQuery Effect</h1>
+
+    <input type="button" value="버튼1" name="버튼1" id="btn1" class="btn">
+    <input type="button" value="버튼2" name="버튼2" id="btn2" class="btn">
+    <input type="button" value="버튼3" name="버튼3" id="btn3" class="btn">
+
+    <hr>
+
+    <div id="box1">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum officiis, quidem aspernatur accusamus impedit ducimus eius velit fugiat unde facilis, optio expedita eaque voluptate tempora debitis sunt possimus, mollitia adipisci.</div>
+
+   <script src="js/jquery-3.7.1.js"></script>
+
+   <script>
+
+        //jQuery Effect Function
+        //1. hide(time), show(time), toggle(time)
+        //2. fadeOut(), fadeIn(), fadeToggle()
+        //3. slideUp(), slideDown(), slideToogle()
+        //4. animate() > 사용자 정의
+
+        let n = 1; //변수 만들기
+
+        $('#btn1').click(() => {
+
+            // $('#box1').hide(2000);
+            // $('#box1').hide('fast');
+
+            // $('#box1').fadeOut();
+            
+            // $('#box1').slideUp();
+
+
+            // let obj = {
+            //     width: '400px',
+            //     height: '400px'
+            // };
+            // $('#box1').animate(obj);
+
+
+            // $('#box1').animate({
+            //     width: '400px',
+            //     height: '500px'
+            // });
+
+
+            // $('#box1').animate({
+            //     width: '-=50px',
+            //     height: '-=50px'
+            // });
+
+
+            // $('#box1').animate({
+            //     width: '+=100'
+            // }, 1000, function(){
+            //     $('h1').text('jQuery Effect'+n);
+            //     n++;
+            // });
+
+
+            // $('#box1').animate({
+            //     width: '+=100',
+
+            // }, 1000, function(){
+            //     $('#box1').animate({
+            //         height: '+=100'
+            //     }, 1000, function(){
+            //         $('#box1').animate({
+            //             'font-size': '3rem'
+            //         })
+            //     });
+            // });
+            
+            // //순서대로 무조건 흘러감
+            // $('#box1').animate({
+            //     width: '+=100',
+            // }, 1000);
+            // $('#box1').animate({
+            //     height: '+=100',
+            // }, 1000);
+            // $('#box1').animate({
+            //     width: '+=100',
+            // }, 1000);
+
+            $('#box1').animate({
+                width: '+=100',
+            }, 1000).animate({
+                height: '+=100'
+            }, 1000);
+
+            
+        });
+        
+        $('#btn2').click(() => {
+            // $('#box1').show(2000);
+            
+            // $('#box1').fadeIn();
+
+            // $('#box1').slideDown();
+        });
+        
+        $('#btn3').click(() => {
+            // $('#box1').toggle(2000);
+            
+            // $('#box1').fadeToggle();
+            
+            // $('#box1').slideToggle();
+        });
+
+
+
+
+
+   </script>
+</body>
+</html>

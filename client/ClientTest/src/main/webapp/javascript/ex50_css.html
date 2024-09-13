@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {margin-bottom: 500px;}
+        #box1 {
+            border: 1px solid black;
+            width: 200px;
+            height: 200px;
+        }
+        .one {color: blue;}
+        .two {border: 10px solid orange !important;} /* 누군가에게 밀림 box1의 보더에게 따라서 important를 붙임!! */
+        .three {background-color: greenyellow;}
+    </style>
+</head>
+<body>
+    <!-- ex50_css.html -->
+     <h1>CSS</h1>
+     <input type="button" value="버튼" id="btn1">
+     <hr>
+     <div id="box1">상자</div>
+
+     <script>
+
+        const btn1 = document.getElementById('btn1');
+        const box1 = document.getElementById('box1');
+
+        btn1.addEventListener('click', function(){
+            /*
+                JavaScript > CSS 조작
+                1. 모든 태그 + style 속성
+                    - box1.style 속성 제어
+                    - CSS 속성명 == 프로퍼티명
+                        - 대부분 동일한 이름으로 제공된다.
+                        - 케밥 표기법 > 캐멀 표기법
+                    - CSS 속성값
+                        - 거의 대부분 문자열로 작성한다.
+                2. 태그의 class 속성
+                    - CSS class 제어
+            */
+
+            //<div id="box1" style="background-color: yellow; font-size:3rem">
+            // box1.style = 'background-color: yellow;';
+
+
+            //style 다양하게 적용해보기
+            // box1.style.color = 'pink';
+            // box1.style.fontSize = '3rem';
+            // box1.style.backgroundColor = 'skyblue';
+            // box1.style.fontFamily = '궁서';
+
+
+            //*** 자바스크립트로 조작한 모든 CSS는 인라인 스타일 시트로 적용된다.
+
+
+            //현재 상자의 너비
+            // box1.style.width = '400px';
+            // alert(box1.style.width); //읽어오지 못함!
+
+            const list = window.getComputedStyle(box1);
+            // console.log(list);
+            // console.log(list.width);
+            // console.log(list.getPropertyValue('width'));
+
+            // let width = list.getPropertyValue('width');
+
+            // console.log(parseInt(width));
+
+            // box1.style.width = width + 50;
+            // box1.style.width = parseInt(width) + 50 + 'px';
+            //위에 너비 다 하나씩 해보기!
+
+
+            //<div class="one">
+            //여러개를 다루면
+            // box1.className = 'one two three'; 이렇게 한번에 줘야댐!
+            // box1.className = 'two';
+            // box1.className = 'three'; 이렇게 개별로 하면 맨 아래있는 것만 적용됨!!!!!!!!!
+
+            //DOM
+            // box1.classList.add()
+            // box1.classList.remove()
+            // box1.classList.contains()
+
+            // box1.classList.add('one');
+            // box1.classList.add('two');
+            // box1.classList.add('three');
+
+            // box1.classList.remove('two'); //이렇게하면 없어짐!
+
+            if (box1.classList.contains('three')) {
+                box1.classList.remove('three');
+            } else {
+                box1.classList.add('three');
+            }
+
+            // box1.classList.toggle('two');
+
+
+
+
+
+        });//btn1.click
+
+
+     </script>
+</body>
+</html>

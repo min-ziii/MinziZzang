@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            border: 10px solid black;
+            width: 200px; height: 200px;
+            background-color: gold;
+            margin: 200px;
+        }
+
+        /* 
+            transition, 전환
+            - 객체의 속성값이 변화되는 과정을 시간순으로 보여주는 기술'
+            - 단 수치형 속성값에 한해서
+        */
+
+        #box {
+            /* 적용 대상 속성 */
+            /* transition-property: width, height, font-size; */
+            transition-property: all;
+
+            /* 변환 관정을 보여줄 시간 */
+            transition-duration: 1s;
+
+            /* 한번에 작성 */
+            transition: 1s all;
+        }
+        #box:hover {
+            width: 400px;
+            height: 400px;
+            font-size: 5rem;
+            /* opacity: 0; */
+            background-color: pink;
+            border-width: 20px;
+            border-radius: 50%;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- ex50_transition.html -->
+     <div id="box">
+        상자
+     </div>
+</body>
+</html>

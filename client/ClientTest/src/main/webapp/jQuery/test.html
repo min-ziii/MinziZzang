@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- ex07.html -->
+    <h1>jQuery 태그 조작</h1>
+
+    <input type="button" value="버튼" id="btn1">
+    <hr>
+    <div id="div1">홍길동</div>
+    <input type="text" id="txt1">
+    
+    <script src="js/jquery-3.7.1.js"></script>
+    <script>
+        
+        $('#btn1').click(() => {
+
+            //태그 조작
+            //1. 내용물 조작
+            //  a. PCDATA > 문자열 추가/삭제
+            //  b. Element > 동적 태그 추가/삭제
+            //2. 속성 조작
+
+            //내용물 조작
+            //- innerText(textContent) > text()
+            //- innerHTML > html()
+            //- value > val()
+
+            //alert($('#div1').text());
+            //$('#div1').text('강아지');
+
+            $('#div1').html('<input type="text">');
+
+            // alert($('#txt1').val());
+            // $('#txt1').val('거북이');
+
+
+            //속성
+            
+            
+
+
+        });
+
+    </script>
+</body>
+</html>

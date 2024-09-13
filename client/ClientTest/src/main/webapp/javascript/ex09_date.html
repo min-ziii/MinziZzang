@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ex09_date.html -->
+     <script>
+        //날짜 시간
+        //- 내장 객체 > Date
+
+        //현재 시각
+        var now = new Date();
+        console.log(now)
+        console.log(now.toString())
+        console.log(typeof now)
+
+        //요소 추출
+        //- c.get(Calendar.YEAR)
+        console.log(now.getYear());         // 124
+        console.log(now.getFullYear());     // 2024
+        console.log(now.getMonth());        // 8(0부터)
+        console.log(now.getDate());         // 3
+        console.log(now.getDay());          // 2 (일(0)~토(6))
+        console.log(now.getHours());        // 15
+        console.log(now.getMinutes());      // 47
+        console.log(now.getSeconds());      // 59
+        console.log(now.getMilliseconds()); // 830
+        console.log(now.getTime());         // 1725346079830, epoch
+
+        //출력 > %tF, %tT, %tA
+        console.log(now.toString());
+        console.log(now.toDateString());
+        console.log(now.toTimeString());
+
+        //2024. 9. 3. 오후 4:07:36
+        console.log(now.toLocaleString());
+        console.log(now.toLocaleDateString());
+        console.log(now.toLocaleTimeString());
+
+        console.log(now.toISOString()); //ISO8601
+        console.log(now.toDateString().split('T')[0])
+        
+        console.log(now.toISOString().split('T')[1].substr(0,8))
+
+        //특정 시각 만들기
+        var christmas = new Date();
+
+        christmas.setFullYear(2024);
+        christmas.setMonth(11);
+        christmas.setDate(25);
+
+        christmas.setHours(21);
+        christmas.setMinutes(0);
+        christmas.setSeconds(0);
+
+        console.log(christmas.toLocaleString())
+
+        var birthday = new Date(1995, 10, 10, 12, 0, 0);
+
+        //연산
+        //시각 - 시각 = 시간
+        console.log(christmas-now);
+        console.log((christmas-now)/1000/60/60/24);
+
+        //시각 + 시간 = 시각
+        //시각 - 시간 = 시각
+        var ani = new Date();
+
+        ani.setTime(ani.getTime() + (100*24*60*60*1000));
+        console.log(ani.toLocaleString());
+
+     </script>
+</body>
+</html>

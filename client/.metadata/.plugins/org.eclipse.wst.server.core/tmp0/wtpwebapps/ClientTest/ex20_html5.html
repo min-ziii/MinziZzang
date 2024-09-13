@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- ex20_html5.html -->
+	<!--
+		
+	
+	-->
+	
+	<h1>HTML5</h1>
+	
+	<form method="POST" action="ex18.jsp">
+		
+		<label>이름: <input type="text"></label>
+		
+		<hr>
+		
+		<input type="text" value="이름을 입력하세요."
+			   onfocus="this.value='';"> <!-- 클릭하는 순간 value값이 사라짐 -->
+		
+		<hr>
+		
+		<input type="password" value="암호를 입력하세요."
+			   onfocus="this.value='';"> <!-- password라서 value가 안 보임. -->
+			   
+		<hr>
+		
+		<input type="text" placeholder="이름을 입력하세요.">
+		
+		<hr>
+		
+		<input type="password" placeholder="암호를 입력하세요.">
+		
+		<hr>
+		
+		<textarea cols="50" rows="5" placeholder="자기소개를 입력하세요."></textarea>
+		
+		<hr>
+		
+		<h2>입력값 유효성 검사-필수값</h2>
+		
+		<h3>로그인</h3>
+		<div><input type="text" size="10" placeholder="아이디" required value="hong"></div> <!-- required = NOT NULL이어야 통과하는 조건 -->
+		<div><input type="password" size="10" placeholder="암호" required value="1111"></div>
+
+		<hr>
+				
+		성별: <input type="text">
+		
+		<hr>
+		<!-- radio button -->
+		성별: <input type="radio" name="rb-gender" value="m">남자
+			  <input type="radio" name="rb-gender" value="f" checked>여자
+			  
+		<hr>
+		<!-- select box -->
+		성별: <select>
+				<option value="m">남자</option>
+				<option value="f">여자</option>
+			  </select>
+		
+		<!-- 프로토콜을 전부 포함한 URL인지 유효성 검사를 어느정도 해 줌 -->
+		URL: <input type="url">
+		
+		<hr>
+		
+		Email: <input type="email">
+		
+		<hr>
+		
+		숫자: <input type="text">
+		
+		<hr>
+		<!-- 숫자만 입력하는 컨트롤. 다른 문자를 넣으면 오류 발생. / step = 키보드or화살표로 한 번 이동할 때마다 적힌 값만큼 변함 -->
+		숫자: <input type="number" min="0" max="100" step="10">
+		
+		<hr>
+		
+		범위(숫자): <input type="range" oninput="document.getElementById('rtxt').value = this.value;" min="50" max="500" step="5">
+		<input type="text" id ="rtxt">
+		
+		<hr>
+		<!-- 실제로는 RGB 컬러의 문자열 값이 들어있다. -->
+		색상: <input type="color" onchange="document.getElementById('ctxt').value = this.value; document.body.bgColor = this.value;">
+		<input type="text" id = "ctxt"> 
+		
+		<hr>
+		
+		날짜시간: <input type="date">
+		<hr>
+		<input type="month">
+		<hr>
+		<input type="week"> <!-- FireFox, iPhone 환경에서는 미지원 -->
+		<hr>
+		<input type="time">
+		<hr>
+		<input type="datetime"> <!-- 지원하는 브라우저가 없음 -->
+		<hr>
+		<input type="datetime-local">
+		
+		<hr>
+		
+		사원:
+		<select>
+			<option>홍길동</option>
+			<option>아무개</option>
+			<option>하하하</option>
+		</select>
+		
+		<hr>
+		<!-- 셀렉트박스처럼 목록을 띄워주는 코드. 필터링도 가능 -->
+		사원:
+		<input type="text" size="5" list="data1">
+		<datalist id="data1">
+			<option value="홍길동"></option>
+			<option value="홍순신"></option>
+			<option value="아무개"></option>
+			<option value="하하하"></option>
+		</datalist>
+		
+		<hr>
+		<!-- 진행률 -->
+		<progress></progress><br>
+		<progress value="0"></progress><br>
+		<progress value="0.5"></progress><br>
+		<progress value="1"></progress><br>
+		<progress value="50" max="100"></progress><br> <!-- x100을 해서 편한 숫자를 value로 사용해도 된다. -->
+		
+		<input type="submit" value="보내기">
+		
+		<hr>
+		<!-- 수치 -->
+		<meter></meter><br>
+		<meter value="0"></meter><br>
+		<meter value="0.5"></meter><br>
+		<meter value="1"></meter><br>
+		<meter value="50" min="-100" max="100"></meter><br>
+		
+		<hr>
+		
+		<!-- 40 ~ 80을 정상 수치 범위로 설정하고, 범위 밖의 value값들은 노란색으로 다르게 시각화 -->
+		<meter value="30" min="0" max="100" low="40" high="80"></meter><br>
+		<meter value="60" min="0" max="100" low="40" high="80"></meter><br>
+		<meter value="90" min="0" max="100" low="40" high="80"></meter><br>
+		
+		<hr>
+		
+		<details>
+			<summary>HTML</summary>
+			<p>HTML 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구</p>
+		</details>
+		
+		<hr>
+		
+		<!-- form 태그 내에서 영역을 만드는 역할 -->
+		<fieldset>
+			<legend align="center">로그인</legend>
+			<div>
+				<div>아이디: <input type="text" size="5"></div>
+				<div>암호: <input type="text" size="5"></div>
+			</div>
+		</fieldset>
+		
+		<hr>
+		<!-- 뉴스 -->
+		<marquee scrollamount="10" behavior="scroll" direction="down">속보입니다. vs 겉안보입니다.</marquee>
+	</form>
+</body>
+</html>

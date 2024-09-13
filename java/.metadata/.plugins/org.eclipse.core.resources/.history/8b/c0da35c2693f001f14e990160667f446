@@ -1,0 +1,35 @@
+package com.test.question;
+
+import java.io.File;
+import java.util.Arrays;
+
+public class Q_118 {
+	public static void main(String[] args) {
+		String path = "C:\\Users\\user\\Downloads\\파일 디렉토리 문제\\크기 정렬";	
+		File dir = new File(path);		
+		count(dir);
+	}
+	public static void count(File dir) {
+		System.out.println("[파일명]\t\t\t\t      [크기]\t[파일이 들어있는 폴더]");
+		File [] list = dir.listFiles();
+		for(File dirs : dir.listFiles()) {
+			for(File file : dirs.listFiles()) {
+				if(file.isFile()) {
+					String path = file.getPath();
+					String halfpath = path.substring(0,path.lastIndexOf('\\'));
+					String lastpath = halfpath.substring(halfpath.lastIndexOf('\\')+1);
+					System.out.printf("%-26s\t%10dkb\t\t%3s\n",file.getName(),file.length(),lastpath);
+				} else {
+					for(File subfile : file.listFiles()) {
+						String path = subfile.getPath();
+						String halfpath = path.substring(0,path.lastIndexOf('\\'));
+						String lastpath = halfpath.substring(halfpath.lastIndexOf('\\')+1);
+						System.out.printf("%-26s\t%10dkb\t\t%3s\n",subfile.getName(),subfile.length(),lastpath);
+						//System.out.println(subfile.getParentFile().getName());
+					}
+				}
+				
+			}
+		}
+	}
+}

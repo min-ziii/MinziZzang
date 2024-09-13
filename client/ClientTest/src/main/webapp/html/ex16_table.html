@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>주소록</h1>
+	
+	<table border="1" width="600"> <!-- 테이블값 개수에 변화가 생기면 표 높이가 달라질테니 height값은 따로 설정하지 않는다. -->
+		<!-- <tr bgcolor="#DDDDDD">
+		<th width="50">번호</th>
+		<th width="80">이름</th>
+		<th width="60">나이</th>
+		<th width="70">성별</th>
+		<th width="340">주소</th> table width에서 다른 th width를 전부 뺀 값을 정확하게 맞춰야 한다.
+		</tr> -->
+		<tr bgcolor="#DDDDDD">
+		<th colspan="5">개발자 정보</th>
+		</tr>
+		<!--
+			콘텐츠 너비가 고정 OR 변화가 없다 -> 좌측 정렬 OR 중앙 정렬
+			콘텐츠 너비가 가변형 -> 좌측 정렬
+		-->
+		<tr>
+		<td align="center" rowspan="2">1</td>
+		<td align="center" rowspan="2">홍길동</td>
+		<td align="center">20</td>
+		<td align="center">남자</td>
+		<td>서울시 강남구 역삼동 한독빌딩</td>
+		</tr>
+		<tr>
+		<td align="center" colspan="2">개발자(5년차)</td>
+		<td>공공기관 프로젝트 참여</td>
+		</tr>
+		<tr>
+		<td align="center">2</td>
+		<td align="center">아무개</td>
+		<td align="center">22</td>
+		<td align="center">남자</td>
+		<td>서울시 강남구 대치동</td>
+		</tr>
+		<tr>
+		<td align="center">3</td>
+		<td align="center">홍갈통</td>
+		<td align="center">20</td>
+		<td align="center">남자</td>
+		<td>서울시 강남구 역삼동</td>
+		</tr>
+		<tr>
+		<td align="center">4</td>
+		<td align="center">아무개</td>
+		<td align="center">22</td>
+		<td align="center">남자</td>
+		<td>서울시 강남구 대치동</td>
+		</tr>
+	</table>
+</body>
+</html>

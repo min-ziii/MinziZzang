@@ -1,0 +1,25 @@
+package com.test.question;
+
+public class Q_079 {
+	public static void main(String[] args) {
+		 int [][] nums = new int [3][3];
+		 int n = 1;
+		 
+		 for(int i=0;i<nums.length;i++) {
+			 for(int j=0;j<nums[0].length;j++) {
+				 nums[i][j]=n;
+				 n++;
+			 }
+		 }
+		 printArray(nums);
+	}
+
+	private static void printArray(int[][] nums) {
+		for(int i=0;i<nums.length;i++) {
+			 for(int j=0;j<nums[0].length;j++) {
+				 System.out.printf("%2d\t",nums[i][j]);
+			 }
+			 System.out.println();
+		}
+	}
+}

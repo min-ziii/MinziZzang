@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/fc01a97dc6.js" crossorigin="anonymous"></script>
+    <style>
+        /* 
+
+            CSS 선택자
+            1. :first-child
+                - 가상 클래스
+
+            2. ::before
+                - 가상 요소, Pseudo Element
+                - :before > 이전 표기법
+                - ::before > 현재 표기법
+            
+            전후 선택자
+            - 선택한 요소의 앞이나 뒤에 내용을 추가하는 역할
+            1. ::before
+            2. ::after
+
+        */
+        
+
+        p > span {color: coral;}
+        p > span::before {
+            content: '문자열';
+            color: aqua;
+            font-size: 2rem;
+        }
+
+        p > span::after {
+            content: '홍길동';
+            color: violet;
+            font-size: 2rem;
+        }
+
+        ul > li::after {
+            content: '원';
+        }
+        h1 > i {
+            color: black;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- ex39_selector.html -->
+    <i class="fa-solid fa-cat"></i>
+    <h1>CSS</h1>
+     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. <span>Repellat</span> quibusdam doloribus dolorem cum repellendus ex nam minus et <span>quisquam</span> corporis hic, saepe nisi, quam minima, voluptatum <span>nesciunt</span> sit.</p>
+
+     <hr>
+
+     <ul>
+        <li>아메리카노: 2,000</li>
+        <li>카페라테: 3,500</li>
+        <li>스무디: 4,500</li>
+     </ul>
+</body>
+</html>

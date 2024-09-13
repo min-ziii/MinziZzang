@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>40번</title>
+</head>
+<body>
+    <!-- ex40_object.html -->
+
+    <script>
+        /*
+            객체, object
+            - 자바스크립트에서는 클래스가 없다. 하지만 내장 객체를 제공한다.
+
+            1. 내장 객체
+                - Date, Array, Math, String, Object 등..
+
+            2. BOM 객체
+                - window, document, form, text, button 등
+
+            3. DOM 객체
+                - element, attribute, text, comment 등
+
+            4. 사용자 정의 객체
+                - 자바스크립트는 클래스가 없다.
+                    > 원하는 형태의 객체 생성 불가능
+                    > 가능하게 하는 기술 제공
+        
+             사용자 정의 객체
+             1. object 내장 객체를 사용
+                - var list = new Array();
+                - var today = new Date();
+                - var obj = new Object(); //사용자 정의 객체
+
+             2. {} > 객체 리터럴을 사용
+                - var obj = {};
+
+                
+            자바
+            class User {
+                public String name;
+                public int age;
+                public String address;
+            }
+            
+            User hong = new User();
+
+            hong.name = "홍길동";
+            hong.age = "20";
+            hong.address = "강남구";
+            
+            
+            
+            */
+           
+           //수업 > let vs const ?
+           
+           const hong = new Object(); //빈객체
+           console.log(hong); //Object, {}
+           
+           //*** 모든 객체는 프로퍼티를 자유롭게 추가/삭제가 가능하다.
+           hong.name = "홍길동";
+           hong.age = "20";
+           hong.address = "강남구";
+
+           console.log(hong);
+           console.log(hong.name);
+           console.log(hong.age);
+           console.log(hong.address);
+           
+           //프로퍼티 제거
+           delete hong.name; 
+           console.log(hong);
+
+           //프로퍼티 표기법
+           //1. hong.age
+           //2. hong['age']
+
+            hong.tel = '010-1234-5678';
+            console.log(hong.tel);
+            console.log(hong['tel']);
+
+           // '-' 사용할 때 아래와 같이
+           hong['home-tel'] = '02-1234-5678';
+           console.log(hong['home-tel']);
+
+           document.age = 20;
+           console.log(document.age);
+
+           console.clear();
+
+           //자바스크립트 객체 만들기
+           //1. 빈 객체를 만든다.
+           //2. 원하는 프로퍼티를 추가한다.
+
+           //빈 객체
+           const lee = new Object;
+
+           //프로퍼티, 값 추가
+           lee.name = '이순신';
+           lee.age = '30';
+           lee.address = '강동구';
+           console.log(lee);
+           
+           //빈 객체
+           const you = new Object;
+
+           //프로퍼티, 값 추가
+           you.name = '유재석';
+           you.age = '40';
+           you.address = '강서구';
+           console.log(you);
+           
+           //빈 객체
+        //    const park = {}; //new object
+
+           //프로퍼티, 값 추가
+        //    park.name = '박문수';
+        //    park.age = '50';
+        //    park.address = '강북구';
+        //    console.log(park);
+
+           const park = {
+            name: '박문수',
+            age: 50,
+            address : '강북구'
+           };
+           console.log(park);
+
+           const dog = {
+            name: '강아지',
+            age: 3,
+            address: '한독빌딩'
+           };
+
+           const cat = {
+            name: '고양이',
+            age: 2,
+            address: {
+                si: '서울시',
+                gu: '강동구',
+                dong: '천호동',
+                bunji: '123번지'
+            },
+            nick: ['냥이','고먐미']
+           };
+           console.log(cat);
+
+           const pig = {
+            name: '돼지',
+            age: 5,
+            hello: m1
+           };
+
+           function m1() {
+            alert('꿀꿀');
+           }
+
+           pig.hello();
+           
+
+    </script>
+
+</body>
+</html>

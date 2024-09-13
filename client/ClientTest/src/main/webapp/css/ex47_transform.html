@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            transform, 변형
+            - 요소의 위치, 크기, 회전, 비틀기 > 변형
+            - transform: 값;
+
+            값(함수)
+            1. translate() > 위치 변형
+            2. scale() > 크기 변형 > 배율 변형
+            3. rotate() > 회전 변형
+            --------------------------------------
+            4. skew() > 비틀기(왜곡) 변형
+            5. matrix() > 사용자 정의형(1~4번 포함)
+
+        */
+        /* 
+            <br>
+            - 공백을 작성하기 위한 용도(X)
+            - 인라인 태그 + 텍스트 > 개행을 표시하기 위한 용도(O)
+        
+        */
+        body {
+            margin-bottom: 300px;
+        }
+        .box {
+            border: 10px solid black;
+            width: 200px; height: 200px;
+        }
+        #box1 { background-color: tomato; }
+        #box2 { background-color: gold; }
+        #box3 { background-color: cornflowerblue; }
+
+        #box2 {
+            /* 위치 변형 > 좌표 지정 */
+            /* transform: translate(100px, 100px); */
+            
+            /* 배율 변경 */
+            margin-left: 200px;
+            transform: scale(2,-2);
+            
+            /* 회전 변형 */
+            transform: rotate(360deg);
+            margin-left: 200px;
+
+            /* 왜곡 변형 */
+            transform: skew(10deg,10deg);
+        }
+        #box3 {
+            width: 300px;
+            height: 300px;
+        }
+        /* #cat > img:nth-child(1):hover {
+            transform: translate(0px, -10px);
+        } */
+        #cat > img:hover {
+            transform: translate(0px, -10px);
+            transform: scale(1.5, 1.5);
+            transform: rotate(45deg);
+        }
+        #txt1 {
+            margin: 200px;
+            font-size: 2rem;
+            padding: 10px;
+            transform: scale(2,-2);
+        }
+    </style>
+</head>
+<body>
+    <!-- ex47_transform.html -->
+     <!-- 
+        CSS
+        - transform
+        - transition
+        - display: flex, grid
+
+        JavaScript : 2주
+
+        Servlet/JSP : 2~3주
+        -> 프 3주 // 1주 or X 변경 가능
+
+        Spring : 2~3주
+        -> 프 2주 // 3주로 변경 가능
+
+        Spring Boot : 1~2주
+        -> 프 1~2주 // 2~3주로 변경 가능
+    
+     -->
+     <div id="box1" class="box">상자1</div>
+     <div id="box2" class="box">상자2</div>
+     <div id="box3" class="box">상자3</div>
+
+     <hr>
+
+     <div id="cat">
+        <img src="images/catty01.png" alt="">
+        <img src="images/catty02.png" alt="">
+        <img src="images/catty03.png" alt="">
+        <img src="images/catty04.png" alt="">
+        <img src="images/catty05.png" alt="">
+     </div>
+
+     <hr>
+
+     <input type="text" id="txt1">
+ 
+</body>
+</html>
