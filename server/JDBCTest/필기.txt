@@ -1,0 +1,96 @@
+0924
+--MVC파일에 views 만들기! 이후 추가 파일 입력!!
+
+*******1017오류
+-- JDBCTest/script.sql
+create user server identified by java1234;
+grant connect, resource, dba to server;
+
+이코드 systemlocal 에서 적용시키고 나서 server@localhost 접속!
+----------------------------------------------------------------
+c: > oraclexe > product > jdbc > 6.jar lib 파일에 넣으세요! 
+
+sql 코드는 script.sql 참고!
+
+com.test.java > "Ex01.java"
+webapp > "ex01.jsp"
+
+*** 서블릿 > JSP
+
+페이지 요청 > 서블릿 호출 > 서블릿 업무 코드 처리 > 산출물을 JSP에 전달 > JSP 호출 > 전달받은 산출물 + HTML 페이지 생성 > 페이지 응답
+
+서블릿을 생성한다.
+
+[나의 필기]
+Ctrl + F11 눌러서 실행했을 때 404 오류가 뜨면 무조건 100% 주소가 틀린 것
+
+
+오라클 동작 확인
+Win+R > services.msc
+- OracleServiceXE > 실행 중
+- OracleXETNSListener > 실행 중
+
+
+새 프로젝트
+- "JDBCTest" > "jdbc" + web.xml(O)
+
+
+
+- "com.test.java" > "Ex01.java"
+                  > "Ex02.java"
+                  > "DBUtil.java"
+                  
+				  > "Ex03_Statement.java"                
+                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

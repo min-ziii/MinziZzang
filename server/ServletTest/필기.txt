@@ -1,0 +1,120 @@
+*** 개발환경 & 실행 환경
+1. Eclipse Version(하)
+	- Help > About Eclispe IDE
+	- Version: 2022-06 (4.24.0)
+2. JDK 11(중)
+3. Apache Tomcat(중)
+	- Tomcat 9.XXX
+4. Oracle 11g XE
+5. Chrome Browser
+
+
+		
+
+새프로젝트 생성
+New > Dynamic Web Project
+    > project name: "ServletTest"
+    > context root: "servlet"
+    > generate web.xml: 체크O
+
+Tomcat Server Port Number
+	- 8090
+
+
+웹 페이지
+1. 정적 페이지 > 요청할 때마다 소스의 변화가 없는 페이지
+	ex) HTML 페이지
+2. 동적 페이지 > 요청할 때마다 소스의 변화가 있는 페이지
+	ex) 서버 페이지
+	ex) 지메일 > 받은 편지함 페이지
+		- 홍길동 접속 > 길동에게 온 편지 목록
+		- 아무개 접속 > 무개에게 온 편지 목록
+ 
+
+Servlet, 서블릿
+- 웹 서버에서 자바를 사용한 프로그램을 동작시키는 기술
+- 프로그램 역할 > 웹 페이지 생성
+- 웹 서버측에서 동적으로 웹페이지를 만드는 기술
+
+
+Servlet Class
+- 바리스타(알바생)
+- 클라이언트 요청에 따라 동적으로 웹 페이지를 생산하는 클래스
+
+Servlet Container
+- 서버측에서 Servlet을 실행할 수 있는 환경
+- Servlet을 생성, 실행, 관리, 소멸... 모든 과정 관리하는 환경
+- 대표 컨테이너 > 톰캣(Tomcat)
+
+
+패키지 + 파일
+- "com.test.servlet" > "Ex01.java"
+
+
+동적 페이지 요청 절차(********************)
+1. 클라이언트(Browser)가 생산 프로그램(Serlvet)에게 요청
+2. 생산 프로그램은 요청에 맞는 페이지를 동적으로 생산
+3. 생산된 페이지를 클라이언트 소비(열람)
+
+
+
+Servlet Class 작성 규칙
+
+1. 서블릿 클래스 선언 > 순수 자바 클래스(X), 서블릿 API 사용(O)
+	a. javax.servlet.Servlet 인터페이스를 구현한다. > 복잡함. 고비용. 직접
+	a. javax.servlet.http.HttpServlet 클래스를 상속받는다. > 단순함. 저비용
+	 
+2. doGet/doPost 메소드 선언
+	- 둘 중 하나 선언 or 둘 다 선언
+	- 클라이언트(브라우저)의 요청이 들어오면 자동으로 호출되는 메소드 > "주문"
+	- 커피 만드는 작업 수행 == 페이지 만드는 작업 수행
+	- 메소드 작성 규칙
+		a. 매개 변수 작성
+			1. javax.servlet.http.HttpServletRequest
+			2. javax.servlet.http.HttpServletResponse
+		b. 예외 미루기
+			1. java.io.IOException
+			2. javax.servlet.ServletException
+			
+3. 동적 HTML 페이지 작성
+	- doGet/doPost 내부에서 HTML 문서를 작성하기 위한 자바 코드를 작성한다.(개발자)
+	- HttpServletResponse 객체의 getWriter() 메소드 호출 > PrintWriter 객체 반환
+	- PrintWriter 객체 == 페이지를 제작하는 도구
+	- printXXX("태그 작성 or CSS or JavaScript"); > 동적으로 페이지 생성
+	- 페이지 완성 > 브라우저에게 반환
+
+4. 서블릿 호출
+	- 순수 자바는 웹 기술이 아니다. > 브라우저를 통해서 자바 프로그램을 호출할 수 없다.
+	- 톰캣이 그 요청을 대신 받아서 자바 프로그램을 호출한다. > 톰캣(Servlet Container)
+	- 자바 프로그램을 호출하기 위한 가상 주소를 생성
+	- webapp > WEB-INF > web.xml(톰캣 환경 설정 파일)
+	
+
+
+- com.test.servlet > "Ex02.java"
+- com.test.servlet > "Ex03.java"
+
+- com.test.servlet > "Ex04_Send.java" > 사용자 데이터 입력 
+- com.test.servlet > "Ex04_Receive.java" > 데이터 수신
+
+
+서블릿 수업 끝~
+
+Servlet > JSP(=Servlet) > Servlet + JSP
+
+
+
+
+
+  
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   

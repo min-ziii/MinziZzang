@@ -1,0 +1,290 @@
+새프로젝트 생성
+New > Dynamic Web Project
+    > project name: "JSPTest"
+    > context root: "jsp"
+    > generate web.xml: 체크O
+
+
+Hello
+- webapp > "ex01.jsp"
+
+
+Servlet
+- 자바 기반(클래스)
+- HTML 구문 > 문자열 조작
+- 장점: 자바 코드 작성 원할
+- 단점: HTML 코드 작성 곤란
+
+JSP
+- HTML 기반
+- 자바 구문 > 일부 영역 제공(<% %>)
+- 장점: HTML 코드 작성 원할
+- 단점: 자바 코드 작성 약간 불편
+
+
+
+JSP 구성 요소 > 자바 요소
+
+1. JSP 지시자, JSP Directive
+	- <%@ %>
+	- page 지시자
+	- include 지시자
+	- taglib 지시자
+
+2. 스크립트 요소, Scripting Elements
+	- <% %>
+	- 스크립틀릿
+	- 익스프레션
+	- 선언부
+
+3. 액션 태그, Action Tag
+	- <jsp:XXX> or <c:XXX>
+	- 기본 액션 태그
+	- 확장 액션 태그
+	- 사용자 정의 액션 태그
+
+
+Servlet > Tomcat > Servlet Container
+JSP     > Tomcat > JSP Container
+
+	
+
+page 지시자
+- webapp > "ex02.jsp"
+- JSP 페이지 실행 환경 > 톰캣에게 알려주는 내용
+- JSP 페이지 상단에 기술
+- 1개 이상 작성 가능~
+
+- <%@ page 
+		language="java" 
+		contentType="text/html; charset=UTF-8"
+		pageEncoding="UTF-8"
+  %>
+	a. language="java" 
+		- JSP 페이지에서 사용할 프로그래밍 언어 지정
+		
+	b. contentType="text/html; charset=UTF-8"
+		- JSP 페이지의 콘텐츠에 대한 기술
+		- text/html: MIME 타입 > HTML 페이지 > 브라우저에게 전달
+		- charset=UTF-8: 인코딩 > HTML 페이지 > 브라우저에게 전달
+
+	c. pageEncoding="UTF-8"
+		- 현재 JSP 페이지의 인코딩
+
+
+
+include 지시자
+- webapp > "ex03.jsp" > 일반 페이지
+- webapp > "inc" > "copyright.jsp" > 조각 페이지
+
+
+
+스크립트 요소 > 스크립틀릿
+- <% %>
+- Script + Applet
+- HTML 영역에서 Java 문법을 사용 가능하게 하는 영역을 제공
+- ex04_scriptlet.jsp
+
+스크립트 요소 > 익스프레션, 표현식
+- <%= %>
+- 자바의 값(데이터)을 HTML 문서(***)에 출력하는 역할
+- 브라우저 화면에 출력하는게 아니다.(***)
+- System.out.println() 역할
+
+
+- ex05_scriptlet.jsp
+
+- ex06_scriptlet.jsp
+
+스크립트 요소 > 선언부
+- <%! %>
+- 멤버를 선언하는 역할
+- ex07_declaration.jsp
+
+JSP 작동 원리
+- 그림 참조
+
+JSP 내장 객체, JSP Implicit Object
+- 개발자가 직접 생성하지 않아도, 톰캣이 미리 만들어서 제공하는 객체
+- JSP > 예약어로 제공한다. > 실제로는 서블릿의 메소드 매개변수이다.
+- Servlet > 매개 변수로 제공한다.
+
+- request, response, session, pageContext
+- out, application
+- config, page, exception
+
+
+*** 순서도 함께 기억
+pageContext, request, session, application
+	- 공통점: 객체 내부에 사용자 데이터를 저장할 수 있는 컬렉션(Map)을 가진다.
+	- void setAttribute(String key, Object value)
+	- Object getAttribute(String key)
+
+
+request
+- HttpServletRequest 클래스
+- 서블릿의 doGet/doPost/_jspService 메소드의 첫번째 매개변수
+- 주로 클라이언트측에서 서버측으로 발생하는 모든 업무를 담당한다.
+
+1. 클라이언트에서 서버로 보낸 데이터를 가져오기
+	- "ex08_form.jsp" : 사용자 입력을 받는 페이지(Ex03_Send.java)
+	- ex08_ok.jsp	  : 전송된 데이터를 수신하는 페이지(Ex03_Receive.java)
+
+	- ex09_form.jsp
+	- ex09_ok.jsp
+
+2. 클라이언트에서 서버로 보낸 데이터의 인코딩 처리
+
+3. 클라이언트에서 서버로 보낼 때 여러가지 정보를 가져오기
+	- "ex12_request.jsp"
+	
+response
+- HttpServletResponse 클래스
+- 서블릿의 doGet/doPost/_jspService 메소드의 두번째 매개변수
+- 주로 서버측에서 클라이언트 측으로 발생하는 모든 업무를 담당한다.
+
+1. 돌려줄 HTML 페이지 제작
+	- response.getWriter() > PrintWriter > HTML 제작
+	- 서블릿 > 사용 O
+	- JSP > 암시적 사용 O
+
+2. 돌려줄 HTML 페이지 인코딩 설정
+	- response.setCharaterEncoding("UTF-8")
+	- 서블릿 > 사용 O
+	- JSP > contentType="text/html; charset=UTF-8"
+	
+3. 돌려줄 HTML 페이지 MINE 설정
+	- contentType="text/html;"
+	- 파일 업로드 수업 때
+
+-- 0920 오전
+4. 페이지 이동하기
+	- "ex13_response_1.jsp"
+	- "ex13_response_2.jsp"
+	
+pageContext
+- "ex14_pagecontext_1.jsp"
+- "ex14_pagecontext_2.jsp"
+
+
+out
+- 출력 객체
+- JSP 방식이 아닌 Servlet 방식으로 출력을 지원하는 객체
+- "ex15_out.jsp"
+
+
+session & application
+- session > 개인 정보 관리 객체
+- application > 사이트 정보 관리 객체
+
+- "ex16_session.jsp"
+- "ex16_session_2.jsp"
+- "ex16_session_3.jsp"
+
+
+- "ex17_session.jsp"
+
+- "ex18_session.jsp"		//메인 페이지
+- "ex18_set.jsp"			//기능 페이지
+- "ex18_del.jsp"
+- "ex18_interval.jsp"
+- "ex18_reset.jsp"
+
+
+
+파일 업로드/ 다운로드
+9월 12일에 jsoup 다운 받고
+9월 20일에 cos 다운 받음
+
+cos.jar 다운로드!!!!! lib에 넣기(카톡 참고)
+
+단일 파일 업로드
+- "ex19_form.jsp"
+- "ex19_ok.jsp"
+
+
+다중 파일 업로드
+- "ex20_form.jsp"
+- "ex20_ok.jsp"
+
+-- 0923
+EL, Expression Language
+- ex23_el.jsp
+- JSP(자바)의 표현식(<% %>) > HTML 문서에 값을 출력하는 역할
+- JSP 페이지 내에서 자바 문법을 사용하지 말자!!
+- <% %>을 대신하는 언어 > EL (***) = 가독성 + 편의성
+
+
+JSTL, JSP Standard Tag Library
+- 액션 태그
+- 자바의 프로그래밍
+- JSP 페이지 내에서 자바 문법을 사용하지 말자!!!
+- <% %>을 대신(X) > <% %> 일부 구문 대신(O)
+- ex24_jstl.jsp >> jar 파일 설치 jstl (Maven에서 다운 javax.servlet >> jstl 1.2)  >> webapp > WEB-INF > lib > jstl-1.2.jar 복사
+
+
+application
+- ex25_application.jsp
+
+
+***페이지에 에러 표시가 떴을 때는 코드 수정을 하거나 강제(주석)로 에러를 없애는 습관 들이기! 나중에 헷갈림!
+
+쿠키, Cookie
+- 브라우저 기능 중 하나 > 데이터 저장소
+- JavaScript or Java로 조작 가능
+- 용도: 사용자(브라우저)가 웹 사이트 방문 > 웹 사이트측에서 접속한 사용자에 대한 개인 정보를 저장하기 위한 장치 > 사용자의 컴퓨터에 저장한다.(***) > 사용자에 대한 여러가지 정보들을 지속적으로 유지/관리 or 행동 추적 등..
+
+사이트 > 사용자 정보 관리
+1. DB저장
+	- 가장 좋음
+	- 무겁고 비싸다
+=========================비교 대상 X !
+2. 세션(Session)
+	- 서버 메모리에 생성
+	- 자바 > 저장 가능한 자료형 > Object(모든 것)
+	- 보안 양호
+	- 크기 무제한(서버 메모리 허용량)
+	- 모든 페이지에서 접근 가능(= 전역 변수 역할)
+	
+3. 쿠키(Cookie)
+	- 클라이언트 메모리 or 하드 디스크에 생성
+	- 텍스트 파일 > 저장 가능한 자료형 > 문자열
+	- 보안 불안정
+	- 4KB, 최대 20개
+	- 모든 페이지에서 접근 가능(= 전역 변수 역할)
+	
+- ex26_cookie.jsp
+- ex26_cookie_2.jsp
+
+- ex27_cookie_1.jsp
+- ex27_cookie_2.jsp
+- ex27_cookie_3.jsp
+
+
+- ex28_cookie_form.jsp
+- ex28_cookie_ok.jsp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    

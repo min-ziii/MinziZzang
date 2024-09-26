@@ -1,0 +1,54 @@
+0926
+
+새프로젝트
+AjaxTest > ajax > + web.xml(O)
+
+Ajax, Asynchronous JavaScript and XML
+- 비동기 자바스크립트 and XML
+- 자바스크립트를 사용해서 서버와 비동기 통신을 하는 기술(주고 받는 데이터 형식 XML)
+- 클라이언트와 서버간에 XML형식의 데이터를 주고 받는 자바스크립트 비동기 기법 기능
+
+파일
+- AjaxTest > script.sql
+- com.test.ajax > AjaxDAO.java
+				> UserDTO.java
+				> SurveyDTO>java
+				> EX01.java
+				> Ex02.java
+				> Ex02Data.java
+
+WEB-INF > views > ex01.jsp
+				> ex02.jap
+				> ex02data.jsp
+
+라이브러리
+- lib > ojdbc6.jar
+	  > util.jar
+	  > jsul -1.2.jar
+	  
+	 
+>>아까랑 동일하게 블럭으로 만들기! constructor dao로 만듬!
+	private Connection conn;
+	private Statement stat;
+	private PreparedStatement pstat;
+	private ResultSet rs;
+	
+	
+	public ${primary_type_name}() {
+		this.conn = DBUtil.open();
+		
+	}
+	
+	
+
+Ajax 구현
+1. 바닐라 자바스크립트
+	- XMLHttpRequest 객체 사용
+	
+2. jQuery Ajax
+
+3. ES6
+	- fetch api
+	
+4. Library
+	- Axios(Node.js)

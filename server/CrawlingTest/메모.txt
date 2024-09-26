@@ -1,0 +1,5 @@
+0925 다운로드 내역
+
+https://www.selenium.dev/downloads/   => JAVA > stable
+
+https://googlechromelabs.github.io/chrome-for-testing/  => chromedriver win64

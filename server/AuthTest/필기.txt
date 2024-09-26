@@ -1,0 +1,60 @@
+0926
+
+새프로젝트
+- "AuthTest" > "auth" + web.xml(O)
+
+인증, Authentication
+- 로그인, 로그아웃
+- 사인인, 사인아웃
+- 현재 접속자가 해당 사이트의 구성원인지 확인하는 작업
+- 본인 확인 작업(아이디, 암호) > 인증 티켓 발급 (인증 과정을 거쳐야지만 가질 수 있는 정보) > 사이트 내에서 자유롭게 이동 + 사용
+
+
+허가, Authorization
+- 특정 행동을 할 때 권한이 있는지 확인하는 작업
+
+인증 티켓
+- 전역 + 개인적 > 세션(*) or 쿠키
+
+페이지 
+- "com.test.java" > "Index.java" 		//시작 페이지
+- "com.test.java.auth" > "Login.java"	//로그인 폼 페이지
+					   > "LoginOk.java"	//로그인 처리 페이지
+					   > "LogutOk.java" //로그아웃 페이지
+- "com.test.java.member" > "Member.java" // 회원 전용 페이지 
+- "com.test.java.admin" > "Admin.java" // 관리자 전용 페이지 
+- "com.test.java.db" > "AuthDAO.java"  //업무명+DAO
+					 > "UserDTO.java"  //테이블명+DTO
+
+- webapp > "views" > "index.jsp"
+- webapp > "views" > "auth" > "login.jsp"
+- webapp > "views" > "member" > "member.jsp"
+- webapp > "views" > "admin" > "admin.jsp"
+- webapp > "views" > "inc" > "header.jsp"
+
+
+- AuthTest > "script.sql"
+
+
+라이브러리
+- WEB-INF > lib > ojdbc6.jar
+				> util.jar
+				> jstil-1.2.jar
+
+				
+-- 추가 설정
+아래 주소 설정 > java > template > new 만들기! 이름: servlet //수업servlet  ==> 보기편한대로!!
+
+@WebServlet("/${name}.do")
+public class ${primary_type_name} extends HttpServlet {
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+	${cursor}
+
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/${name}.jsp");
+		dispatcher.forward(req, resp);
+	}
+
+}

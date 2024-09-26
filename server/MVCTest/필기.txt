@@ -1,0 +1,21 @@
+0923
+
+새프로젝트
+Dynamic Project => MVCTest => root: mvc (Web.xml 클릭)
+
+
+1. Servlet
+
+2. JSP > JSP Model 1
+	- 상단부: 자바 코드
+	- 중하단부: HTML 코드
+	
+3. Servlet + JSP > JSP Model 2
+	- Servlet: 자바 코드
+	- JSP: HTML 코드
+	
+Hello
+- "com.test.java' > "Hello.java"
+- webapp > "hello.jsp"
+
+서블릿 + JSP = 업무 순서 : 서블릿 > JSP = 1 페이지
