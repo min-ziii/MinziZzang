@@ -9,17 +9,31 @@ Ajax, Asynchronous JavaScript and XML
 - 클라이언트와 서버간에 XML형식의 데이터를 주고 받는 자바스크립트 비동기 기법 기능
 
 파일
-- AjaxTest > script.sql
-- com.test.ajax > AjaxDAO.java
-				> UserDTO.java
-				> SurveyDTO>java
-				> EX01.java
-				> Ex02.java
-				> Ex02Data.java
+- AjaxTest > "script.sql"
+- "com.test.ajax" > "AjaxDAO.java"
+                  > "UserDTO.java"
+                  > "SurveyDTO.java"
+                  > "Ex01.java"
+                  
+                  > "Ex02.java"
+                  > "Ex02Data.java"
+                  
+                  > "Ex03.java"
+                  > "Ex03Data.java"
+                  
+                  > "Ex04.java"
+                  > "Ex04Data.java"
+                  
+- WEB-INF > "views" > "ex01.jsp"
 
-WEB-INF > views > ex01.jsp
-				> ex02.jap
-				> ex02data.jsp
+                    > "ex02.jsp"
+                    > "ex02data.jsp"
+                    
+                    > "ex03.jsp"
+                    > "ex03ok.jsp"
+                    
+                    > "ex04.jsp"
+                    
 
 라이브러리
 - lib > ojdbc6.jar
@@ -52,3 +66,46 @@ Ajax 구현
 	
 4. Library
 	- Axios(Node.js)
+	
+0927
+- xmlhttprequest readystate
+- http 상태 코드
+
+ajax를 jQuery 버전으로
+
+- EX05.java
+- ex05.jsp
+- EX05Check.java
+- ex05check.jsp
+- EX05Data.java
+
+
+
+- EX06.java
+- ex06.jsp
+
+- EX06Data.java
+
+- EX06Check.java
+- ex06check.jsp
+
+
+
+
+
+
+
+
+
+- MVC 구조 > 정리 > Memo
+- 인증 > 정리
+- Ajax
+
+
+
+
+
+
+
+
+
