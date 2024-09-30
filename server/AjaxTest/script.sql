@@ -29,3 +29,33 @@ update tblSurvey set
     cnt4 = 7
         where seq = 1;
     commit;
+    
+    
+--고양이 테이블
+create table tblCat(
+    catid varchar2(50) primary key,
+    left number not null,
+    top number not null
+);
+commit;
+
+insert into tblCat values('cat1', 0, 0);
+
+select * from tblCat;
+
+delete from tblCat;
+
+select max(to_number(substr(catid, 4))) from tblCat;
+
+
+-- 테이블 데이터 삭제하기
+--1. Delete
+--2. Truncate > Delete + Commit > 지운 후 자동 커밋 즉, 되돌리기 불가능!
+--3. Drop
+select * from tblAddress;
+delete from tblAddress;
+rollback;
+
+truncate table tblAddress;
+-- 롤백을 해도 돌아오지 않음..!
+

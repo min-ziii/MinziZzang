@@ -89,9 +89,32 @@ ajax를 jQuery 버전으로
 - EX06Check.java
 - ex06check.jsp
 
+- "Ex07.java"
+- "ex07.jsp"
+
+- "Ex07Data.java"
 
 
 
+- "Ex08.java"
+- "ex08.jsp"
+
+- "Ex08Data.java"
+
+
+- "Ex09.java"
+- "ex09.jsp"
+
+- "Ex09Data.java"
+
+
+- "Ex10.java"
+- "ex10.jsp"
+
+- "Ex10Data.java"
+- "Ex10Add.java"
+- "Ex10Del.java"
+- "AddressDTO.java"
 
 
 
@@ -102,7 +125,9 @@ ajax를 jQuery 버전으로
 - Ajax
 
 
-
+0930
+zipcode.zip =>  sql에서 데이터 커밋
+json-simple-1.1.1.jar lib파일에 넣기!
 
 
 

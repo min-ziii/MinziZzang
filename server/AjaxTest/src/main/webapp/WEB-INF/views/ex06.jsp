@@ -169,7 +169,7 @@
 			
 		});
 		
-		$('#btn3').click(()=>{
+		/* $('#btn3').click(()=>{
 			$.ajax({
 				type: 'GET',
 				url: '/ajax/ex06data.do',
@@ -180,6 +180,40 @@
 					//result = {"question": "가장 자신있는 프로그래밍 언어는?"};
 					//alert(result.question);
 					$('#div3').text(result.question);
+					
+				},
+				error: function(a,b,c) {
+					console.log(a,b,c);
+				}
+			});
+		}); */
+		
+		
+		$('#btn3').click(()=>{
+			$.ajax({
+				type: 'GET',
+				url: '/ajax/ex06data.do',
+				data: 'type=6',
+				dataType: 'json',
+				success: function(result) {
+					//console.log(result);
+					
+					$(result).each((index, user)=>{
+						//alert(user.name);
+						
+						$('#div3').append(
+								`
+								<ul>
+									<li>아이디: \${user.id}</li>
+									<li>암호:   \${user.pw}</li>
+									<li>이름:   \${user.name}</li>
+									<li>등급:   \${user.lv}</li>
+								</ul>
+								<hr>
+								`
+							);
+						
+					});
 					
 				},
 				error: function(a,b,c) {
