@@ -1,0 +1,30 @@
+1001
+
+새프로젝트
+- "OpenAPITest" > "api" > web.xml(O)
+
+OpenAPI
+- 누구나 사용할 수 있도록 공개된 API
+- Open Application Programming Interface의 약자로 누구나 사용할 수 있도록 공개된 API
+- 데이터 검색 기능 > 데이터 검색 API
+- 지도 API
+- 로그인 API
+
+파일
+- com.test.api > Sampel.java
+- com.test.api > BookDAO.java <DAO는 파일 데이터 관리>
+- com.test.api > BookDTO.java
+
+- com.test.api > Ex01.java
+- WEB-INF > "views" > ex01.jsp
+
+라이브러리
+- lib > jstl, util, ojdbc6
+
+- 네이버 개발자 센터
+Id : R7RlpVi_CWg9BKpswlnA
+pw : _ePxOiK1PV
+
+지도 API
+- com.test.api.map > Ex01.java
+- views > map > ex01.jsp
