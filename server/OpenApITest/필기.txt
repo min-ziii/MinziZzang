@@ -28,3 +28,24 @@ pw : _ePxOiK1PV
 지도 API
 - com.test.api.map > Ex01.java
 - views > map > ex01.jsp
+
+
+
+1007
+지도 API
+
+- "com.test.api.map" > "Ex01.java"
+                     > "MapDAO.java"
+                     > "MapDTO.java"
+                     > "Add.java"
+- views > "map" > "ex01.jsp"
+				> "ex02.jsp"
+				> "ex03.jsp"
+				> "ex04.jsp"
+				> "ex05.jsp"
+				> "ex06.jsp"
+				> "ex07.jsp"
+				> "ex08.jsp"
+				
+- webapp > "images" > default.png 복사
+- OpenAPITest > "script.sql"
