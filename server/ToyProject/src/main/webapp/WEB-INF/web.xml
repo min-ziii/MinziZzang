@@ -10,7 +10,7 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
-  <!-- 필터 등록 -->
+  <!-- 필터 등록 1 -->
   <filter>
   	<filter-name>encoding</filter-name>
   	<filter-class>com.test.toy.filter.EncodingFilter</filter-class>
@@ -20,5 +20,16 @@
   	<url-pattern>*.do</url-pattern>
   </filter-mapping>
   
+  
+  
+  <!-- 필터 등록 2 -->
+  <filter>
+  	<filter-name>auth</filter-name>
+  	<filter-class>com.test.toy.filter.AuthFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  <filter-name>auth</filter-name>
+  	<url-pattern>*.do</url-pattern>
+  </filter-mapping>
   
 </web-app>

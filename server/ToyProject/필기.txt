@@ -86,14 +86,39 @@
 
 
 
+1010!!
+
+	- 패키지
+		- com.test.toy.board
+			- List.java
+			- View.java
+			- Add.java
+			- Edit.java
+			- Del.java
+	
+		- com.test.toy.board.repository
+			- BoardDAO.java
+		- com.test.toy.board.model
+			- BoardDTO.java
+	
+	- 뷰
+		- views > board
+					- list.jsp
+					- view.jsp
+					- add.jsp
+					- edit.jsp
+					- del.jsp
+
+게시판 구현
+1. CRUD
+2. 인증/허가
+	a. 목록보기, 상세보기 > 미인증(O), 인증(O)
+	b. 글쓰기, 수정하기 , 삭제하기 > 미인증(X), 인증(O) > 방식 > 노출 제어
+	c. 수정하기, 삭제하기 > 인증(O) > 본인만 가능
+	d. 수정하기, 삭제하기 >  관리자(O)
 
 
-
-
-
-
-
-
+게시판 검색
 
 
 

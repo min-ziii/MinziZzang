@@ -37,6 +37,7 @@ commit;
 -- 로그인
 select * from tblUser where id = ? and pw = ? ;
 
+
 /*
 - "com.test.toy": 메인 패키지
 		- "Index.jajva": 시작 페이지
@@ -89,4 +90,91 @@ select * from tblUser where id = ? and pw = ? ;
 -javaagent:C:\class\dev\eclipse\lombok.jar" 이거 넣기!
                         
 */
+
+
+--1010
+
+-- 게시판 테이블
+create table tblBoard (
+    seq number primary key,
+    subject varchar2(300) not null,
+    content varchar2(4000) not null,
+    regdate date default sysdate not null,
+    readcount number default 0 not null,
+    id varchar2(50) not null references tblUser(id) --아이디(FK)
+);
+
+create sequence seqBoard;
+
+
+select * from tblBoard;
+
+-- 작성 날짜 or 작성 시간 함수
+--1. 조회 시각이 오늘과 같은 날짜면 > 시간 반환
+--2. 조회 시각이 오늘과 다른 날짜면 > 날짜 반환
+create or replace function fnRegdate (
+    regdate date
+) return varchar2
+is
+
+begin
+    
+    if to_char(sysdate, 'yyyy-mm-dd') = to_char(regdate, 'yyyy-mm-dd') then
+        return to_char(regdate, 'hh24:mi:ss');
+    else
+        return to_char(regdate, 'yyyy-mm-dd');
+    end if;
+    
+end fnRegdate;
+/
+
+
+select fnRegdate(regdate) from tblBoard order by seq desc;
+
+--오류날때!
+select tablespace_name, file_name, bytes from dba_data_files;
+select username, default_tablespace from dba_user;
+
+--system으로 실행
+alter user toy default tablespace users;
+
+select * from tblBoard order by seq desc;
+
+update tblBoard set regdate = regdate - 1 where seq = 23;
+update tblBoard set regdate = regdate - 2.5 where seq = 21;
+update tblBoard set regdate = regdate - 5 where seq = 22;
+
+commit;
+
+
+select tblBoard.*, fnRegdate(regdate) as regtime, (select name from tblUser where id = tblBoard.id) as name from tblBoard order by seq desc;
+
+
+create or replace view vwBoard
+as
+select 
+    tblBoard.*, fnRegdate(regdate) as regtime, 
+    (select name from tblUser where id = tblBoard.id) as name,
+    (sysdate - regdate) as isnew
+from tblBoard 
+    order by seq desc;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
