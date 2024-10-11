@@ -36,6 +36,8 @@
 		</div>
 		
 		<input type="hidden" name="seq" value="${dto.seq}">
+		<input type="hidden" name="column" value="${column}">
+		<input type="hidden" name="word" value="${word}">
 		
 		</form>
 		

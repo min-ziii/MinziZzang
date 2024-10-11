@@ -1,6 +1,7 @@
 package com.test.toy.board;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -26,6 +27,8 @@ public class Edit extends HttpServlet {
 
 		// 1.
 		String seq = req.getParameter("seq");
+		String column = req.getParameter("column");
+		String word = req.getParameter("word");
 
 		// 2.
 		BoardDAO dao = BoardDAO.getInstance();
@@ -34,6 +37,9 @@ public class Edit extends HttpServlet {
 
 		// 3.
 		req.setAttribute("dto", dto);
+		req.setAttribute("column", column);
+		req.setAttribute("word", word);
+		
 
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/board/edit.jsp");
 		dispatcher.forward(req, resp);
@@ -56,6 +62,8 @@ public class Edit extends HttpServlet {
 		String content = req.getParameter("content");
 		//String id = session.getAttribute("auth").toString();
 		String seq = req.getParameter("seq");
+		String column = req.getParameter("column");
+		String word = req.getParameter("word");
 
 		// 2.
 		BoardDAO dao = BoardDAO.getInstance();
@@ -69,7 +77,7 @@ public class Edit extends HttpServlet {
 
 		// 3.
 		if (result == 1) {
-			resp.sendRedirect("/toy/board/view.do?seq=" + seq);
+			resp.sendRedirect("/toy/board/view.do?seq=" + seq + "&column="+column+"&word="+URLEncoder.encode(word, "UTF-8"));
 		} else {
 			OutputUtil.redirect(resp, "수정 실패");
 		}

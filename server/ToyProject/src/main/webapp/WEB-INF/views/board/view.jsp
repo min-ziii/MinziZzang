@@ -47,16 +47,46 @@
 		</table>
 		
 		
+		<!-- 댓글 보기 -->
+		<table id="comment">
+			<tbody></tbody>
+			<!-- <tr>
+				<td>
+				<div>댓글 내용입니다.</div>
+				<div>2024-10-11</div>
+				</td>
+				<td>
+					<div>홍길동(hong)</div>
+					<div>
+						<span class="material-symbols-outlined">delete</span>
+						<span class="material-symbols-outlined">edit_note</span>
+					</div>
+				</td>
+			</tr> -->
+		</table>
+		
+		
+		<!-- 댓글 쓰기 -->
+		<c:if test="${not empty auth}">
+		<form id="addCommentForm" onsubmit="return false">
+		<table id="addComment">
+			<tr>
+				<td><input type="text" name="content" class="full" required></td>
+				<td><button type="button" class="comment" id="btnAddComment">댓글쓰기</button></td>
+			</tr>
+		</table>
+		</form>
+		</c:if>
+		
+		
 		<div>
-		
-		
-		
-			<button type="button" class="back" onclick="location.href='/toy/board/list.do';">돌아가기</button>
+			<button type="button" class="back" onclick="location.href='/toy/board/list.do?word=${word}&column=${column}&page=${page}';">돌아가기</button>
+			
 			
 			
 			
 			<c:if test="${not empty auth && (dto.id == auth || lv == '2')}">
-			<button type="button" class="edit" onclick="location.href='/toy/board/edit.do?seq=${dto.seq}';">수정</button>
+			<button type="button" class="edit" onclick="location.href='/toy/board/edit.do?seq=${dto.seq}&word=${word}&column=${column}';">수정</button>
 			<button type="button" class="del" onclick="location.href='/toy/board/del.do?seq=${dto.seq}';">삭제</button>
 			<button type="button" class="reply">답변</button>
 			</c:if>
@@ -68,6 +98,9 @@
 	</div>
 	
 	<script>
+		
+		const lv = ${empty lv? 0 : lv};
+		const auth = '${auth}';
 		
 	</script>
 </body>
