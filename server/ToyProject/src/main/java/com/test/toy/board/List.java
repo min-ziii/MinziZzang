@@ -115,10 +115,9 @@ public class List extends HttpServlet {
 		n = ((nowPage - 1) / blockSize) * blockSize + 1; //페이지 번호 변수
 		
 		
-		//검색안한상태에서 아래 숫자로 페이지 넘어가기
+		
 		if (column == null) column = "";
 		if (word == null) word = "";
-		
 		
 		
 		//이전 10페이지
@@ -177,6 +176,12 @@ public class List extends HttpServlet {
 			}
 			
 			dto.setSubject(subject);
+			
+			
+			//HTML 태그 이스케이프
+			subject = subject.replace("<", "&lt;").replace(">", "&gt;");
+			dto.setSubject(subject);
+			
 		}
 		
 		//2.

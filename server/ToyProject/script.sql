@@ -155,12 +155,13 @@ as
 select 
     tblBoard.*, fnRegdate(regdate) as regtime, 
     (select name from tblUser where id = tblBoard.id) as name,
-    (sysdate - regdate) as isnew
+    (sysdate - regdate) as isnew,
+    (select count(*) from tblComment where bseq = tblBoard.seq) as commentCount
 from tblBoard 
-    order by seq desc;
+    order by thread desc;
 
-
-
+select * from vwBoard;
+select * from tblBoard;
 
 select * from (select a.*, rownum as rnum from vwBoard a)
     where rnum between 1 and 10;
@@ -177,6 +178,74 @@ create table tblComment (
 );
 
 create sequence seqComment;
+
+
+
+select * from tblBoard order by seq desc;
+
+
+
+drop table tblComment;
+drop table tblBoard;
+
+
+-- 게시판 테이블(+답변 > 계층형)
+create table tblBoard (
+    seq number primary key,                             --글번호(PK)
+    subject varchar2(300) not null,                     --제목
+    content varchar2(4000) not null,                    --내용
+    regdate date default sysdate not null,              --날짜
+    readcount number default 0 not null,                --조회수
+    id varchar2(50) not null references tblUser(id),    --아이디(FK)
+    thread number not null,                             --답변형(그룹+정렬)
+    depth number not null,                              --답변형(들여쓰기)
+    ing number(1) default 1 not null                    --삭제 유무
+);
+
+
+
+select max(thread) as thread from tblBoard;
+
+
+
+
+
+-- 게시판 테이블(+첨부파일)
+create table tblBoard (
+    seq number primary key,                             --글번호(PK)
+    subject varchar2(300) not null,                     --제목
+    content varchar2(4000) not null,                    --내용
+    regdate date default sysdate not null,              --날짜
+    readcount number default 0 not null,                --조회수
+    id varchar2(50) not null references tblUser(id),    --아이디(FK)
+    thread number not null,                             --답변형(그룹+정렬)
+    depth number not null,                              --답변형(들여쓰기)
+    ing number(1) default 1 not null,                   --삭제 유무
+    attach varchar2(300) null                           --첨부파일
+);
+
+
+--추천(좋아요, 싫어요)
+create table tblGoodBad (
+
+    seq number primary key,                               --PK
+    id varchar2(50) not null references tblUser(id),      --아이디(FK)
+    bseq number not null references tblBoard(seq),        --게시물(FK)
+    state number(1) not null                              --1(좋아요), 0(싫어요)                  
+
+);
+
+create sequence seqGoodBad;
+
+
+
+
+
+
+
+
+
+
 
 
 
