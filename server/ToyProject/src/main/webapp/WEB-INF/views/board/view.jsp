@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <%@include file="/WEB-INF/views/inc/asset.jsp"%>
+<link rel="stylesheet" href="/toy/asset/css/tagify.css">
 <style>
 </style>
 </head>
@@ -36,16 +37,16 @@
 				<td>${dto.content}</td>
 			</tr>
 			<c:if test="${not empty dto.attach}">
-			<tr>
-				<th>장소</th>
-				<td><img src="/toy/asset/place/${dto.attach}" id="imgPlace"></td>
-			</tr>
-			<c:if test="${not empty lat}">
-			<tr>
-				<th>위치</th>
-				<td><div id="map"></div></td>
-			</tr>
-			</c:if>
+				<tr>
+					<th>장소</th>
+					<td><img src="/toy/asset/place/${dto.attach}" id="imgPlace"></td>
+				</tr>
+				<c:if test="${not empty lat}">
+					<tr>
+						<th>위치</th>
+						<td><div id="map"></div></td>
+					</tr>
+				</c:if>
 			</c:if>
 			<tr>
 				<th>날짜</th>
@@ -59,12 +60,16 @@
 				<th>좋아요/싫어요</th>
 				<td>
 					<div id="goodbad">
-						<span class="material-symbols-outlined" id="btnGood" data-seq="${dto.seq }">thumb_up</span>
-						<span id="good">0</span>
-						<span class="material-symbols-outlined" id="btnBad" data-seq="${dto.seq }">thumb_down</span>
-						<span id="bad">0</span>
+						<span class="material-symbols-outlined" id="btnGood"
+							data-seq="${dto.seq }">thumb_up</span> <span id="good">0</span> <span
+							class="material-symbols-outlined" id="btnBad"
+							data-seq="${dto.seq }">thumb_down</span> <span id="bad">0</span>
 					</div>
 				</td>
+			</tr>
+			<tr>
+				<th>태그</th>
+				<td><input type="text" id="tag" class="full" readonly></td>
 			</tr>
 		</table>
 
@@ -143,6 +148,7 @@
 		</div>
 	</div>
 
+	<script src="/toy/asset/js/tagify.js"></script>
 	<script
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ccb6453e4414e18006795efd30b2a6ad"></script>
 
@@ -183,8 +189,74 @@
 		});
 		m1.setImage(mImg);
 		m1.setMap(map);
+		
 		</c:if>
+		
+		
+document.getElementById('tag').value = '${dto.tag.toString().substring(1, dto.tag.toString().length()-1)}';
+		
+		const tagify = new Tagify(document.getElementById('tag'));
+		
+		tagify.on('click', (e) => {
+			//alert(e.detail.data.value);
+			location.href = '/toy/board/list.do?tag=' + e.detail.data.value;
+		});
+		
+		
+		function loadComment() {
 
+			$.ajax({
+				type: 'GET',
+				url: '/toy/board/listcomment.do',
+				data: {
+					bseq: ${dto.seq}
+				},
+				dataType: 'json',
+				success: function(list) {
+
+					$('#comment tbody').html('');
+
+					$(list).each((index, item) => {
+						
+						console.log(item);
+
+						let temp = `
+						<tr data-seq="\${item.seq}">
+							<td>
+								<div>\${item.content}</div>
+								<div>\${item.regdate}</div>
+							</td>
+							<td>
+								<div>
+									<div>\${item.name}(\${item.id})</div>`;
+
+						if (lv != 0 && (auth == item.id || lv == 2)) {
+
+							temp += `<div>
+										<span class="material-symbols-outlined" onclick="delComment(\${item.seq});">delete</span>
+										<span class="material-symbols-outlined" onclick="editComment(\${item.seq});">edit_note</span>
+									</div>`;
+						}
+
+						temp += `</div>
+							</td>
+						</tr>
+						
+						`;
+
+						$('#comment tbody').append(temp);
+
+					});
+
+				},
+				error: function(a, b, c) {
+					console.log(a, b, c);
+				}
+			});
+
+		}
+		
+		loadComment();
 	
 	</script>
 </body>

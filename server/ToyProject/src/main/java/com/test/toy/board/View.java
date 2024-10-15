@@ -68,7 +68,7 @@ public class View extends HttpServlet {
 		
 		
 		//첨부파일 > 메타 데이터 가져오기
-		if (dto.getAttach() != null
+		if (dto.getAttach() != null 
 				&& !dto.getAttach().trim().equals("")
 				&& (
 					dto.getAttach().toLowerCase().endsWith(".jpg")

@@ -28,6 +28,8 @@ public class ListComment extends HttpServlet {
 		
 		ArrayList<CommentDTO> list = dao.listComment(bseq);
 		
+		System.out.println("bseq: " + bseq);
+		
 		JSONArray arr = new JSONArray();
 		
 		if (list != null && list.size() > 0) {

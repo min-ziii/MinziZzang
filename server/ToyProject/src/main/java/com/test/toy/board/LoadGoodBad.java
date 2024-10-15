@@ -30,6 +30,7 @@ public class LoadGoodBad extends HttpServlet {
 		BoardDAO dao = BoardDAO.getInstance();
 		
 		//현재 게시물에 내가 누른 좋아요 또는 싫어요 
+		System.out.println(session.getAttribute("auth"));
 		String state = dao.getGoodBad(bseq, session.getAttribute("auth").toString());
 		
 		

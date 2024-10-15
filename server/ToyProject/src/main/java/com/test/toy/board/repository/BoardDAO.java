@@ -94,10 +94,17 @@ public class BoardDAO {
 
 			// select * from (select a.*, rownum as rnum from vwBoard a) where rnum between
 			// 1 and 10
-			String sql = String.format(
-					"select * from (select a.*, rownum as rnum from vwBoard a %s) where rnum between %s and %s", where,
+			String sql = "";
+			if(map.get("tag") == null) {
+				sql = String.format("select * from (select a.*, rownum as rnum from vwBoard a %s) where rnum between %s and %s", where,
 					map.get("begin"), map.get("end"));
-
+					} else {
+				sql = String.format("select * from (select a.*, rownum as rnum from vwBoard a %s)b inner join tblTagging t on b.seq = t.bseq inner join tblHashtag h on h.seq = t.hseq where rnum between %s and %s and h.tag = '%s'"
+						, where
+						, map.get("begin")
+						, map.get("end")
+						, map.get("tag"));
+					}
 			stat = conn.createStatement();
 			rs = stat.executeQuery(sql);
 
@@ -120,6 +127,8 @@ public class BoardDAO {
 				dto.setCommentCount(rs.getString("commentCount"));
 				dto.setDepth(rs.getInt("depth"));
 				dto.setIng(rs.getInt("ing"));
+				
+				dto.setIstag(rs.getInt("istag"));
 
 				list.add(dto);
 			}
@@ -161,10 +170,29 @@ public class BoardDAO {
 
 				dto.setThread(rs.getInt("thread"));
 				dto.setDepth(rs.getInt("depth"));
-				
+
 				dto.setAttach(rs.getString("attach"));
 				
-
+				//해시 태그
+				sql = "select h.tag from tblBoard b\r\n"
+						+ "    inner join tblTagging t\r\n"
+						+ "        on b.seq = t.bseq\r\n"
+						+ "            inner join tblHashtag h\r\n"
+						+ "                on h.seq = t.hseq\r\n"
+						+ "                    where b.seq = ?";
+				pstat = conn.prepareStatement(sql);
+				pstat.setString(1, seq);
+				rs = pstat.executeQuery();
+				
+				ArrayList<String> tlist = new ArrayList<String>();
+				
+				while (rs.next()) {
+					tlist.add(rs.getString("tag"));
+					
+				}
+				
+				dto.setTag(tlist);
+				
 				return dto;
 			}
 
@@ -473,8 +501,8 @@ public class BoardDAO {
 	}
 
 	public int addGoodBad(HashMap<String, String> map) {
-		
-		//queryParamNoReturn
+
+		// queryParamNoReturn
 		try {
 
 			String sql = "insert into tblGoodBad (seq, id, bseq, state) values (seqGoodBad.nextVal, ?, ?, ?)";
@@ -490,54 +518,51 @@ public class BoardDAO {
 			e.printStackTrace();
 		}
 
-		
 		return 0;
 	}
 
 	public ArrayList<HashMap<String, String>> loadGoodBad(String bseq) {
-		
-		//queryParamListReturn
+
+		// queryParamListReturn
 		try {
-			
+
 			String sql = "select state ,count(*) as cnt from tblGoodBad where bseq = ? group by state";
-			
+
 			pstat = conn.prepareStatement(sql);
 			pstat.setString(1, bseq);
-			
+
 			rs = pstat.executeQuery();
-			
-			ArrayList<HashMap<String,String>> list = new ArrayList<HashMap<String,String>>();
-			
+
+			ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
+
 			while (rs.next()) {
-				
-				//레코드 1줄 > HashMap 1개
-				HashMap<String,String> dto = new HashMap<String,String>();
-				
+
+				// 레코드 1줄 > HashMap 1개
+				HashMap<String, String> dto = new HashMap<String, String>();
+
 				dto.put("state", rs.getString("state"));
 				dto.put("cnt", rs.getString("cnt"));
-				
-				list.add(dto);				
-			}	
-			
+
+				list.add(dto);
+			}
+
 			return list;
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
+
 		return null;
 	}
 
 	public String getGoodBad(String bseq, String id) {
-		
-		//queryParamTokenReturn
+
+		// queryParamTokenReturn
 		try {
-			//0,1 > 좋아요/싫어요
-			//-1 > 참여 X
+			// 0,1 > 좋아요/싫어요
+			// -1 > 참여 X
 			String sql = "select state from tblGoodBad where bseq = ? and id = ?";
 
-			
 			pstat = conn.prepareStatement(sql);
 			pstat.setString(1, bseq);
 			pstat.setString(2, id);
@@ -546,22 +571,22 @@ public class BoardDAO {
 
 			if (rs.next()) {
 
-				return rs.getString("state"); //0,1
+				return rs.getString("state"); // 0,1
 			} else {
-				
+
 				return "-1";
 			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return null;
 	}
 
-	public int editGoodBad(HashMap<String,String>map) {
-		
-		//queryParamNoReturn
+	public int editGoodBad(HashMap<String, String> map) {
+
+		// queryParamNoReturn
 		try {
 
 			String sql = "update tblGoodBad set state = ? where bseq = ? and id = ?";
@@ -576,37 +601,147 @@ public class BoardDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return 0;
 	}
 
 	public boolean checkGoodBad(HashMap<String, String> map) {
-		
-		//queryParamTokenReturn
+
+		// queryParamTokenReturn
 		try {
-			
+
 			String sql = "select count(*) as cnt from tblGoodBad where bseq =? and id = ?";
-			
+
 			pstat = conn.prepareStatement(sql);
 			pstat.setString(1, map.get("bseq"));
 			pstat.setString(2, map.get("id"));
-			
+
 			rs = pstat.executeQuery();
-			
+
 			if (rs.next()) {
-				
-				if(rs.getInt("cnt") == 0) {
+
+				if (rs.getInt("cnt") == 0) {
 					return true;
 				} else {
 					return false;
 				}
-			}	
-			
+			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
+
 		return false;
+	}
+
+	public void addHashtag(String tagName) {
+
+		// queryParamNoReturn
+		try {
+
+			String sql = "insert into tblHashtag (seq, tag) values (seqHashtag.nextVal, ?)";
+
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, tagName);
+
+			pstat.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	public boolean existHashtag(String tagName) {
+
+		// queryParamTokenReturn
+		try {
+
+			String sql = "select count(*) as cnt from tblHashtag where tag = ?";
+
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, tagName);
+
+			rs = pstat.executeQuery();
+
+			if (rs.next()) {
+
+				return rs.getInt("cnt") == 0 ? true : false;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return false;
+	}
+
+	public String getBseq() {
+		
+		//queryNoParamTokenReturn
+		try {
+
+			String sql = "select max(seq) as seq from tblBoard";
+
+			stat = conn.createStatement();
+			rs = stat.executeQuery(sql);
+
+			if (rs.next()) {
+
+				return rs.getString("seq");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		
+		
+		return null;
+	}
+
+	public String getHseq(String tagName) {
+		
+		//queryParamTokenReturn
+		try {
+
+			String sql = "select seq from tblHashtag where tag = ?";
+
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, tagName);
+
+			rs = pstat.executeQuery();
+
+			if (rs.next()) {
+
+				return rs.getString("seq");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		
+		return null;
+	}
+
+	public void addTagging(HashMap<String, String> map) {
+		
+		//queryParamNoReturn
+		try {
+
+			String sql = "insert into tblTagging (seq, bseq, hseq) values (seqTagging.nextVal, ?, ?)";
+
+			pstat = conn.prepareStatement(sql);
+			pstat.setString(1, map.get("bseq"));
+			pstat.setString(2, map.get("hseq"));
+
+			pstat.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		
 	}
 }

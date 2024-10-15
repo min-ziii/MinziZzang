@@ -156,9 +156,17 @@ select
     tblBoard.*, fnRegdate(regdate) as regtime, 
     (select name from tblUser where id = tblBoard.id) as name,
     (sysdate - regdate) as isnew,
-    (select count(*) from tblComment where bseq = tblBoard.seq) as commentCount
+    (select count(*) from tblComment where bseq = tblBoard.seq) as commentCount,
+    (select count(*) from tblBoard b
+    inner join tblTagging t
+        on b.seq = t.bseq
+            inner join tblHashtag h
+                on h.seq = t.hseq
+                    where b.seq = tblBoard.seq)as istag
 from tblBoard 
     order by thread desc;
+    
+    
 
 select * from vwBoard;
 select * from tblBoard;
@@ -227,7 +235,6 @@ create table tblBoard (
 
 --추천(좋아요, 싫어요)
 create table tblGoodBad (
-
     seq number primary key,                               --PK
     id varchar2(50) not null references tblUser(id),      --아이디(FK)
     bseq number not null references tblBoard(seq),        --게시물(FK)
@@ -237,8 +244,134 @@ create table tblGoodBad (
 
 create sequence seqGoodBad;
 
+select * from tblGoodBad;
+
+select state,count(*) as cnt from tblGoodBad where bseq = 309 group by state order by state asc;
 
 
+
+
+
+--해시태그
+create table tblHashtag(
+    seq number primary key,
+    tag varchar2(100) unique not null
+);
+create sequence seqHashtag;
+
+--연결(관계)
+create table tblTagging (
+    seq number primary key,
+    bseq number not null references tblBoard(seq),
+    hseq number not null references tblHashtag(seq)
+);
+create sequence seqTagging;
+
+
+--unique 제약! 하나밖에 안들어옴 값이
+select * from tblHashtag;
+
+select * from tblTagging;
+
+select * from tblBoard order by seq desc;
+
+
+select h.tag from tblBoard b
+    inner join tblTagging t
+        on b.seq = t.bseq
+            inner join tblHashtag h
+                on h.seq = t.hseq
+                    where b.seq = 322;
+
+
+
+select * from (select a.*, rownum as rnum from vwBoard a %s)b
+ inner join tblTagging t
+        on b.seq = t.bseq
+            inner join tblHashtag h
+                on h.seq = t.hseq
+                    where h.tag = '안녕';
+                    
+                    
+--접속 기록! 남기기
+create table tblLog(
+    seq number primary key,
+    id varchar2(50) not null references tblUser(id),
+    regdate date default sysdate not null
+);
+
+create sequence seqLog;
+
+select * from tblLog;
+
+
+-- 테스트용 데이터
+delete from tblGoodBad;
+delete from tblComment;
+delete from tblTagging;
+delete from tblBoard;
+delete from tblLog;
+
+commit;
+
+--로그인 기록(cat)
+insert into tblLog values (seqLog.nextVal, 'cat', sysdate); --1번
+insert into tblLog values (seqLog.nextVal, 'cat', sysdate -2);
+insert into tblLog values (seqLog.nextVal, 'cat', sysdate -3);
+insert into tblLog values (seqLog.nextVal, 'cat', sysdate -7); --1번
+insert into tblLog values (seqLog.nextVal, 'cat', sysdate -10); --2번
+insert into tblLog values (seqLog.nextVal, 'cat', sysdate -20); --1번
+insert into tblLog values (seqLog.nextVal, 'cat', sysdate -24);
+
+--글 쓰기 기록
+insert into tblBoard 
+    values (seqBoard.nextVal, '테스트 중...', '내용 테스트', sysdate -20, default, 'cat', 1000, 0, default, ''); 
+insert into tblBoard 
+    values (seqBoard.nextVal, '테스트 중...', '내용 테스트', sysdate -10, default, 'cat', 2000, 0, default, ''); 
+insert into tblBoard 
+    values (seqBoard.nextVal, '테스트 중...', '내용 테스트', sysdate -10, default, 'cat', 3000, 0, default, ''); 
+insert into tblBoard 
+    values (seqBoard.nextVal, '테스트 중...', '내용 테스트', sysdate -7, default, 'cat', 4000, 0, default, ''); 
+insert into tblBoard 
+    values (seqBoard.nextVal, '테스트 중...', '내용 테스트', sysdate, default, 'cat', 5000, 0, default, ''); 
+
+insert into tblBoard 
+    values (seqBoard.nextVal, '테스트 중...', '내용 테스트', sysdate -4, default, 'kkkk', 6000, 0, default, ''); 
+
+insert into tblBoard 
+    values (seqBoard.nextVal, '테스트 중...', '내용 테스트', sysdate -10, default, 'kkkk', 7000, 0, default, ''); 
+
+-- 댓글('cat')
+insert into tblComment values (seqComment.nextVal, '댓글_1!',  sysdate, 'cat', 334);
+insert into tblComment values (seqComment.nextVal, '댓글_2!',  sysdate, 'cat', 334);
+
+insert into tblComment values (seqComment.nextVal, '댓글_1!',  sysdate -4, 'cat', 337);
+
+insert into tblComment values (seqComment.nextVal, '댓글_1!',  sysdate -20, 'cat', 330);
+
+
+
+select * from tblBoard order by seq desc;
+
+
+
+--2024년 10월 무슨 활동?
+--글 몇 번 ? 댓글 몇 번 ? 로그인 언제 ? 태그 언제 ? 등등 ...
+
+select
+    count(*), 
+    to_char(regdate, 'yyyy-mm-dd') as regdate,
+    (select count(*) from tblBoard where to_char(regdate, 'yyyy-mm-dd') = to_char(l.regdate, 'yyyy-mm-dd')and id = ?) as bcnt,
+    (select count(*) from tblComment where to_char(regdate, 'yyyy-mm-dd') = to_char(l.regdate, 'yyyy-mm-dd')and id = ?) as ccnt
+from tblLog l
+    where to_char(l.regdate, 'yyyy-mm') = '2024-10' and l.id = 'cat'
+        group by to_char(regdate, 'yyyy-mm-dd');
+
+
+select * from tblComment;
+select tblComment.*, (select name from tblUser where id = tblComment.id) as name from tblComment;
+
+select tblComment.*, (select name from tblUser where id = tblComment.id) as name from tblComment where bseq = 337 order by seq desc;
 
 
 

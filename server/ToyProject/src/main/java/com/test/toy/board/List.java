@@ -157,6 +157,13 @@ public class List extends HttpServlet {
 		//조회수 증가 방지용 티켓(n, y)
 		session.setAttribute("read", "n");
 		
+		//해시 태그
+		//- list.do
+		//- list.do?tag = 게시판
+		String tag = req.getParameter("tag");
+		map.put("tag", tag);
+		
+		
 		
 		//1.
 		ArrayList<BoardDTO> list = dao.list(map);

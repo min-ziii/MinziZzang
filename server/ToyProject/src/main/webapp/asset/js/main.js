@@ -35,6 +35,7 @@ window.onload = () => {
 
 
 	//댓글 목록가져오기
+	/*
 	function loadComment() {
 
 		$.ajax({
@@ -84,9 +85,9 @@ window.onload = () => {
 			}
 		});
 
-	}
+	}*/
 
-	loadComment();
+	
 
 
 	$('#addComment input[name=content]').keydown((evt) => {
@@ -182,8 +183,15 @@ window.onload = () => {
 		});
 		
 	}
+	if (location.href.indexOf('view.do')> -1){
+		setTimeout(function() {
+			//loadComment();
+			loadGoodBad();
+		}, 1000);
+		
+	}
 	
-	loadGoodBad();
+	//alert(location.href);
 
 };//ready
 
