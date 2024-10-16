@@ -1,0 +1,7 @@
+1. https-content.xml 복사
+- 워크스페이스\.metadata\.plugins\org.springsource.ide.eclipse.commons.content.core
+
+2. org.springframework.templates.mvc-3.2.2.zip 복사(X), 압축풀기(O)
+- 워크스페이스\.metadata\.sts\content\org.springframework.templates.mvc-3.2.2 폴더에 template.zip 파일들을 압축을 푼다.
+- 이 폴더는 처음엔 없다. MVC 프로젝트 생성을 1번 실행하면 생긴다.(이때 다운로드가 안됨. URL 죽음)
+- zip이 아니라 압축을 풀어야 한다.

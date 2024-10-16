@@ -1,0 +1,33 @@
+spring.io > https://download.springsource.com/release/STS/3.9.18.RELEASE/dist/e4.21/spring-tool-suite-3.9.18.RELEASE-e4.21.0-win32-x86_64.zip > 다운로드
+
+1. STS.ini > JDK 11 설정
+-vm
+C:/class/dev/jdk-11/bin/javaw.exe
+
+lombok > 설치 > (exe 파일 선택하고 install )ini파일에 들어가 있는지 최종적으로 확인!
+((학원에서는 C:\class\dev\apache-tomcat-9.0.93\bin> java -jar C:\class\dev\eclipse\lombok.jar 이걸루 들어감)
+
+2. code > spring 만들어주기 workspace
+
+설정! import 하지말고 새롭게 설정하기
+
+1. window > 설정 > 인코딩
+
+워크스페이스, css, html, jsp, contentTypes "UTF-8" 쓰고 update 누르고
+
+2. font
+
+3. tomcat 연결 (브라우저 dev) !!여기서 포트번호 8090인지 확인(오라클이랑 충돌)
+
+--------------------------------------------------------------------
+개발 도움 요소
+1. SDK > JDK > 개발 환경 + 코드 제공
+2. Library >
+3. Framework
+4. API
+
+Spring Framework
+- Spring(core) 
+- + 추가 기능 프로젝트
+- Spring Boot 프로젝트
+

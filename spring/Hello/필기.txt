@@ -1,0 +1,65 @@
+Spring MVC Project 구조
+
+1. src/main/java
+	- 여태 사용하던 폴더와 동일
+	- 패키지 or 파일
+	
+2. src/main/resources
+	- Java 소스 이외의 자원을 보관하는 폴더
+	- 스프링 관련 설정 파일 등 보관
+	
+3. src/test/java
+	- 단위 테스트용
+	
+4. src/test/resources
+	- 단위 테스트용 
+ 
+5. JRE System Library
+	- JRE 라이브러리
+	- JavaSE-1.6 > 기본 셋팅 > 1.11(11)
+	
+6. Maven Dependencies
+	- 빌드 도구(Maven or Gradle)
+	- 프로젝트 생성 or 라이브러리 관리 or 빌드 or 배포
+
+7. src
+	7.1 webapp
+		- 웹 루트 폴더
+	7.2 webapp > resources
+		- asset 역할
+		- CSS, JavaScript, Image 등 정적 자원 보관
+	7.3 webapp > WEB-INF
+		7.3.1 classes
+			- 컴파일된 자바 실행 파일 저장(*.class)
+			- 이전 bin
+			- 개발자 관여(X)
+		7.3.2 spring(***)
+			- 스프링 관련 모든 설정!!
+			7.3.2.1 appServlet > servlet-context.xml
+				- 스프링 설정 파일
+			7.3.2.1 appServlet > root-context.xml
+				- 스프링 설정 파일
+			
+		7.3.3 views
+			- 뷰 페이지 저장(JSP)
+ 
+8. pom.xml(***)
+	- Project Object Model
+	- 메이븐 설정 파일
+ 
+ 
+ 1016
+ 새프로젝트
+ - New > Spring Legacy Project
+ - name: "BeginTest"
+ - templates: Spring MVC Project
+ - package: "com.test.begin"
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

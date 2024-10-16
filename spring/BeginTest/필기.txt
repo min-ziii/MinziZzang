@@ -1,0 +1,104 @@
+1016
+ 새프로젝트
+ - New > Spring Legacy Project
+ - name: "BeginTest"
+ - templates: Spring MVC Project
+ - package: "com.test.begin"
+ 
+ 
+ 현재 프로젝트 > 자바 버전 & 스프링 버전 변경
+ (프로젝트 만들때마다 하기!)
+ - 자바 버전
+ 	- pom.xml (11로 버전 변경)
+ 	- Project > Properties > Project facets > Java 11로 변경
+ - 스프링 버전
+ 	- pom.xml(5.0.7.로 변경)
+ 
+ 
+ Spring Framework
+ - http://spring.io/projects/spring-framework
+ - Spring 1.0 ~ 6.1.13
+ - Spring 5.X.X 수업
+ - 콘솔 개발, 응용 프로그램 개발, 웹 응용 프로그램 등..
+ - 자바 플랫폼을 위한 오픈 소스 애플리케이션 프레임워크이다.
+ 
+ Spring Project
+ - Spring
+ - Spring MVC
+ - Spring AOP
+ - Spring Data
+ - Spring Security
+ - Spring Boot 
+ 
+ Spring > DI(***), IoC, AOP
+ 
+ 
+ Spring DI
+ - 디자인 패턴: DI > Dependency Injection > 의존(성) 주입
+ - 스프링 도입/적용 > Spring DI
+ - 스프링에서 가장 중요한 개념 중 하나 > 스프링의 모든 객체 관리에 사용!(***)
+ - "프로그래밍에서 구성 요소간의 의존 관계가 소스 내부가 아닌 외부 환경에서 정의되게 하는 디자인 패턴"
+ 
+ - 의존 관계?
+ - src/main/java > "com.test.begin.di1"
+ 						> "Main.java"
+ 						> "Service.java"
+ 						> "Hong.java"
+ 
+ - src/main/java > "com.test.begin.di2"
+ 						> "Main.java"
+ 						> "Service.java"
+ 						> "Hong.java"
+ 
+ - src/main/java > "com.test.begin.di3"
+ 						> "Main.java"
+ 						> "Service.java"
+ 						> "Hong.java"
+ 						> "di3.xml"
+ 
+ 
+ Spring AOP, Aspect Oriented Programing
+ - 관점 지향 프로그래밍
+ - 코드 작성 = 주업무 코드 + 보조업무 코드
+ 
+ 
+ Spring AOP 용어
+ 1. Core Concern
+ 	- 주업무, 비즈니스 코드
+ 	
+ 2. Cross-cutting Concern
+ 	- 보조업무
+ 	
+ 3. Target
+ 
+ 4. Proxy
+ 
+ 5. JoinPoint
+ 
+ 6. Pointcut
+ 
+ 7. Aspect
+ 
+ 8. Advice
+ 
+ 
+ 메모장
+ - "com.test.begin.aop"
+ 		- "Main.java"		 //메인
+ 		- "Memo.java"(I)	 //메인 업무 객체(인터페이스)
+ 		- "MemoImpl.java"(C) //메인 업무 객체(클래스)
+ 	
+ 		- "Logger.java"(C)	//보조업무 객체(클래스)
+ 		
+ 		- "memo.xml"		//스프링 설정 파일
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
