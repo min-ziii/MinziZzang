@@ -1,0 +1,116 @@
+1017 
+
+새프로젝트
+- New > Spring Legacy Project
+- Project name: "WebTest"
+- Templates: Spring MVC Project
+- com.test.web
+
+스프링/자바 버전 변경하기
+- pom.xml
+	- java > 11
+	- spring > 5.0.7
+	- project facets > java > 11
+	
+서블릿/JSP 버전 변경
+- pom.xml
+<!-- Servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>javax.servlet.jsp-api</artifactId>
+			<version>2.3.3</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		
+jUnit
+- pom.xml
+<!-- Test -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>       
+
+
+Lombok
+- pom.xml
+<!-- lombok -->
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <version>1.18.34</version>
+    <scope>provided</scope>
+</dependency>
+
+<!-- spring-test -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-test</artifactId>
+    <version>${org.springframework-version}</version>
+    <scope>test</scope>
+</dependency>
+
+
+Spring MVC Project
+- 프로젝트에서 사용되는 스프링 설정 파일을 제공한다.
+	- WEB-INF > spring > root-context.xml(스프링 전반적 설정)
+	- WEB-INF > spring > appServlet > servlet-context.xml(클라이언트 요청/응답 관련 설정)
+
+
+새패키지
+- "com.test.web.controller"
+
+- "com.test.web.controller" > "Ex01Controller.java"
+- views > "ex01.jsp"
+
+- Spring MVC 기본 구조
+- ModelAndView 역할
+
+- com.test.web.controller > "Ex02Controller.java"
+- com.test.web.repository > "SpringDAO.java" 
+- views > "ex02.jsp"
+- 의존 주입(XML 사용)
+
+- com.test.web.controller > "Ex03Controller.java"
+- views > "ex03.jsp"
+- 컨트롤러 구현 > 어노테이션 
+
+- com.test.web.controller > "Ex04Controller.java"
+- views > "ex04_1.jsp"
+		> "ex04_2.jsp"
+- 다중 주소 매핑
+- GET/POST 매핑
+
+- com.test.web.controller > "Ex05Controller.java"
+- views > "ex05.jsp"
+		> "ex05ok.jsp"
+		
+- com.test.web.controller > "Ex06Controller.java"
+- views > "ex06.jsp"
+- 요청 메서드의 반환 타입 종류
+
+- com.test.web.controller > "Ex07Controller.java"
+- views > "ex07.jsp"
+
+
+
+
+
+
+
+
+
+		
