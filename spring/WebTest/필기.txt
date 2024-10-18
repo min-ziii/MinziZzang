@@ -105,7 +105,11 @@ Spring MVC Project
 - com.test.web.controller > "Ex07Controller.java"
 - views > "ex07.jsp"
 
-
+1018
+- com.test.web.controller > "Ex08Controller.java"
+- "com.test.web.service" > "TestService.java"
+- views > "ex08.jsp"
+- 어노테이션을 사용한 의존 주입
 
 
 

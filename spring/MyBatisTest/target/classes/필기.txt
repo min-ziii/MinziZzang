@@ -1,0 +1,211 @@
+1018
+-- Project name: MyBatisTest
+-- com.test.mybatis
+
+MyBatis > iBatis(MyBatis의 아주 오래전 이름)
+- DB 연동
+- JDBC > 확장판
+
+현재: MyBatis or JPA 
+
+Spring + Web + MyBatis
+
+
+1. 새 프로젝트
+- New > Spring Legacy Project
+- Project name: "MyBatisTest"
+- Templates: Spring MVC Project
+- Enter a top-level-package: "com.test.mybatis"
+	
+2. 스프링/자바 버전 변경하기
+- pom.xml
+	- <org.springframework-version>5.0.7.RELEASE</org.springframework-version>
+	- <java-version>11</java-version>
+	- <source>11</source>
+	- <target>11</target>
+	- 패키지 탐색기 > 우클릭 > Properties > Project Facets > Java > 11
+
+3. 서블릿/JSP 버전 변경하기
+- pom.xml
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>javax.servlet-api</artifactId>
+		<version>3.1.0</version>
+		<scope>provided</scope>
+	</dependency>
+	<dependency>
+		<groupId>javax.servlet.jsp</groupId>
+		<artifactId>javax.servlet.jsp-api</artifactId>
+		<version>2.3.3</version>
+		<scope>provided</scope>
+	</dependency>
+
+4. jUnit
+- pom.xml
+	<dependency>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+		<version>4.12</version>
+		<scope>test</scope>
+	</dependency>
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-test</artifactId>
+	    <version>${org.springframework-version}</version>
+	    <scope>test</scope>
+	</dependency>
+
+5. Lombok
+- pom.xml
+	<dependency>
+	    <groupId>org.projectlombok</groupId>
+	    <artifactId>lombok</artifactId>
+	    <version>1.18.34</version>
+	    <scope>provided</scope>
+	</dependency>
+
+6. MyBatis
+- pom.xml
+	<dependency>
+		<groupId>org.mybatis</groupId>
+		<artifactId>mybatis</artifactId>
+		<version>3.5.2</version>
+	</dependency>
+	<dependency>
+		<groupId>org.mybatis</groupId>
+		<artifactId>mybatis-spring</artifactId>
+		<version>1.3.2</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-tx</artifactId>
+		<version>${org.springframework-version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-jdbc</artifactId>
+		<version>${org.springframework-version}</version>
+	</dependency>	
+
+- ojdbc6.jar 등록
+
+7. 인코딩 필터 등록
+- web.xml
+
+8. DB 설정 테스트
+- 위의 DB 관련 라이브러리가 제대로 설치되었는지 확인하는 작업
+
+8_1. JDBC 연결 테스트
+- src/test/java > "com.test.mybatis.persistence" > "JDBCTest.java"
+
+
+Connection
+- DB 작업(insert)
+- DB 통신 > TCP 
+1. DB 연결 > 3-way handshake 발생
+	a. C->S: SYN 메시지 전송(연결하고 싶습니다. > 의사 표시)
+	b. S->C: SYN ACK 메시지 전송(네, 연결합시다. > SYN 메시지 응답)
+	c. C->S: ACK 메시지 전송(넵! > 쌍방 연결!)
+2. SQL 실행
+3. DB 연결 종료 > 4-way handshake 발생
+	a. C->S: FIN 메시지 전송(이제 연결을 끊을래요.)
+	b. S->C: ACK 메시지 전송(네~ 기다려주세요.)
+	c. C->S: FIN 메시지 전송(정리했습니다. 연결 끊고싶어요.)
+	d. S->C: ACK 메시지 전송(네, 알겠습니다. 가세요!)
+	
+DBCP 종류
+1. Commons DBCP > 스프링 이전 버전에 기본 탑재
+
+2. HikariCP > 스프링 부트 2.X 기본 탑재
+
+
+9. DBCP 설정
+	9_1. Commons DBCP
+		- pom.xml > 의존성 추가
+		- root-context.xml > 설정
+	9_2. Commons DBCP 단위 테스트
+		- 설정 & 연결 테스트
+		- com.test.java.persistence > "DBCPTest.java"		
+	9_3. HikariCP
+		- pom.xml > 의존성 추가
+		- root-context.xml > 설정
+	9_4. HikariCP 단위 테스트
+		- 설정 & 연결 테스트
+		- com.test.java.persistence > "DBCPTest.java"	
+
+10. MyBatis 설정!!
+	- 영속성 계층(데이터베이스 조작)
+	- JDBC 역할
+	- SQL Mapping Framework > SQL의 실행 결과를 객체지향으로 매핑해준다.
+	- SQL를 자바와 분리(***) > 기존 방식(SQL > 자바내의 문자열 작성)
+					 		> MyBatis 방식 > SQL을 별도의 XML에 작성
+					 		
+	10_1. MyBatis를 스프링에 적용하는 방법
+		a. XML 매퍼를 사용하는 방법
+		b. 인터페이스 매퍼를 사용하는 방법
+		
+	10_2. MyBatis 설정
+		a. pom.xml > 의존성 4개 추가
+		b. root-context.xml > 설정 추가
+		c. 매퍼 파일 설정
+	
+	10_3. 단위 테스트
+		- "MyBatisTest.java"
+		
+11. Log4j
+	11_1. pom.xml 의존성 추가	
+	
+	11_2. src/main/resources > log4jdbc.log4j2.properties	
+	11_3. src/main/resources > log4j.xml
+	11_4. root-context.xml > 일부 수정
+	
+==============================================================================
+
+파일
+- "com.test.mybatis.controller" > "MyBatisController.java"
+
+- "com.test.mybatis.dao" > "MyBatisDAO.java"
+- "com.test.mybatis.dto" > "AddressDTO.java"
+
+- views > "list.jsp"
+		> "add.jsp"
+		
+- MyBatisTest > script.sql
+
+- src/main/rescource > "mapper" >"mybatis.xml" //매퍼 파일(SQL 작성 파일)
+- src/main/rescource > "config" >"mybatis-config.xml"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
