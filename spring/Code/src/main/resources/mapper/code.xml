@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<!-- 매퍼 파일 > SQL을 작성하는 역할 -->
+<mapper namespace="code">
+	
+		<select id="test" parameterType="Integer" resultType="String">
+			select name from tblAddress where seq = #{seq}
+		</select>
+		
+		<insert id="add">
+			insert into tblCode (seq, subject, code, regdate, language)
+				values (seqCode.nextVal, #{subject}, #{code}, default, #{language})
+		</insert>
+		
+		<select id="list" resultType="dto">
+			select seq, subject, regdate, language from tblCode
+				order by seq desc
+		</select>
+		
+		<select id="view" parameterType="String" resultType="dto">
+			select * from tblCode where seq = #{seq}
+		</select>
+		
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
