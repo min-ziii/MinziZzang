@@ -1,0 +1,4 @@
+4. Tiles 의존성 추가
+
+5. Tiles 설정
+- servlet-context.xml

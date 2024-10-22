@@ -1,0 +1,94 @@
+Spring Tiles
+- Layout 기술
+- JSP의 <%@ include %>의 버전업
+- Spring Boot > Thymeleaf, FreeMarker 등..
+
+
+
+
+1. 새 프로젝트
+- New > Spring Legacy Project
+- Project name: "NonTilesTest"
+- Templates: Spring MVC Project
+- Enter a top-level-package: "com.test.nontiles"
+
+1. 새 프로젝트
+- New > Spring Legacy Project
+- Project name: "TilesTest"
+- Templates: Spring MVC Project
+- Enter a top-level-package: "com.test.tiles"
+
+2. 스프링/자바 버전 변경하기
+- pom.xml
+	- <org.springframework-version>5.0.7.RELEASE</org.springframework-version>
+	- <java-version>11</java-version>
+	- <source>11</source>
+	- <target>11</target>
+	- 패키지 탐색기 > 우클릭 > Properties > Project Facets > Java > 11
+
+3. 서블릿/JSP 버전 변경하기
+- pom.xml
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>javax.servlet-api</artifactId>
+		<version>3.1.0</version>
+		<scope>provided</scope>
+	</dependency>
+	<dependency>
+		<groupId>javax.servlet.jsp</groupId>
+		<artifactId>javax.servlet.jsp-api</artifactId>
+		<version>2.3.3</version>
+		<scope>provided</scope>
+	</dependency>
+
+
+구현 기능
+- 메인(index.do)
+
+- 회원
+	- 회원정보(member/ info.do)
+	- 활동내역(member/ history.do)
+	- 즐겨찾기(member/ favorite.do)
+
+- 관리자
+	- 로그(admin/ log.do)
+	- 환경설정(admin/ setting.do)
+	
+파일
+- "com.test.notiles.controller" > "MainController.java"
+								> "MemberCotroller.java"
+								> "AdminCotroller.java"
+- views > "index.jsp"
+- views > "member" > "info.jsp"
+				   > "history.jsp"
+				   > "favorite.jsp"
+- views > "admin" > "log.jsp"
+				  > "setting.jsp"
+- views > "inc" > "main_menu.jsp"
+				> "member_menu.jsp"
+				> "admin_menu.jsp"
+				> "asset.jsp"	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

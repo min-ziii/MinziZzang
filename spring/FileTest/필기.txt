@@ -1,0 +1,51 @@
+스프링 파일 업로드
+
+1. 새 프로젝트
+- New > Spring Legacy Project
+- Project name: "FileTest"
+- Templates: Spring MVC Project
+- Enter a top-level-package: "com.test.file"
+
+2. 스프링/자바 버전 변경하기
+- pom.xml
+	- <org.springframework-version>5.0.7.RELEASE</org.springframework-version>
+	- <java-version>11</java-version>
+	- <source>11</source>
+	- <target>11</target>
+	- 패키지 탐색기 > 우클릭 > Properties > Project Facets > Java > 11
+
+3. 서블릿/JSP 버전 변경하기
+- pom.xml
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>javax.servlet-api</artifactId>
+		<version>3.1.0</version>
+		<scope>provided</scope>
+	</dependency>
+	<dependency>
+		<groupId>javax.servlet.jsp</groupId>
+		<artifactId>javax.servlet.jsp-api</artifactId>
+		<version>2.3.3</version>
+		<scope>provided</scope>
+	</dependency>
+
+4. 파일 업로드 설정
+- web.xml
+- servlet-context.xml
+
+=======================================================
+
+5. 파일
+- "com.test.file.controller" > "FileController.java"
+- views > "add.jsp"
+		> "addok.jsp"
+		
+- webapp > resources > "files"
+
+
+
+
+
+
+
+

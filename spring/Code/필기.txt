@@ -1,4 +1,4 @@
-1. 새 프로젝트
+ 새 프로젝트
 - New > Spring Legacy Project
 - Project name: "Code"
 - Templates: Spring MVC Project
