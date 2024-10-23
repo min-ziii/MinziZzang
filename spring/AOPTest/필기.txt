@@ -1,0 +1,31 @@
+Spring AOP
+- MVC + 어노테이션
+
+1. 새 프로젝트
+- New > Spring Legacy Project
+- Project name: "AOPTest"
+- Templates: Spring MVC Project
+- Enter a top-level-package: "com.test.aop"
+
+2. 스프링/자바 버전 변경하기
+
+3. 서블릿/JSP 버전 변경하기
+
+4. 의존성 추가
+- pom.mxl
+
+5. AOP 설정
+- servlet-context.xml
+
+===========================================================
+
+파일
+- "com.test.aop.controller" > "AOPController.java"
+- "com.test.aop.dao" > "AOPDAO.java"
+- "com.test.aop.dto" > "AOPDTO.java"
+- views > "list.jsp"
+        > "add.jsp"
+        > "view.jsp"
+        
+- "com.test.aop.aspect" > "Logger.java"        
+

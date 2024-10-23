@@ -1,0 +1,6 @@
+Spring + MyBatis
+1. XML Mapper
+2. Interface Mapper
+
+
+10. 인터페이스 매퍼 설정

@@ -1,0 +1,57 @@
+POST http://localhost:8090/rest/address
+Content-Type: application/json
+
+
+{
+
+    "name": "히히히",
+    "age" : "23",
+    "address" : "서울시 강남구 역삼동",
+    "gender" : "m"
+
+}
+
+
+###
+
+GET http://localhost:8090/rest/address
+
+
+
+
+###
+
+PUT http://localhost:8090/rest/address/23
+Content-Type: application/json
+
+
+
+{
+
+    "name": "히호히",
+    "age" : "24",
+    "address" : "서울시 강동구",
+    "gender" : "m"
+
+}
+
+
+
+###
+
+DELETE http://localhost:8090/rest/address/23
+
+
+
+###
+
+GET http://localhost:8090/rest/address/사막여우
+
+
+
+
+
+
+
+
+

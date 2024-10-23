@@ -1,0 +1,202 @@
+REST API or RESTful API
+
+1. 새 프로젝트
+- New > Spring Legacy Project
+- Project name: "RESTfulTest"
+- Templates: Spring MVC Project
+- Enter a top-level-package: "com.test.rest"
+
+2. 스프링/자바 버전 변경하기
+- pom.xml
+	- <org.springframework-version>5.0.7.RELEASE</org.springframework-version>
+	- <java-version>11</java-version>
+	- <source>11</source>
+	- <target>11</target>
+	- 패키지 탐색기 > 우클릭 > Properties > Project Facets > Java > 11
+
+3. 서블릿/JSP 버전 변경하기
+- pom.xml
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>javax.servlet-api</artifactId>
+		<version>3.1.0</version>
+		<scope>provided</scope>
+	</dependency>
+	<dependency>
+		<groupId>javax.servlet.jsp</groupId>
+		<artifactId>javax.servlet.jsp-api</artifactId>
+		<version>2.3.3</version>
+		<scope>provided</scope>
+	</dependency>
+
+4. jUnit
+- pom.xml
+	<dependency>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+		<version>4.12</version>
+		<scope>test</scope>
+	</dependency>
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-test</artifactId>
+	    <version>${org.springframework-version}</version>
+	</dependency>
+
+5. Lombok
+- pom.xml
+	<dependency>
+	    <groupId>org.projectlombok</groupId>
+	    <artifactId>lombok</artifactId>
+	    <version>1.18.34</version>
+	    <scope>provided</scope>
+	</dependency>
+
+6. MyBatis
+- pom.xml
+	<dependency>
+		<groupId>org.mybatis</groupId>
+		<artifactId>mybatis</artifactId>
+		<version>3.5.2</version>
+	</dependency>
+	<dependency>
+		<groupId>org.mybatis</groupId>
+		<artifactId>mybatis-spring</artifactId>
+		<version>1.3.2</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-tx</artifactId>
+		<version>${org.springframework-version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-jdbc</artifactId>
+		<version>${org.springframework-version}</version>
+	</dependency>	
+
+- ojdbc6.jar 등록
+
+7. 인코딩 필터 등록
+- web.xml
+
+	<filter>
+		<filter-name>encoding</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encoding</filter-name>
+		<servlet-name>appServlet</servlet-name>
+	</filter-mapping>
+
+8. DB 설정 및 HikariCP 설정 및 MyBatis 설정
+- pom.xml
+	<dependency>
+		<groupId>com.zaxxer</groupId>
+		<artifactId>HikariCP</artifactId>
+		<version>2.7.4</version>
+	</dependency>
+	
+- root-context.xml
+	- <bean> x 4개
+
+- src/main/resources > "mapper" > "code.xml"(mybatis.xml > 개명)
+                     > "config" > "mybatis-config.xml"(복사)
+	
+9. Log4j
+	9.1 pom.xml 의존성 추가
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+		<dependency>
+			<groupId>org.bgee.log4jdbc-log4j2</groupId>
+			<artifactId>log4jdbc-log4j2-jdbc4</artifactId>
+			<version>1.16</version>
+		</dependency>
+	9.2 src/main/resources > log4jdbc.log4j2.properties
+	9.3 src/main/resources > log4j.xml 일부 수정
+	9.4 root-context.xml > 일부 수정
+
+10. 단위 테스트
+- src/test/java > com.test.rest > DBTest.java
+
+========================================================
+
+REST API
+- REST, Representational State Transfer
+- 자원을 이름으로 구분하여 해당 자원의 상태를 주고받는 모든 것을 의미
+- HTTP URI를 통해서 자원을 명시하고, HTTP Method를 통해서 자원에 대한 CRUD를 처리하는 방식
+- 기존에 생성하는 URL의 형식(X) > REST 규칙을 만족하는 URL을 생성 (O)
+- 표준이 없다.
+
+URI 작성
+1. 기존 방식
+- GET	 http://localhost/member/list.do 		목록보기
+- POST	 http://localhost/member/add.do 	 	추가하기
+- POST	 http://localhost/member/edit.do?seq=1	수정하기
+- POST	 http://localhost/member/del.do?seq=1	삭제하기
+- GET	 http://localhost/member/list.do?w=단어	검색하기
+
+
+2. REST 방식
+- GET		http://localhost/member					목록보기
+- POST		http://localhost/member					추가하기
+- PUT 		http://localhost/member/1				수정하기
+- DELETE 	http://localhost/member/1				삭제하기
+- GET 		http://localhost/member/단어				검색하기
+
+
+REST API 설계 규칙
+1. URI에서 자원을 표시한다.
+2. URI에 동사를 표시하지 않는다.(행동 표기 X)
+3. HTTP Method를 사용해서 행동을 표시한다.
+	a. GET		리소스 요청
+	b. POST		데이터 전달 + 서버측 생성
+	c. PUT		데이터 전달 + 서버측 수정(전체)
+	d. PATCH	데이터 전달 + 서버측 수정(부분)
+	e. DELETE
+4. URI + HTTP Method = 완성
+
+5. 구분자는 '/'를 사용한다.
+6. URI의 마지막에 '/'를 적지않는다.
+7. '-' > 사용 가능
+8. '_' > 사용 비권장(가독성)
+9. 확장자를 사용하지 않는다.
+
+10. REST API의 요청 결과는 순수 데이터만 반환한다.
+	- 기본 방식: 페이지 반환 > 브라우저 출력
+	- REST 방식: 순수 데이터 반환 > 다양한 클라이언트들이 각자의 목적과 상황에 맞게 데이터를 사용
+	- Ajax 방식 == REST 방식
+	
+REST API 구현 > 서비스
+1. Ajax용
+2. CSR 서버용 > Angular, Vue, React
+3. OpenAPI 용
+
+
+파일
+- RESTfulTest > "script.sql"
+
+- "com.test.rest.controller" > "AddressController.java"
+- "com.test.rest.dao" > "AddressDAO.java"
+- "com.test.rest.dto" > "AddressDTO.java"
+
+
+REST Client
+- CURL
+- Postman
+- Insomnia
+
+
+
+
+
+
+
+
