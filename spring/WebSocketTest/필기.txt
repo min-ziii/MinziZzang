@@ -1,0 +1,95 @@
+WebSocket, 웹소켓
+- 특정 언어나 특정 개발 플랫폼의 기술(X)
+- Socket을 사용한 TCP 통신 프로토콜 중 하나
+- 서버와 클라이언트간의 지속적인 양방향 통신을 지원
+- Socket > TCP 프로토콜 > 전화 통신(연결 지향)
+- Web Service or Ajax > HTTP 프로토콜 > 편지 통신(비연결 지향)
+
+1. 새 프로젝트
+- New > Spring Legacy Project
+- Project name: "WebSocketTest"
+- Templates: Spring MVC Project
+- Enter a top-level-package: "com.test.socket"
+
+2. 스프링/자바 버전 변경하기
+- pom.xml
+	- <org.springframework-version>5.0.7.RELEASE</org.springframework-version>
+	- <java-version>11</java-version>
+	- <source>11</source>
+	- <target>11</target>
+	- 패키지 탐색기 > 우클릭 > Properties > Project Facets > Java > 11
+
+3. 서블릿/JSP 버전 변경하기
+- pom.xml
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>javax.servlet-api</artifactId>
+		<version>3.1.0</version>
+		<scope>provided</scope>
+	</dependency>
+	<dependency>
+		<groupId>javax.servlet.jsp</groupId>
+		<artifactId>javax.servlet.jsp-api</artifactId>
+		<version>2.3.3</version>
+		<scope>provided</scope>
+	</dependency>
+
+4. Lombok
+- pom.xml
+	<dependency>
+	    <groupId>org.projectlombok</groupId>
+	    <artifactId>lombok</artifactId>
+	    <version>1.18.34</version>
+	    <scope>provided</scope>
+	</dependency>
+
+
+5. WebSocket
+- pom.xml
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-websocket</artifactId>
+	    <version>${org.springframework-version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>javax.websocket</groupId>
+	    <artifactId>javax.websocket-api</artifactId>
+	    <version>1.1</version>
+	</dependency>
+
+소켓 동작
+- 소켓은 딱 1개의 다른 소켓과 연결이 가능하다.
+- 1:1 가능
+- 1:N 가능
+1. 호스트 A, 호스트 B
+
+2. 호스트 A > 소켓(전화기) 생성 + IP주소(+포트번호) > 종단점(EndPoint)
+3. 호스트 B > 소켓(전화기) 생성 + IP주소(+포트번호) > 종단점(EndPoint)
+
+4. 호스트 B > 받는 사람 > 서버 > 미리 수신 대기 준비(24시간 내내)
+5. 호스트 A > 거는 사람 > 클라이언트 > 호스트 B 종단점 + 연결 시도
+6. 호스트 B > 연결 승락 > 연결 성립 > 호스트 A와 연결이 되어있는 전영 소켓을 생성한다.(***)
+
+7. 서로 연결된 상태 > 서로 간의 데이터를 송수신 가능
+
+8. 호스트 A, 호스트 B > 소켓 연결 종료 > 통신 종료 
+
+
+파일
+- "com.test.socket.controller" > "SocketController.java"
+- "com.test.socket.server" > "SocketServer.java"
+
+- views > "socket.jsp"
+
+- com.test.socket.controller > "ChatController.java"
+- views > "index.jsp" //접속 화면
+- views > "chat.jsp" // 대화 화면
+
+- com.test.socket.server > "ChatServer.java"
+- "com.test.socket.domain > "Message.java"
+
+
+
+
+
+
