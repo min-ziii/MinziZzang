@@ -14,7 +14,7 @@
 <body>
 	<!-- accesserror.jsp -->
 	
-	<%@include file="/WEB-INF/views/inc/menu.jsp"%>
+	<%@ include file="/WEB-INF/views/inc/menu.jsp" %>
 	
 	<h1>Access Denied Page</h1>
 	
@@ -22,9 +22,7 @@
 	
 	<div class="message">${auth}</div>
 	
-	<div class="message">${SPRING_SECURITY_403_EXCEPTION.getMessage() }</div>
-	
-	
+	<div class="message">${SPRING_SECURITY_403_EXCEPTION.getMessage()}</div>
 	
 	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 	<script src="https://bit.ly/4cMuheh"></script>

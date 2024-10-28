@@ -33,7 +33,6 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	
-	<!-- 인코딩 -->
 	<filter>
 		<filter-name>encoding</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -47,7 +46,6 @@
 		<servlet-name>appServlet</servlet-name>
 	</filter-mapping>
 	
-	<!-- springSecurityFilterChain -->
 	<filter>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -56,5 +54,12 @@
 		<filter-name>springSecurityFilterChain</filter-name>
 		<servlet-name>appServlet</servlet-name>
 	</filter-mapping>
-
+	
 </web-app>
+
+
+
+
+
+
+

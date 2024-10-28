@@ -12,9 +12,9 @@
 	</style>
 </head>
 <body>
-	<!-- customlogout.jsp -->
+	<!-- customlogout -->
 	
-	<%@include file="/WEB-INF/views/inc/menu.jsp"%>
+	<%@ include file="/WEB-INF/views/inc/menu.jsp" %>
 	
 	<h2>Custom Logout Page</h2>
 	
@@ -22,12 +22,9 @@
 	<div>
 		<button class="out">로그아웃</button>
 	</div>
-	
 	<!-- 24. CSRF 토큰 -->
 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
-	
 	</form>
-	
 	
 	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 	<script src="https://bit.ly/4cMuheh"></script>

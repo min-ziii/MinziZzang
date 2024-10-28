@@ -6,10 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class TestController {
 
-	
 	@GetMapping("/index.do")
 	public String index() {
-	
+		
 		System.out.println("TestController >>> 모든 사용자 페이지");
 		
 		return "index";
@@ -31,10 +30,11 @@ public class TestController {
 		return "admin";
 	}
 	
-	
-	
-	
 }
+
+
+
+
 
 
 

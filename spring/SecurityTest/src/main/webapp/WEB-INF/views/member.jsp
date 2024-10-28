@@ -12,15 +12,13 @@
 	</style>
 </head>
 <body>
-	
 	<!-- member.jsp -->
-
-	<%@include file="/WEB-INF/views/inc/menu.jsp" %>
+	
+	<%@ include file="/WEB-INF/views/inc/menu.jsp" %>
 	
 	<h2>Member Page</h2>
 	
 	<div>회원만 접근 가능합니다.</div>
-	
 	
 	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 	<script src="https://bit.ly/4cMuheh"></script>
@@ -29,11 +27,6 @@
 	</script>
 </body>
 </html>
-
-
-
-
-
 
 
 
