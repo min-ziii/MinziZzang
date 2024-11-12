@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: boot-mybatis
+
+  mvc:
+   view:
+    prefix: /WEB-INF/views/
+    suffix: .mybatis
+
+  datasource:
+   driver-class-name: oracle.jdbc.driver.OracleDriver
+   url: jdbc:oracle:thin:@localhost:1521/xe
+   username: hr
+   password: java1234
+
+server:
+  port: 8090
+
+
+
+
+
+
+

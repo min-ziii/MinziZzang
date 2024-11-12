@@ -1,0 +1,70 @@
+11/12 필기
+
+환경 변수 편집 > home 21로
+가장 위 %java_home%\bin
+
+자바 21 깔고 > dev 폴더로!
+
+사용 도구 > https://spring.io
+- STS4
+
+- 롬복 열기 
+dev에서 java -jar lombok.jar
+ > sts4 넣어주기
+
+ini 경로 21로 바꾸기
+
+
+gradle refresh 반드시 누르기
+
+
+
+새프로젝트
+
+- "boot-begin"
+- 의존성 추가
+	- Spring Web
+	
+스프링 부트 애플리케이션
+- com.test.begin > BootBeginApplication.java
+				 > 프로젝트명 + Application
+				 
+여러가지 자원
+- src/main/resources
+	- static
+		- 정적 자원들(HTML, CSS, JavaScript, 이미지 등..)
+		- http://localhost:8090/hello.html
+	- templates
+		- 이전의 views 폴더 역할
+		- JSP 같은 뷰 페이지를 담는 역할
+	- applcation.properties
+		- 스프링 설정 + 자바 설정
+		- application.properties
+		- application.yaml or application.yml
+
+- src/test/java
+	- 기존 단위 테스트와 동일
+	- @SpringBootTest
+
+- build.gradle
+	- Gradle 빌드 도구 설정 파일
+	- pom.xml와 유사한 역할
+	
+샘플 파일
+- "com.test.begin.controller" > "TestController.java"
+
+
+1. boot-begin
+2. boot-jsp > 추천(X)
+3. boot-mybatis
+---------------------
+4. > 2. boot-thymeleaf
+5. > 3. boot-jpa
+6. spring boot security
+
+
+
+
+
+
+

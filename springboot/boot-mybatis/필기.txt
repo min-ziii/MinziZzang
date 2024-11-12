@@ -1,0 +1,65 @@
+스프링 부트, Spring Boot
+- 스프링 부터는 자바 기반의 웹 애플리케이션과 마이크로서비스를 빠르고 쉽게 개발할 수 있는 프레임 워크
+
+스프링 부트 특징
+1. 자동 구성(Auto Configuration): 프로젝트에 필요한 의존성 + 설정을 자동으로 구성한다.
+2. 독립 실행형 애플리케이션: 내장 서버를 포함해서 별도의 외부 환경 설치없이 실행 가능
+3. 스프링 스타터: 미리 구성된 의존성 세트로 제공
+4. 복잡한 XML 설정 불필요
+	- application.yml
+	- 기존.xml > JAVA 설정으로 교체
+5. 보일러플레이트 코드 최소화
+6. 내장 서버 지원 > Tomcat, Jetty, Undertow 등 > 제우스
+
+서버 아키텍쳐 종류
+1. 모놀리식 아키텍처(Monolithic)
+	- 하나의 애플리케이션으로 모든 기능을 개발
+	- 초기 개발 빠름
+	- 배포 쉬움
+	- 유지 보수 어려움
+	- 기능 변화 유연X
+	- 기술 스택 선택의 자유도가 낮음
+	- 부분 장애 > 전체 장애
+
+2. 마이크서비스 아키텍처(MSA)
+	- 작은 독립적인 서비스를 각각 구현한 뒤 서로 API를 통해서 통신하도록 구성
+	- 초기 개발 비용 필요
+	- 배포 어려움
+	- 유지 보수 쉬움
+	- 기능 변화 유연
+	- 기술 스택 선택의 자유도 높음
+	- 부분 장애 > 부분 장애(여파 적음)
+
+--------------------------------------------------------------------
+Spring Boot + MyBatis
+
+프로젝트 생성
+- Name: "boot-mybatis"
+- Type: Gradle(Groovy)
+- Packaging: jar
+- java Version: 21
+- Language: Java
+- Group: "com.test"
+- Artifact: "boot-mybatis"
+- Package: "com.test.mybatis"
+- Dependencies: Lombok, Spring Web, mybatis, devtools, oracle driver
+- Finish
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,71 @@
+Spring Boot + JSP
+
+프로젝트 생성
+- Name: "boot-jsp"
+- Type: Gradle(Groovy)
+- Packaging: jar
+- java Version: 21
+- Language: Java
+- Group: "com.test"
+- Artifact: "boot-jsp"
+- Package: "com.test.jsp"
+- Dependencies: Lombok, Spring Web
+- Finish
+
+JSP 설정하기
+- build-gradle
+	- 의존성 정의
+		a. compileOnly	> 컴파일시에만 사용. 빌드 시 jar에 포함하지 말 것. > 실행 파일 용량 줄이기
+		b. runtimeOnly	> 런타임 시에만 사용. 컴파일 때는 사용 안함. 코드 작성 시 참조 불가능
+		c. annotationProcessor	> 어노테이션 프로세서에서 사용하는 라이브러리
+		d. implementation	> 컴파일 + 런타임 때 사용
+		e. testComileOnly	> 테스트 코드 컴파일 때만 사용
+		f. testRuntimeOnly	> 테스트 코드 런타임 때만 사용
+		g. testImplementaion	> 테스트 코드 컴파일 + 런타임 사용
+		h. developmentOnly	> 개발할 때만 사용 > 배포 시 제외
+
+
+- application.yml
+	- JSP 설정 추가
+	
+- 파일 생성
+	- "com.test.jsp.controller" > "TestController.java"
+	- com.test.jsp.dto > "TestDTO.java"
+	- src/main/webapp/WEB-INF/views > "test.jsp"
+	- static > "test.html"
+
+
+기존 방식(Servlet/JSP, Spring)
+- 외부 톰캣 사용
+- Hot Deployment 사용 > 소스 반영
+
+현재 방식(Spring Boot)
+- 내부 톰캣을 사용
+- Spring DevTools 의존성 사용 > Hot Deployment 유사 동작
+
+- http://localhost:8090/test.do?name=홍길동&age=20
+- http://localhost:8090/test.html
+
+Spring DevTools 미사용
+1. Java 코드 변경
+	- 자동 반영 불가(재시작 무조건)
+	- 부트 애플리케이션을 재시작(대시보드)
+2. JSP 코드 변경
+	- 자동 반영 불가(재시작 무조건)
+	- 부트 애플리케이션을 재시작(대시보드)
+3. 정적 자원 코드 변경(HTML)0
+	- 자동 반영 가능
+	
+Spring DevTools 사용
+1.Java 코드 변경
+	- 자동 반영 가능
+2. JSP 코드 변경
+	- 자동 반영 가능
+3. 정적 자원 코드 변경(HTML)
+	- 자동 반영 가능
+
+
+
+
+
+
