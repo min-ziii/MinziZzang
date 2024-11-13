@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="http://bit.ly/3WJ5ilK">
+	<style>
+		
+	</style>
+</head>
+<body>
+	<h1>HTML 속성 조작하기</h1>
+	
+	<!--
+		
+		*** 타임리프의 표현식들은 th: 속성과 같이 사용한다.
+		
+	-->
+	
+	<div>${txt}</div>
+	<div th:text="${txt}"></div>
+	
+	<div>
+		<div><input type="text" name="num" th:value="${num}" th:size="${num}"></div>
+		<div><input type="text" th:value="${txt}"></div>
+	</div>
+	
+	<div style="background-color: pink;">BOX</div>
+	<div th:style="' background-color: ' + ${color}">BOX</div>
+	<div th:style="|background-color: ${color}|">BOX</div>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

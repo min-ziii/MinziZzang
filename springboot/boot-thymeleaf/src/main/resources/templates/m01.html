@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="http://bit.ly/3WJ5ilK">
+	<style>
+		
+	</style>
+</head>
+<body>
+	<h1>m01</h1>
+	
+	
+	<!--
+		
+		Thymeleaf Standard Expression, 타임리프 표현식
+		- EL + JSTL
+		
+		1. Variable Expression, 변수 표현식
+		
+		2. Selection Variable Expression, 선택 변수 표현식
+		
+		3. Message Expression, 메시지 표현식
+		
+		4. Like URL Expression, 링크 주소 표현식
+		
+		5. Fragment Expression, 조각 페이지 표현식
+		
+		
+		
+		1. Variable Expression, 변수 표현식
+		- ${}
+		- EL 역할
+		- 컨트롤러로부터 전달받은 값을 출력/ 사용하는 용도
+		
+		2. Selection Variable Expression, 선택 변수 표현식
+		- *{}
+		- 상위 영역의 객체/ 맵의 프로퍼티를 출력하는 용도
+		- th:object 속성과 같이 사용
+		
+		
+	-->
+	
+	<h2>변수 표현식</h2>
+	<div>${num}</div>
+	<div th:text="${num}"></div>
+	<div th:text="${num}">100</div>
+	
+	<hr>
+	<div>회원 수 : 50명</div>
+	<div th:text="${num}">회원 수 : 50명</div>
+	<div>회원 수 : <span th:text="${num}"></span>명</div>
+	<div th:text="'회원 수 : ' + ${num} + '명'"></div>
+	
+	<h3>객체 출력</h3>
+	<ul>
+		<li th:text="${dto}"></li>
+		<li th:text="${dto.getName()}"></li>
+		<li th:text="${dto.name}"></li>		
+		<li th:text="${dto.seq}"></li>		
+		<li th:text="${dto.age}"></li>		
+		<li th:text="${dto.gender}"></li>		
+		<li th:text="${dto.address}"></li>		
+	</ul>
+	
+	
+	<ul th:object="${dto}">
+		<li th:text="*{name}"></li>		
+		<li th:text="*{seq}"></li>		
+		<li th:text="*{age}"></li>		
+		<li th:text="*{gender}"></li>		
+		<li th:text="*{address}"></li>		
+	</ul>
+	
+	<div>국어: <span th:text="${map.get('kor')}"></span></div>
+	<div>국어: <span th:text="${map.kor}"></span></div> <!--더 간편한 방법-->
+	<div>영어: <span th:text="${map.eng}"></span></div>
+	<div>수학: <span th:text="${map.math}"></span></div>
+	
+	<div th:object="${map}">
+		<div>국어: <span th:text="*{kor}"></span></div> 
+		<div>영어: <span th:text="*{eng}"></span></div>
+		<div>수학: <span th:text="*{math}"></span></div>
+	</div>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

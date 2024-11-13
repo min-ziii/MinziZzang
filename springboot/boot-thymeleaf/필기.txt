@@ -1,0 +1,66 @@
+Spring Boot + MyBatis + Thymeleaf
+
+
+Spring Boot 
+- Thymeleaf, Mustache, Groovy, Freemaker, Velocity 등
+
+
+Thymeleaf
+- 자바 웹 or 독립형 환경 > HTML, JavaScript, CSS 등을 처리하는 서버 사이드 "템플릿 엔진"
+
+
+프로젝트 생성
+- Name: "boot-thymeleaf"
+- Type: Gradle(Groovy)
+- Packaging: jar
+- java Version: 21
+- Language: Java
+- Group: "com.test"
+- Artifact: "boot-thymeleaf"
+- Package: "com.test.thymeleaf"
+- Dependencies: Lombok, Spring Web, mybatis, devtools, oracle driver, thymeleaf
+- Finish
+
+
+설정
+- application.yml
+	- 데이터 소스 설정
+	- 서버 포트 변경
+	- 타임리프 캐시 비활성화
+	
+
+파일 생성
+- "com.test.thymeleaf.controller" > "ThymeleafController.java"
+- "com.test.thymeleaf.mapper" > "AddressMapper.java"(I)
+- "com.test.thymeleaf.domain" > "AddressDTO.java"
+
+- templates > "result.html" >> thymeleaf는 html 사용
+
+- src/main/resources/mapper > "AddressMapper.xml"
+
+- ??language_ko?? > 메시지 파일을 찾지 못함.
+- src/main/resources > messages.properties
+- src/main/resources > messages_en.properties
+- src/main/resources > messages_ja.properties
+
+
+
+*** 아래 사이트 > help > install new software > Add
+https://www.thymeleaf.org/eclipse-plugin-update-site/
+
+실패 > help > about spring > install details > 삭제
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,11 +1,6 @@
 spring:
   application:
-    name: boot-mybatis
-
-  mvc:
-   view:
-    prefix: /WEB-INF/views/
-    suffix: .jsp
+    name: boot-thymeleaf
 
   datasource:
    driver-class-name: oracle.jdbc.driver.OracleDriver
@@ -13,11 +8,14 @@ spring:
    username: springboot
    password: java1234
 
+  thymeleaf:
+   cache: false
+
 server:
   port: 8090
 
-
-
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
 
 
 

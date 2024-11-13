@@ -45,15 +45,32 @@ Spring Boot + MyBatis
 - Dependencies: Lombok, Spring Web, mybatis, devtools, oracle driver
 - Finish
 
+JSP 설정
+- build.gradle
+	- 의존성 추가
+
+JDBC 설정
+- application.yml
+	
+
+스프링 부트 > HikariCP
 
 
+src/test/java > com.test.mybatis > "DatasourceTest.java"
 
 
+MyBatis 관련 작업
+- "com.test.mybatis.mapper" > "AddressMapper.java"(I)
+- src/main/resource > "com" > "test" > "mybatis" > "mapper" > "AddressMapper.xml"
 
 
+업무 페이지
+- tblAddress > list.do
+- "com.test.mybatis.controller" > "AddressController.java"
+- "com.test.mybatis.service" > "AddressService.java"
+- "com.test.mybatis.domain" > "AddressDTO.java"
 
-
-
+- views > "list.jsp"
 
 
 
