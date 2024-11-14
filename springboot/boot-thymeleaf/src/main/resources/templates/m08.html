@@ -1,0 +1,162 @@
+ <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="http://bit.ly/3WJ5ilK">
+	<style>
+		
+	</style>
+</head>
+<body>
+	<h1>제어문</h1>
+	
+	<!-- 
+	<c:if test="${num1 > 0}">
+		<div>${num1}은 양수입니다.</div>
+	</c:if>
+	 -->
+	 
+	 <div th:if="${num1 > 0}">[[${num1}]]은 양수입니다.</div>
+	 <div th:if="${num1 > 0}"><span th:text="${num1}"></span>은 양수입니다.</div>
+	 <div th:if="${num1 > 0}" th:text="|${num1}은 양수입니다.|"></div>
+	 
+	 <hr>
+	 
+	 <div th:if="${num1 > 0}">양수 O</div>
+	 <div th:unless="${num1 > 0}">양수 X</div>
+	 
+	 <hr>
+	 
+	 <div th:switch="${mode}">
+	 	<div th:case="add">추가하기</div>
+	 	<div th:case="delete">삭제하기</div>
+	 	<div th:case="*">기타</div>
+	 </div>
+	 
+	 <hr>
+	 
+	 <!-- 
+	 <c:forEach items="${names}" var="name">
+	 	<div>${name}</div>
+	 </c:forEach>
+	  -->
+		
+	<div th:each="name: ${names}" th:text="${name}"></div>
+	<hr>
+	<div th:each="name: ${names}">[[${name}]]</div>
+	
+	
+	<hr>
+	
+	<ul th:each="name: ${names}">
+		<li th:text="${name}"></li>
+	</ul>
+	
+	<hr>
+	
+	<ul>
+		<li th:each="name : ${names}" th:text=${name}></li>
+	</ul>
+	
+	<hr>
+	
+	<!-- 
+	<ul th:each="dto : ${list}">
+		<li th:text="${dto.name}"></li>
+		<li th:text="${dto.age}"></li>
+		<li th:text="${dto.address}"></li>
+	</ul> 
+	-->
+	<!-- 반복되는 부분 더 간단하게 코드 작성 object와 * -->
+	<ul th:each="dto : ${list}" th:object="${dto}">
+		<li th:text="*{name}"></li>
+		<li th:text="*{age}"></li>
+		<li th:text="*{address}"></li>
+	</ul>
+	
+	<table>
+		<tr>
+			<th>번호</th>
+			<th>이름</th>	
+			<th>나이</th>
+			<th>주소</th>
+			<th>성별</th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+		<tr th:each="dto, status : ${list}">
+			<td th:text="${dto.seq}"></td>
+			<td th:text="${dto.name}"></td>
+			<td th:text="${dto.age}"></td>
+			<td th:text="${dto.address}"></td>
+			<td th:text="${dto.gender}"></td>
+			<td th:text="${status.index}"></td>
+			<td th:text="${status.count}"></td>
+			<td th:text="${status.even}"></td>
+			<td th:text="${status.odd}"></td>
+			<td th:text="${status.first}"></td>
+			<td th:text="${status.last}"></td>
+		</tr>
+	</table>
+	
+	
+	<hr>
+	
+	<!--  
+	
+		Thymeleaf Block
+		- <th:block>
+		- 타임리프 태그
+		- 아무 의미 없음 > 스스로 랜더링 결과가 없음.
+	
+	-->
+	
+	<div th:if="${num1 > 0}">양수입니다.</div>
+	
+	<th:block th:if="${num1 > 0}">양수입니다.</th:block>
+	
+	<hr>
+	
+	
+	
+	<ul>
+		<li th:each="name : ${names}" th:text="${name}"></li>
+	</ul>
+	
+	<ul>
+		<th:block th:each="name : ${names}">
+			<li th:text="${name}"></li>
+		</th:block>
+	</ul>
+	
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

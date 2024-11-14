@@ -29,6 +29,19 @@
 	<div th:style="' background-color: ' + ${color}">BOX</div>
 	<div th:style="|background-color: ${color}|">BOX</div>
 	
+	<hr>
+	
+	<div><input type="checkbox" id="cb1" th:checked="${flag}"> 체크함</div>
+	<div><input type="checkbox" th:checked="${age>=18}"> 성인</div>
+	
+	<div>
+		<select>
+			<option value="pink" th:selected="${color == 'pink'}">pink</option>
+		</select>
+	</div>
+	
+	
+	
 </body>
 </html>
 

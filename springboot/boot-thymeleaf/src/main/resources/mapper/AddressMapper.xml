@@ -15,5 +15,15 @@
 	<select id="get" resultType="com.test.thymeleaf.domain.AddressDTO">
 		select * from tblAddress where seq = 1
 	</select>
+	
+	<select id="names" resultType="String">
+		select name from tblAddress where rownum &lt;= 10
+	</select>
+	
+	<select id="list" resultType="com.test.thymeleaf.domain.AddressDTO">
+		<![CDATA[ 
+		select * from tblAddress where rownum <= 10
+		]]>
+	</select>
 
 </mapper>
