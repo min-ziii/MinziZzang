@@ -1,0 +1,71 @@
+프로젝트 생성
+- Name: "boot-jpa" ***
+- Artifact: "boot-jpa"
+- Package: "com.test.jpa" ***
+- Dependencies:
+	- Spring Web
+	- Lombok
+	- Spring DevTools
+	- Oracle Driver(JDBC)
+	- Thymeleaf
+	- Spring Data JPA
+- Finish
+
+
+JPA, Java Persistence API
+- Spring Boot JPA > (Spring) JPA
+- 자바 진영의 ORM 기술 표준화
+- 객체와 관계형 데이터베이스를 매핑하는 기술입니다.(***)
+
+ORM, Object-Relational Mapping
+- 추상적인 기술(개념)
+
+JPA 구현 기술 > JPA 구현체
+- Hibernate > 우리가 사용하는 기술
+- EclipseLink
+- Apache OpenJPA
+
+JPA 장점
+- SQL 작성을 안함
+- 반복적인 CRUD 작업 자동화
+- 생산성 향상
+- DB의 컬럼 추가/삭제 > 관련 SQL 수정 안함 > JPA가 자동화
+- 모든 데이터 조작을 자바 입장에서 함 > 자바 & 오라클
+
+JPA 단점
+- 학습 곡선이 높음
+- 복잡한 쿼리에는 제한적
+
+
+JPA 설정
+1. build.gradle
+
+2. application.xml
+
+파일 생성
+- boot-jpa > "script.sql"
+- "com.test.jpa.entity" > "Address.java" //DTO
+- "com.test.jpa.repository" > "AddressRepository.java" //DAO
+
+
+- src/test/main > "JPATest.java"
+
+- "com.test.jpa.controller" > "AddressController.java"
+- "com.test.jpa.dto" > "AddressDTO.java"
+
+- templates > "result_dto.html"	//객체DTO
+			> "result_list.html"//목록 출력
+			> "result_item.html"//단일값 출력
+
+- src/test/main > com.test.jpa > "BuildTest.java"
+
+
+
+
+
+
+
+
+
+
+
