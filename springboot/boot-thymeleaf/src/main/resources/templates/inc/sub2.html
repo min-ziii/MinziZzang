@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link href="" th:fragment="css">
+	<script src="" th:fragment="jquery"></script>
+	<style>
+		
+	</style>
+</head>
+<body>	
+	<div th:fragment="title1">제목입니다.</div>
+
+	<div th:fragment="content1">내용입니다.</div>
+	
+	<div th:fragment="info(name,tel)">
+	 	소유주: <span th:text="${name}"></span>
+		연락처: <span th:text="${tel}"></span>
+	</div>
+</body>
+</html>
+
+
+
+
