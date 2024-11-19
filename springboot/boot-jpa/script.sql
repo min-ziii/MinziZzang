@@ -3,7 +3,23 @@ select seqAddress.nextVal from dual;
 
 desc tblAddress;
 
+--1119 오라클 버전 21
+select * from v$version;
 
+--계정 생성
+alter user hr IDENTIFIED by java1234 account unlock;
+
+create user c##springboot IDENTIFIED by java1234;
+
+
+drop user c##springboot;
+
+alter session set "_ORACLE_SCRIPT"=true;
+
+create user springboot IDENTIFIED by java1234;
+
+grant connect, resource, dba to springboot;
+-------------------------------------------
 
 drop table tblInfo;
 drop table tblMemo;

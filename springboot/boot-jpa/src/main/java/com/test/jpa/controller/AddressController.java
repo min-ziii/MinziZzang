@@ -3,11 +3,17 @@ package com.test.jpa.controller;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.test.jpa.dto.AddressDTO;
 import com.test.jpa.entity.Address;
 import com.test.jpa.entity.AddressNameAgeMapping;
 import com.test.jpa.repository.AddressRepository;
@@ -406,6 +412,138 @@ public class AddressController {
 		return "result_list";
 	}
 	
+	@GetMapping("/m17.do")
+	public String m17(Model model) {
+		
+		//페이징
+		PageRequest pageRequest = PageRequest.of(0, 10);
+		
+		Page<Address> list = addressRepository.findAll(pageRequest);
+		
+		//페이지 정보
+		System.out.println(list.getNumber());//0 > 페이지 번호
+		System.out.println(list.getNumberOfElements()); //10 > 가져온 엔티티수
+		System.out.println(list.getTotalElements()); //50 > 총 엔티티 수
+		System.out.println(list.getTotalPages()); //5 > 총 페이지 수
+		System.out.println(list.getSize()); //10 > 한 페이지 당 엔티티 수
+		
+		model.addAttribute("list", list);
+		
+		return "result_list";
+	}
+	
+	@GetMapping("/m18.do")
+	public String m18(Model model, @RequestParam(name = "page", required = false, defaultValue = "1") Integer page) {
+		
+		//m18.do
+		//m18.do?page=1
+		//m18.do?page=5
+		page --;
+		
+		PageRequest pageRequest = PageRequest.of(page, 10, Sort.by("name"));
+		
+		Page<Address> list = addressRepository.findAll(pageRequest);
+		
+		//페이지 바
+		StringBuilder sb = new StringBuilder();
+		
+		for (int i=1; i<=list.getTotalPages(); i++) {
+			sb.append("""
+					<a href="/m18.do?page=%d">%d</a>
+					""".formatted(i, i));
+		}
+		
+		model.addAttribute("list", list);
+		model.addAttribute("sb", sb.toString());
+		
+		return "result_list";
+	}
+	
+	@GetMapping("/m19.do")
+	public String m19(Model model, Pageable pageable) {
+		
+		//m19.do?page=0
+		//m19.do?page=1
+		//m19.do?page=2
+		
+		//m19.do?page=0&size=10
+		//m19.do?page=1&size=10
+		//m19.do?page=2&size=10
+		
+		//m19.do?page=0&size=10&sort=name,asc
+		//m19.do?page=1&size=10&sort=name,asc
+		//m19.do?page=2&size=10&sort=name,asc
+
+		//[이전 10 페이지] 1 2 3 4 5 6 7 8 9 10 [다음 10 페이지]
+		Page<Address> list = addressRepository.findAll(pageable);
+		
+		model.addAttribute("list", list);
+		
+		return "result_list";
+	}
+	
+	@GetMapping("/m20.do")
+	public String m20(Model model, Pageable pageable) {
+		
+		//[이전 페이지] 5 [다음 페이지]
+		Slice<Address> list = addressRepository.findAll(pageable);
+		
+		System.out.println(list.getNumber()); //현재 페이지
+		System.out.println(list.getNumberOfElements()); //가져온 데이터 수
+		System.out.println(list.getSize()); //한 페이지 당 개수
+		System.out.println(list.hasContent()); //true > 현재 슬라이스에 데이터 유무
+		System.out.println(list.hasNext()); //true > 다음 슬라이스 데이터 유무
+		System.out.println(list.nextOrLastPageable()); //그 다음 페이지
+		System.out.println(list.nextPageable());
+		System.out.println(list.previousOrFirstPageable());
+		System.out.println(list.previousPageable());
+		System.out.println(list.isFirst());
+		System.out.println(list.isLast());
+		
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append("""
+				<a href="/m20.do?page=%d&size=10">이전 페이지</a>
+				""".formatted(list.previousOrFirstPageable().getPageNumber()));
+		
+		sb.append("""
+				<a href="/m20.do?page=%d&size=10">다음 페이지</a>
+				""".formatted(list.nextOrLastPageable().getPageNumber()));
+		
+		model.addAttribute("list", list);
+		model.addAttribute("sb", sb.toString());
+		
+		return "result_list";
+	}
+	
+	@GetMapping("/m21.do")
+	public String m21(Model model) {
+		
+		//JPQL
+		//- Query Method로 작성하기 힘든 작업들을 직접 SQL 작성을 통해 구현
+		
+//		List<String> names = addressRepository.listName();
+//		model.addAttribute("names", names);
+	
+//		List<Address> list = addressRepository.listAll("f"); //findAll() 전부 다 가져오는 작업
+//		List<Address> list = addressRepository.listAll(5); //findAll() 전부 다 가져오는 작업
+	
+		//조건 데이터 2개
+		//- 강남구 + f
+//		AddressDTO dto = AddressDTO.builder()
+//							.gender("f")
+//							.address("강남구")
+//							.build();
+//		List<Address> list = addressRepository.listAll(dto);
+	
+		List<AddressDTO> list = addressRepository.listCustomAll();
+		
+		model.addAttribute("list", list);
+		
+		return "result_list";
+	}
+	
+	
 }
 
 /*
@@ -415,7 +553,7 @@ public String m(Model model) {
 }
 */
 
-
+//설정 > 설치된 앱 > oracle 삭제 > 11로 다시 다운
 
 
 
