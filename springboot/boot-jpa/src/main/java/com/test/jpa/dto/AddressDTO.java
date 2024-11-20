@@ -25,6 +25,12 @@ public class AddressDTO {
 	
 	private Integer birthYear;
 	
+	//m26에 2개의 인자 받는 코드 만들어주기
+	public AddressDTO(String name, String address) {
+		this.name = name;
+		this.address = address;
+	}
+	
 	//본인(DTO) > (변환) > 엔티티
 	public static Address toEntity(AddressDTO dto) {
 		
@@ -37,7 +43,6 @@ public class AddressDTO {
 					.build();
 		
 	}
-	
 	
 	
 	public Address toEntity() {
