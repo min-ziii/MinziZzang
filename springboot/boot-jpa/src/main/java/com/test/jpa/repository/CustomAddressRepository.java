@@ -4,12 +4,15 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.Tuple;
 import com.querydsl.core.types.Projections;
+import com.querydsl.jpa.JPAExpressions;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.test.jpa.dto.AddressDTO;
 import com.test.jpa.entity.Address;
 import com.test.jpa.entity.Info;
+import com.test.jpa.entity.QAddress;
 
 import lombok.RequiredArgsConstructor;
 
@@ -230,6 +233,61 @@ public class CustomAddressRepository {
 					//.join(address1.memo, memo1)
 					.leftJoin(address1.memo, memo1)
 					.fetch();
+	}
+	
+	public List<Address> findAllByMaxAge() {
+		
+		QAddress subAddress = QAddress.address1;
+		
+		//select * from tblAddress where age = (select max(age) from tblAddress);
+		return jpaQueryFactory
+				.selectFrom(address1)
+				.where(address1.age.goe(JPAExpressions
+											.select(subAddress.age.avg())
+											.from(subAddress)))
+				.fetch()
+				;
+	}
+
+	public List<Tuple> findAllByAvgAge() {
+		
+		//select name, age, (select avg(age) from tblAddress) from tblAddress
+		
+		QAddress subAddress = QAddress.address1;
+		
+		
+		return jpaQueryFactory
+					.select(address1.name, address1.age, JPAExpressions.select(subAddress.age.avg()).from(subAddress))
+					.from(address1)
+					.fetch();
+	}
+			
+	public List<Address> findAllMultiParameter(String gender, Integer age) {
+		
+		//(동적)다중 조건 생성기
+//		BooleanBuilder builder = new BooleanBuilder();
+//		
+//		if (gender != null) {
+//			//and gender = "m"
+//			builder.and(address1.gender.eq(gender));
+//		}
+//		
+//		if (age != null) {
+//			//and age = 3
+//			builder.and(address1.age.eq(age));
+//		}
+//		
+//		return jpaQueryFactory
+//					.selectFrom(address1)
+//					.where(builder)
+//					.fetch();
+		
+		
+		return jpaQueryFactory
+				.selectFrom(address1)
+				.where(gender != null? address1.gender.eq(gender): null, age != null ? address1.age.eq(age):null)
+				.fetch();
+		
 	}
 	
 	

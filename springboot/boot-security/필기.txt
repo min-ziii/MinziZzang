@@ -1,0 +1,95 @@
+1121
+
+프로젝트 생성
+- Name: "boot-security"
+- Type: Gradle(Groovy)
+- Packaging: jar
+- java Version: 21
+- Language: Java
+- Group: "com.test"
+- Artifact: "boot-security"
+- Package: "com.test.security"
+- Dependencies: Spring Web, Lombok, Spring DevTools, Oracle Driver(JDBC), Thymeleaf, Spring Data JPA, Spring Security
+- Finish
+
+-------------------------------------------------------------------------------------------------------------------------
+<<순서>>
+시작 페이지
+- "com.test.security.controller" > "MainController.java"
+- templates > "index.html"
+- templates > "inc" > "header.html"
+
+접속 테스트
+- http://localhost:8090
+- Security 설정 때문에 403 > 로그인 페이지 리다이렉트
+- 추가 설정이 없어도 모든 페이지 Not Allowed로 설정되어 있다.
+- username: user
+- password: 임시 암호
+- 로그인 후 > http://locathost:8090 접속 성공
+
+
+Security 설정
+- Spring Security > security-context.xml 사용
+- Spring Boot Security > 자바 설정 사용
+- "com.test.security.config" > "SecurityConfig.java"
+
+추가 페이지
+- admin
+- com.test.security.controller > "AdminController.java"
+- templates > "admin.html"
+
+접속 테스트
+- http://localhost:8090/admin
+- 권한 부족 > (403 error) > 추가로 로그인 폼을 설정해서 로그인 페이지 redirect
+
+
+커스텀 로그인 구현하기
+- com.test.security.controller > "AuthController.java"
+- templates > "login.html"
+
+앞으로 
+1. 로그인은 사용자 로그인 페이지를 사용
+2. 로그인 처리는 사용자 URL(/loginok)를 사용
+> SecurityConfig.java 수정
+
+커스텀 로그인 설정 후
+	- 403 > 사용자가 로그인 페이지로 이동
+	
+BCrypt 암호화 > PassWordEncoder 생성
+	- SecurityConfig.java 수정
+
+DB기능 해제
+- build.gradle > 주석 해제
+- .yml > JDBC 설정
+
+
+회원 가입하기
+- boot-security > "script.sql"
+- com.test.security.controller > "MemberController.java"
+- "com.test.security.dto" > "MemberDTO.java"
+- "com.test.security.service" > "MemberService.java"
+- "com.test.security.repository" > "MemberRepository.java"(I)
+- "com.test.security.entity" > "Member.java"
+- templates > "join.html"
+
+DB 기반의 로그인 구현
+- 스프링 시큐리티가 DB에 저장된 회원 정보를 조회한 후 비밀번호를 검증한 후 서버 세션 저장소에 해당 아이디에 대한 세션을 저장한다.
+
+- com.test.security.service > "CustomUserDetailsService.java"
+- com.test.security.dto > "CustomUserDetails.java"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
