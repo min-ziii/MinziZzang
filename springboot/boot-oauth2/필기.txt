@@ -1,0 +1,73 @@
+1122
+
+프로젝트 생성
+- Name: "boot-oauth2"
+- Type: Gradle(Groovy)
+- Packaging: jar
+- java Version: 21
+- Language: Java
+- Group: "com.test"
+- Artifact: "boot-oauth2"
+- Package: "com.test.oauth2"
+- Dependencies: Spring Web, Lombok, Spring DevTools, Oracle Driver(JDBC), Thymeleaf, Spring Data JPA, Spring Security, Oauth2 Client
+- Finish
+
+---------------------------------------------------------------------------------------------------------------------
+Spring Boot Security + OAuth2 Client
+
+OAuth 2.0
+- 인증 포로토콜
+- 제 3자 애플리케이션(구글, 네이버, 카카오 등)이 사용자를 대신해서 HTTP 서비스(우리 사이트)를 이용할 수 있는 권한을 대신 부여(로그인)하는 기능을 제공한다.
+- 소셜 로그인
+
+구현 목표
+- 구글, 네이버 인증 사용
+- 로컬 > 약간의 추가 정보 저장
+- 허가 구현
+
+데이터베이스 의존성 주석 처리
+- jpa
+- ojdbc
+=> 당장은 방해 요인 > 소셜 로그인 처리 후 주석 해제
+
+
+기본 컨트롤러
+- "com.test.oauth2.controller" > "MainController.java"
+- templates > "index.html" > 범용
+			> "my.html"	   > 회원 전용
+- templates > "inc" > "header.html"
+
+
+시큐리티 설정
+- "com.test.oauth2.config" > "SecurityConfig.java"
+
+OAuth2 서비스 처리
+- 인증 토큰 받은 뒤 리소스 서버로부터 개인 정보를 받는다.
+- "com.test.oauth2.service" > "CustomOAuth2UserService.java"
+
+- "com.test.oauth2.dto" > "OAuth2Response.java"(I)
+						> "NaverResponse.java"
+						> "GoogleResponse.java"
+
+응답 데이터로 로그인 완료하기
+- com.test.oauth2.dto > "UserDTO.java"			> 추가 개인 정보
+					  > "CustomOAuth2User.java"	> CustomUserDetails
+
+
+유저 정보 > DB 저장
+- "com.test.oauth2.entity" > "UserEntity.java"
+- "com.test.oauth2.repository" > "UserRepository.java"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
