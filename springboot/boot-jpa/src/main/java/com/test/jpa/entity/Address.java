@@ -96,6 +96,9 @@ public class Address {
 //	@JoinColumn(name = "seq")
 //	private Info info;
 	
+	@OneToOne(mappedBy = "address")
+    private Info info;
+	
 	//1:N
 	@OneToMany
 	@JoinColumn(name = "aseq")

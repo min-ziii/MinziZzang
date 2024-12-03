@@ -12,6 +12,7 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.test.jpa.dto.AddressDTO;
 import com.test.jpa.entity.Address;
 import com.test.jpa.entity.Info;
+import com.test.jpa.entity.Memo;
 import com.test.jpa.entity.QAddress;
 
 import lombok.RequiredArgsConstructor;
@@ -220,7 +221,7 @@ public class CustomAddressRepository {
 		return jpaQueryFactory
 					.selectFrom(info) //자식 테이블
 					//.join(info.address, address1) //join 연관관계, 부모테이블
-					.rightJoin(info.address, address1)
+//					.rightJoin(info.address, address1)
 					.fetch();
 	}
 
@@ -288,6 +289,25 @@ public class CustomAddressRepository {
 				.where(gender != null? address1.gender.eq(gender): null, age != null ? address1.age.eq(age):null)
 				.fetch();
 		
+	}
+
+	public List<Address> m37() {
+		
+		return jpaQueryFactory
+				.selectFrom(address1) //부모엔티티
+				.join(address1.memo, memo1) //자식엔티티
+				.fetch()
+				
+				;
+	}
+
+	public List<Memo> m38() {
+		// TODO Auto-generated method stub
+		return jpaQueryFactory
+				.selectFrom(memo1)
+				.join(memo1.address, address1)
+				.fetch()
+				;
 	}
 	
 	

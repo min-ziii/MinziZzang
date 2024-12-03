@@ -1,0 +1,31 @@
+프로젝트 생성
+- Name: "boot-mysql" ***
+- Artifact: "boot-mysql"
+- Package: "com.test.mysql" ***
+- Dependencies:
+	- Spring Web
+	- Lombok
+	- Spring DevTools
+	- Thymeleaf
+	- Spring Data JPA
+	- MySQL Driver ***
+- Finish
+
+
+
+MySQL 설정
+- 연결 설정(application.yml)
+
+
+
+
+
+
+
+
+
+
+
+
+
+

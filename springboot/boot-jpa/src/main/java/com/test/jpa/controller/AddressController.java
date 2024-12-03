@@ -19,6 +19,7 @@ import com.test.jpa.dto.AddressDTO;
 import com.test.jpa.entity.Address;
 import com.test.jpa.entity.AddressNameAgeMapping;
 import com.test.jpa.entity.Info;
+import com.test.jpa.entity.Memo;
 import com.test.jpa.repository.AddressRepository;
 import com.test.jpa.repository.CustomAddressRepository;
 
@@ -785,6 +786,31 @@ public class AddressController {
 		List<Address> list = customAddressRepository.findAllMultiParameter(gender, age);
 	
 		model.addAttribute("list", list);
+		
+		return "result_list";
+	}
+	
+	@GetMapping("/m37.do")
+	public String m37(Model model) {
+		
+		//단방향 매핑 vs 양방향 매핑
+		
+		List<Address> m37list = customAddressRepository.m37();
+		
+		model.addAttribute("m37list", m37list);
+		
+		return "result_list";
+	}
+	
+	@GetMapping("/m38.do")
+	public String m38(Model model) {
+		
+		//단방향 매핑
+		//- 자식 > 부모
+		//- list<부모>
+		List<Memo> m38list = customAddressRepository.m38();
+		
+		model.addAttribute("m38list", m38list);
 		
 		return "result_list";
 	}
